@@ -1,0 +1,1105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JiBe ERP - Lists (LMS)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="common.css">
+</head>
+<body>
+
+<div class="app-wrapper">
+  <!-- TOP HEADER (Identical to Dashboard Header) -->
+  <header class="jibe-top-header">
+    <div class="top-header-left">
+      <a href="page1.html" class="brand-jibe" title="JiBe ERP Dashboard">
+        <div class="brand-logo-img">
+          <svg width="68" height="26" viewBox="0 0 100 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <!-- J -->
+            <path d="M14 6H19V25C19 29.5 15.5 32 10.5 32C6.5 32 3.5 30 2 28L4.5 24C5.5 25.5 7.5 27 10 27C12.5 27 14 25.5 14 23V6Z" fill="#525d6b"/>
+            <!-- i with green leaf dot -->
+            <path d="M25 12H30V31H25V12Z" fill="#525d6b"/>
+            <path d="M26 10C24.5 7 26 2 31 1C31 6 29.5 9 26 10Z" fill="#78B928"/>
+            <path d="M28 8C27 6 28 3 30.5 2C30.5 5 29.5 7 28 8Z" fill="#558B17"/>
+            <!-- B -->
+            <path d="M37 6H47C51 6 53.5 8 53.5 11C53.5 13 52 14.5 50 15.2C52.5 16 54.5 18 54.5 21C54.5 24.5 51.5 27 47 27H37V6ZM42 10.5V14H46.5C48 14 49 13 49 11.8C49 10.5 48 10.5 46.5 10.5H42ZM42 17.5V22.5H47C48.5 22.5 49.5 21.5 49.5 20C49.5 18.5 48.5 17.5 47 17.5H42Z" fill="#525d6b"/>
+            <!-- e -->
+            <path d="M68 20.5H58.5C59 23 61 24.5 63.5 24.5C65.5 24.5 67 23.5 67.5 22L71.5 23.5C70 26.5 67 28 63.5 28C57.5 28 54 23.5 54 18.5C54 13.5 58 9 63.5 9C69 9 72 13 72 18.5C72 19.3 71.9 20 71.8 20.5H68ZM63.5 12.5C61 12.5 59.2 14 58.7 17H67.5C67 14 65.5 12.5 63.5 12.5Z" fill="#525d6b"/>
+          </svg>
+        </div>
+      </a>
+    </div>
+
+    <div class="top-header-right">
+      <!-- Gray utility tray -->
+      <div class="header-utility-tray">
+        <button class="tray-icon-btn" title="Calendar / Schedule">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+            <line x1="16" y1="2" x2="16" y2="6"></line>
+            <line x1="8" y1="2" x2="8" y2="6"></line>
+            <line x1="3" y1="10" x2="21" y2="10"></line>
+            <line x1="8" y1="14" x2="8.01" y2="14"></line>
+            <line x1="12" y1="14" x2="12.01" y2="14"></line>
+            <line x1="16" y1="14" x2="16.01" y2="14"></line>
+          </svg>
+        </button>
+        <button class="tray-icon-btn" title="Settings / Controls">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="4" y1="21" x2="4" y2="14"></line>
+            <line x1="4" y1="10" x2="4" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="12"></line>
+            <line x1="12" y1="8" x2="12" y2="3"></line>
+            <line x1="20" y1="21" x2="20" y2="16"></line>
+            <line x1="20" y1="12" x2="20" y2="3"></line>
+            <line x1="1" y1="14" x2="7" y2="14"></line>
+            <line x1="9" y1="8" x2="15" y2="8"></line>
+            <line x1="17" y1="16" x2="23" y2="16"></line>
+          </svg>
+        </button>
+        <button class="tray-icon-btn" title="Alerts & Notifications">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+            <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+          </svg>
+        </button>
+      </div>
+
+      <!-- User Profile Information -->
+      <div class="user-profile" id="header-user-profile" style="cursor: pointer;" title="Click to change username">
+        <span class="user-name">
+          <span class="jibe-display-username">Ivan Xavier</span>
+          <svg width="9" height="9" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M7 10l5 5 5-5z"/>
+          </svg>
+        </span>
+        <span class="user-sub">Seaspan Ship Management Ltd.</span>
+      </div>
+
+      <!-- Seaspan Brand Logo -->
+      <div class="company-brand-box">
+        <div class="seaspan-logo-mark">
+          <svg width="22" height="15" viewBox="0 0 40 26" fill="none">
+            <path d="M4 14C9 8 16 8 20 14C24 20 31 20 36 14" stroke="#cc0000" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M4 7C9 1 16 1 20 7C24 13 31 13 36 7" stroke="#cc0000" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <span class="seaspan-logo-text">seaspan</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- NAVIGATION BAR (Exact 1:1 Match to User Reference) -->
+  <nav class="jibe-navbar">
+    <ul class="nav-list">
+      <li class="nav-item">
+        <a href="page1.html" class="nav-link-item">Dashboard</a>
+      </li>
+      <li class="nav-item">
+        <a href="#" class="nav-link-item">Admin</a>
+      </li>
+      <li class="nav-item">
+        <a href="#" class="nav-link-item">Inspection</a>
+      </li>
+      <li class="nav-item">
+        <a href="#" class="nav-link-item">QHSE</a>
+      </li>
+      <li class="nav-item">
+        <a href="#" class="nav-link-item">Operations</a>
+      </li>
+      <li class="nav-item has-dropdown">
+        <a href="#" class="nav-link-item" id="procurement-btn">Procurement</a>
+        <ul class="procurement-dropdown-menu" id="procurement-dropdown">
+          <li class="dropdown-menu-item">
+            <a href="#" class="dropdown-link">Procurement Main</a>
+          </li>
+          <li class="dropdown-menu-item">
+            <a href="page2.html" class="dropdown-link dropdown-link-highlighted">Lists</a>
+          </li>
+          <li class="dropdown-menu-item">
+            <a href="#" class="dropdown-link">Browsing and Search</a>
+          </li>
+          <li class="dropdown-menu-item">
+            <a href="#" class="dropdown-link">Catalogues List</a>
+          </li>
+          <li class="dropdown-menu-item">
+            <a href="#" class="dropdown-link">Items List</a>
+          </li>
+          <li class="dropdown-menu-item">
+            <a href="#" class="dropdown-link">Inventory Main</a>
+          </li>
+          <li class="dropdown-menu-item">
+            <a href="#" class="dropdown-link">Company Registry</a>
+          </li>
+          <li class="dropdown-menu-item">
+            <a href="#" class="dropdown-link">Logistics</a>
+          </li>
+        </ul>
+      </li>
+      <li class="nav-item">
+        <a href="#" class="nav-link-item">Technical</a>
+      </li>
+      <li class="nav-item">
+        <a href="#" class="nav-link-item">Certificates</a>
+      </li>
+      <li class="nav-item">
+        <a href="#" class="nav-link-item">Insights</a>
+      </li>
+      <li class="nav-item">
+        <a href="#" class="nav-link-item">Projects</a>
+      </li>
+    </ul>
+
+    <!-- Warning Triangle Icon at Far Right -->
+    <div class="nav-right-actions" title="Warnings">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
+        <line x1="12" y1="9" x2="12" y2="13"/>
+        <line x1="12" y1="17" x2="12.01" y2="17"/>
+      </svg>
+    </div>
+  </nav>
+
+  <!-- BREADCRUMB TRAIL -->
+  <div class="lms-breadcrumb-bar">
+    <a href="#" class="breadcrumb-link">Procurement</a>
+    <span class="breadcrumb-sep">&raquo;</span>
+    <a href="#" class="breadcrumb-link">Procurement (New)</a>
+    <span class="breadcrumb-sep">&raquo;</span>
+    <span class="breadcrumb-current">Lists</span>
+  </div>
+
+  <!-- MAIN LMS PAGE WRAPPER -->
+  <main class="lms-page-wrapper">
+    <!-- VESSEL & SEGMENT FILTER BAR (Prominent Composite Search Bar) -->
+    <section class="lms-vessel-filter-section">
+      <div class="vessel-search-composite">
+        <!-- Selected Vessel Chip -->
+        <div class="vessel-chip-item">
+          <span>Altamira Express</span>
+          <span class="chip-close-icon" title="Clear vessel">&times;</span>
+          <span class="chip-arrow-icon">
+            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </span>
+        </div>
+
+        <!-- Segment Dropdown Selector -->
+        <div class="segment-dropdown-item">
+          <span>Select segment</span>
+          <span class="chip-arrow-icon">
+            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </span>
+        </div>
+
+        <!-- Text search input for filters -->
+        <input type="text" class="filter-search-input" placeholder="Select vessel and segment filters">
+
+        <!-- Search button -->
+        <button class="filter-search-btn" title="Search">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+        </button>
+      </div>
+
+      <span class="browse-all-link">Browse all</span>
+    </section>
+
+    <!-- QUICK FILTER & ACTION BAR -->
+    <section class="lms-actions-bar">
+      <div class="quick-filter-labels">
+        <span class="qf-group">Vessel: <span class="qf-val">Select</span></span>
+        <span class="qf-group">List Status: <span class="qf-val">Active, Ready</span></span>
+        <span class="qf-group">Catalogues: <span class="qf-val">Select</span></span>
+        <span class="qf-group">Tags: <span class="qf-val">Select</span></span>
+      </div>
+
+      <div class="actions-right-group">
+        <!-- Search box -->
+        <div class="table-search-box">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#94a3b8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+          <input type="text" class="table-search-input" placeholder="Search">
+        </div>
+
+        <!-- Filter Funnel Icon -->
+        <button class="action-icon-btn" title="Filter Settings">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"></polygon>
+          </svg>
+        </button>
+
+        <!-- Vertical 3-dots Menu Icon -->
+        <button class="action-icon-btn" title="More Options">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+            <circle cx="12" cy="5" r="1.5"></circle>
+            <circle cx="12" cy="12" r="1.5"></circle>
+            <circle cx="12" cy="19" r="1.5"></circle>
+          </svg>
+        </button>
+
+        <!-- Create New Button -->
+        <a href="#" class="btn-create-new-lms" id="create-new-btn">
+          Create New
+        </a>
+      </div>
+    </section>
+
+    <!-- LMS MAIN DATA TABLE (10 Columns, 13 Exact Rows - Non-clickable table view) -->
+    <div class="lms-table-container">
+      <table class="lms-table">
+        <colgroup>
+          <col style="width: 14%;">
+          <col style="width: 19%;">
+          <col style="width: 8%;">
+          <col style="width: 8%;">
+          <col style="width: 13%;">
+          <col style="width: 7%;">
+          <col style="width: 7%;">
+          <col style="width: 9%;">
+          <col style="width: 9%;">
+          <col style="width: 6%;">
+        </colgroup>
+        <thead>
+          <tr>
+            <th>List Number</th>
+            <th>List Name</th>
+            <th>Status</th>
+            <th>Items</th>
+            <th>Vessel</th>
+            <th>Owner</th>
+            <th>Tags</th>
+            <th>Description</th>
+            <th>Segments</th>
+            <th>Contributor</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Row 1 -->
+          <tr>
+            <td>LIST-SSAT-60055/...</td>
+            <td>
+              <span class="lms-list-name">Testim_27_2025-09-2...</span>
+            </td>
+            <td><span class="lms-status-badge">Active</span></td>
+            <td>2 Items</td>
+            <td>Seaspan Stag...</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>Services,Spares</td>
+            <td></td>
+          </tr>
+
+          <!-- Row 2 -->
+          <tr>
+            <td>LIST-SPD2-02214/...</td>
+            <td>
+              <span class="lms-list-name">Test P</span>
+            </td>
+            <td><span class="lms-status-badge">Active</span></td>
+            <td>1 item</td>
+            <td>SESP Demo V...</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>Spares</td>
+            <td></td>
+          </tr>
+
+          <!-- Row 3 -->
+          <tr>
+            <td>LIST-SSAT-00014/...</td>
+            <td>
+              <span class="lms-list-name">Testim_hgvfdrtyuijkn...</span>
+            </td>
+            <td><span class="lms-status-badge">Active</span></td>
+            <td>1 item</td>
+            <td>Seaspan Stag...</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+
+          <!-- Row 4 -->
+          <tr>
+            <td>LIST-SSAT-60051/...</td>
+            <td>
+              <span class="lms-list-name">Testim_56_2025-07-2...</span>
+            </td>
+            <td><span class="lms-status-badge">Active</span></td>
+            <td>1 item</td>
+            <td>Seaspan Stag...</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>Spares</td>
+            <td></td>
+          </tr>
+
+          <!-- Row 5 (With Document Attachment SVG) -->
+          <tr>
+            <td>LIST-SDV3-60304/...</td>
+            <td>
+              <div class="lms-name-cell">
+                <span class="lms-list-name">Other services</span>
+                <svg class="doc-attachment-svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                  <polyline points="14 2 14 8 20 8"></polyline>
+                  <line x1="16" y1="13" x2="8" y2="13"></line>
+                  <line x1="16" y1="17" x2="8" y2="17"></line>
+                </svg>
+              </div>
+            </td>
+            <td><span class="lms-status-badge">Active</span></td>
+            <td>1 Item</td>
+            <td>SESP Demo V...</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>Services (Other)</td>
+            <td></td>
+          </tr>
+
+          <!-- Row 6 -->
+          <tr>
+            <td>LIST-SPD2-00272/...</td>
+            <td>
+              <div class="lms-name-cell">
+                <span class="lms-list-name">Retest_1943_CE_1</span>
+                <svg class="doc-attachment-svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                  <polyline points="14 2 14 8 20 8"></polyline>
+                  <line x1="16" y1="13" x2="8" y2="13"></line>
+                  <line x1="16" y1="17" x2="8" y2="17"></line>
+                </svg>
+              </div>
+            </td>
+            <td><span class="lms-status-badge">Active</span></td>
+            <td>1 item</td>
+            <td>SESP Demo V...</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>Services</td>
+            <td></td>
+          </tr>
+
+          <!-- Row 7 -->
+          <tr>
+            <td>LIST-SDV3-60178/...</td>
+            <td>
+              <div class="lms-name-cell">
+                <span class="lms-list-name">TESTM</span>
+                <svg class="doc-attachment-svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                  <polyline points="14 2 14 8 20 8"></polyline>
+                  <line x1="16" y1="13" x2="8" y2="13"></line>
+                  <line x1="16" y1="17" x2="8" y2="17"></line>
+                </svg>
+              </div>
+            </td>
+            <td><span class="lms-status-badge">Active</span></td>
+            <td>1 item</td>
+            <td>SESP Demo V...</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>Spares</td>
+            <td></td>
+          </tr>
+
+          <!-- Row 8 -->
+          <tr>
+            <td>LIST-SPD2-62948/...</td>
+            <td>
+              <div class="lms-name-cell">
+                <span class="lms-list-name">bulk po test-dupe</span>
+                <svg class="doc-attachment-svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                  <polyline points="14 2 14 8 20 8"></polyline>
+                  <line x1="16" y1="13" x2="8" y2="13"></line>
+                  <line x1="16" y1="17" x2="8" y2="17"></line>
+                </svg>
+              </div>
+            </td>
+            <td><span class="lms-status-badge">Active</span></td>
+            <td>2 items</td>
+            <td>SESP Demo V...</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>Spares</td>
+            <td></td>
+          </tr>
+
+          <!-- Row 9 -->
+          <tr>
+            <td>LIST-SDV3-61118/...</td>
+            <td>
+              <div class="lms-name-cell">
+                <span class="lms-list-name">PERF_HT_S_1120</span>
+                <svg class="doc-attachment-svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                  <polyline points="14 2 14 8 20 8"></polyline>
+                  <line x1="16" y1="13" x2="8" y2="13"></line>
+                  <line x1="16" y1="17" x2="8" y2="17"></line>
+                </svg>
+              </div>
+            </td>
+            <td><span class="lms-status-badge">Active</span></td>
+            <td>2 items</td>
+            <td>SESP Demo V...</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>Services</td>
+            <td></td>
+          </tr>
+
+          <!-- Row 10 -->
+          <tr>
+            <td>LIST-SDV3-61704/...</td>
+            <td>
+              <div class="lms-name-cell">
+                <span class="lms-list-name">Office requisition</span>
+                <svg class="doc-attachment-svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                  <polyline points="14 2 14 8 20 8"></polyline>
+                  <line x1="16" y1="13" x2="8" y2="13"></line>
+                  <line x1="16" y1="17" x2="8" y2="17"></line>
+                </svg>
+              </div>
+            </td>
+            <td><span class="lms-status-badge">Active</span></td>
+            <td>2 items</td>
+            <td>SESP Demo V...</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>Stores</td>
+            <td></td>
+          </tr>
+
+          <!-- Row 11 -->
+          <tr>
+            <td>LIST-SPD2-60809/...</td>
+            <td>
+              <div class="lms-name-cell">
+                <span class="lms-list-name">Test P</span>
+                <svg class="doc-attachment-svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                  <polyline points="14 2 14 8 20 8"></polyline>
+                  <line x1="16" y1="13" x2="8" y2="13"></line>
+                  <line x1="16" y1="17" x2="8" y2="17"></line>
+                </svg>
+              </div>
+            </td>
+            <td><span class="lms-status-badge">Active</span></td>
+            <td>0 items</td>
+            <td>SESP Demo V...</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+
+          <!-- Row 12 -->
+          <tr>
+            <td>LIST-SSAT-60021/...</td>
+            <td>
+              <div class="lms-name-cell">
+                <span class="lms-list-name">Testim_m7I0a83wwiXS</span>
+                <svg class="doc-attachment-svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                  <polyline points="14 2 14 8 20 8"></polyline>
+                  <line x1="16" y1="13" x2="8" y2="13"></line>
+                  <line x1="16" y1="17" x2="8" y2="17"></line>
+                </svg>
+              </div>
+            </td>
+            <td><span class="lms-status-badge">Active</span></td>
+            <td>2 items</td>
+            <td>Seaspan Stag...</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>Services,Spares</td>
+            <td></td>
+          </tr>
+
+          <!-- Row 13 -->
+          <tr>
+            <td>LIST-SDV3-62106/...</td>
+            <td>
+              <div class="lms-name-cell">
+                <span class="lms-list-name">VT - 11112025b</span>
+                <svg class="doc-attachment-svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                  <polyline points="14 2 14 8 20 8"></polyline>
+                  <line x1="16" y1="13" x2="8" y2="13"></line>
+                  <line x1="16" y1="17" x2="8" y2="17"></line>
+                </svg>
+              </div>
+            </td>
+            <td><span class="lms-status-badge">Active</span></td>
+            <td>0 items</td>
+            <td>SESP Demo V...</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- PAGINATION FOOTER -->
+    <footer class="lms-pagination-footer">
+      <!-- First page -->
+      <button class="pg-nav-btn" title="First Page">|&lsaquo;</button>
+      <!-- Prev page -->
+      <button class="pg-nav-btn" title="Previous Page">&lsaquo;</button>
+
+      <!-- Page Numbers -->
+      <span class="pg-num active">1</span>
+      <span class="pg-num">2</span>
+      <span class="pg-num">3</span>
+      <span class="pg-num">4</span>
+      <span class="pg-num">5</span>
+
+      <!-- Next page -->
+      <button class="pg-nav-btn" title="Next Page">&rsaquo;</button>
+      <!-- Last page -->
+      <button class="pg-nav-btn" title="Last Page">&rsaquo;|</button>
+
+      <!-- Items per page selector -->
+      <span class="pg-select-wrap">
+        <span>25</span>
+        <svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <polyline points="6 9 12 15 18 9"></polyline>
+        </svg>
+        <span>Items per page</span>
+      </span>
+
+      <span class="pg-divider">|</span>
+      <span>Total Pages: 35</span>
+      <span class="pg-divider">|</span>
+      <span>Items: 855</span>
+    </footer>
+  </main>
+</div>
+
+<!-- MODAL: CREATE NEW LIST -->
+<div class="modal-overlay" id="create-list-modal">
+  <div class="modal-card">
+    <div class="modal-header">
+      <h3 class="modal-title">Create New List</h3>
+      <button class="modal-close-btn" id="modal-close-btn" title="Close">&times;</button>
+    </div>
+
+    <div class="modal-body">
+      <!-- Field 1: Vessel * -->
+      <div class="form-group" id="group-vessel">
+        <label class="form-label">Vessel <span class="required-star">*</span></label>
+        <div class="form-control-box" id="vessel-select-box">
+          <span class="form-control-text" id="vessel-selected-text">Select</span>
+          <span class="form-control-arrow">
+            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </span>
+        </div>
+
+        <!-- Vessel Searchable Dropdown -->
+        <div class="searchable-dropdown-menu" id="vessel-dropdown-menu">
+          <div class="dropdown-search-wrapper">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#64748b" stroke-width="2">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+            <input type="text" class="dropdown-search-input" id="vessel-search-input" placeholder="">
+          </div>
+          <ul class="dropdown-options-list" id="vessel-options-list"></ul>
+        </div>
+      </div>
+
+      <!-- Field 2: List Name * -->
+      <div class="form-group">
+        <label class="form-label">List Name <span class="required-star">*</span></label>
+        <input type="text" class="form-input-text" id="list-name-input" placeholder="Text">
+      </div>
+
+      <!-- Field 3: Urgency -->
+      <div class="form-group" id="group-urgency">
+        <label class="form-label">Urgency</label>
+        <div class="form-control-box" id="urgency-select-box">
+          <span class="form-control-text" id="urgency-selected-text">Select</span>
+          <span class="form-control-arrow">
+            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </span>
+        </div>
+
+        <!-- Urgency Searchable Dropdown -->
+        <div class="searchable-dropdown-menu" id="urgency-dropdown-menu">
+          <div class="dropdown-search-wrapper">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#64748b" stroke-width="2">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+            <input type="text" class="dropdown-search-input" id="urgency-search-input" placeholder="">
+          </div>
+          <ul class="dropdown-options-list" id="urgency-options-list"></ul>
+        </div>
+      </div>
+
+      <!-- Field 4: Vessel Department -->
+      <div class="form-group" id="group-dept">
+        <label class="form-label">Vessel Department</label>
+        <div class="form-control-box" id="dept-select-box">
+          <span class="form-control-text" id="dept-selected-text">Select</span>
+          <span class="form-control-arrow">
+            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </span>
+        </div>
+
+        <!-- Vessel Department Searchable Dropdown -->
+        <div class="searchable-dropdown-menu" id="dept-dropdown-menu">
+          <div class="dropdown-search-wrapper">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#64748b" stroke-width="2">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+            <input type="text" class="dropdown-search-input" id="dept-search-input" placeholder="">
+          </div>
+          <ul class="dropdown-options-list" id="dept-options-list"></ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal-footer">
+      <button class="btn-modal-create" id="modal-submit-btn" disabled>Create</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    // 1. Procurement Dropdown logic (exact match to page1.html)
+    const procBtn = document.getElementById('procurement-btn');
+    const dropdown = document.getElementById('procurement-dropdown');
+
+    if (procBtn && dropdown) {
+      procBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        dropdown.classList.toggle('open');
+      });
+
+      document.addEventListener('click', (e) => {
+        if (!dropdown.contains(e.target) && e.target !== procBtn) {
+          dropdown.classList.remove('open');
+        }
+      });
+    }
+
+    // 2. Create New List Modal Logic
+    const modal = document.getElementById('create-list-modal');
+    const openBtn = document.getElementById('create-new-btn');
+    const closeBtn = document.getElementById('modal-close-btn');
+    const submitBtn = document.getElementById('modal-submit-btn');
+
+    const formState = {
+      vessel: '',
+      listName: '',
+      urgency: '',
+      department: ''
+    };
+
+    function validateForm() {
+      // Required: Vessel and List Name
+      const isValid = formState.vessel.trim() !== '' && formState.listName.trim() !== '';
+      if (isValid) {
+        submitBtn.disabled = false;
+        submitBtn.classList.add('enabled');
+      } else {
+        submitBtn.disabled = true;
+        submitBtn.classList.remove('enabled');
+      }
+    }
+
+    if (openBtn && modal) {
+      openBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        modal.classList.add('open');
+      });
+    }
+
+    if (closeBtn && modal) {
+      closeBtn.addEventListener('click', () => {
+        modal.classList.remove('open');
+        closeAllDropdowns();
+      });
+    }
+
+    if (modal) {
+      modal.addEventListener('click', (e) => {
+        if (e.target === modal) {
+          modal.classList.remove('open');
+          closeAllDropdowns();
+        }
+      });
+    }
+
+    // List Name input
+    const listNameInput = document.getElementById('list-name-input');
+    if (listNameInput) {
+      listNameInput.addEventListener('input', (e) => {
+        formState.listName = e.target.value;
+        localStorage.setItem('lms_list_name', formState.listName);
+        window.lmsListName = formState.listName;
+        validateForm();
+      });
+    }
+
+    // Searchable dropdown setup function
+    function setupSearchableDropdown({
+      boxId,
+      textId,
+      menuId,
+      searchInputId,
+      optionsListId,
+      options,
+      stateKey
+    }) {
+      const box = document.getElementById(boxId);
+      const text = document.getElementById(textId);
+      const menu = document.getElementById(menuId);
+      const searchInput = document.getElementById(searchInputId);
+      const list = document.getElementById(optionsListId);
+
+      function renderOptions(filterText = '') {
+        list.innerHTML = '';
+        const filtered = options.filter(opt => 
+          opt.toLowerCase().includes(filterText.toLowerCase().trim())
+        );
+
+        if (filtered.length === 0) {
+          const li = document.createElement('li');
+          li.className = 'dropdown-option-item';
+          li.style.color = '#94a3b8';
+          li.style.cursor = 'default';
+          li.textContent = 'No matching options';
+          list.appendChild(li);
+          return;
+        }
+
+        filtered.forEach((opt, idx) => {
+          const li = document.createElement('li');
+          li.className = 'dropdown-option-item';
+          if (opt === formState[stateKey] || (!formState[stateKey] && idx === 0 && !filterText)) {
+            li.classList.add('highlighted');
+          }
+          li.textContent = opt;
+
+          li.addEventListener('click', (e) => {
+            e.stopPropagation();
+            formState[stateKey] = opt;
+            text.textContent = opt;
+            text.classList.add('selected');
+            box.classList.remove('open');
+            menu.classList.remove('open');
+            localStorage.setItem('lms_' + stateKey, opt);
+            validateForm();
+          });
+
+          list.appendChild(li);
+        });
+      }
+
+      renderOptions('');
+
+      box.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const isOpen = menu.classList.contains('open');
+        closeAllDropdowns();
+        if (!isOpen) {
+          box.classList.add('open');
+          menu.classList.add('open');
+          renderOptions('');
+          if (searchInput) {
+            searchInput.value = '';
+            setTimeout(() => searchInput.focus(), 50);
+          }
+        }
+      });
+
+      if (searchInput) {
+        searchInput.addEventListener('input', (e) => {
+          renderOptions(e.target.value);
+        });
+
+        searchInput.addEventListener('click', (e) => {
+          e.stopPropagation();
+        });
+      }
+    }
+
+    function closeAllDropdowns() {
+      document.querySelectorAll('.searchable-dropdown-menu').forEach(m => m.classList.remove('open'));
+      document.querySelectorAll('.form-control-box').forEach(b => b.classList.remove('open'));
+    }
+
+    document.addEventListener('click', (e) => {
+      if (!e.target.closest('.form-group')) {
+        closeAllDropdowns();
+      }
+    });
+
+    // 1. Vessel Options (Image 2 & 3)
+    const vesselOptions = [
+      "Altamira Express",
+      "CMA CGM Chennai",
+      "CMA CGM Chile",
+      "CMA CGM Cochin",
+      "CMA CGM Mexico",
+      "CMA CGM Mumbai",
+      "CMA CGM Mundra",
+      "CMA CGM Tuticorin",
+      "SESP Demo Vessel",
+      "SESP Demo Vessel 3",
+      "SESP Demo Vessel-2",
+      "Seaspan Stag"
+    ];
+
+    setupSearchableDropdown({
+      boxId: 'vessel-select-box',
+      textId: 'vessel-selected-text',
+      menuId: 'vessel-dropdown-menu',
+      searchInputId: 'vessel-search-input',
+      optionsListId: 'vessel-options-list',
+      options: vesselOptions,
+      stateKey: 'vessel'
+    });
+
+    // 2. Urgency Options (Image 4)
+    const urgencyOptions = [
+      "D-Regular Spares/Stores",
+      "C-Urgent/Air Freight",
+      "B-Same-day Purchase",
+      "A-Emergency Purchases"
+    ];
+
+    setupSearchableDropdown({
+      boxId: 'urgency-select-box',
+      textId: 'urgency-selected-text',
+      menuId: 'urgency-dropdown-menu',
+      searchInputId: 'urgency-search-input',
+      optionsListId: 'urgency-options-list',
+      options: urgencyOptions,
+      stateKey: 'urgency'
+    });
+
+    // 3. Vessel Department Options (Image 5)
+    const deptOptions = [
+      "Catering",
+      "Deck",
+      "Engine"
+    ];
+
+    setupSearchableDropdown({
+      boxId: 'dept-select-box',
+      textId: 'dept-selected-text',
+      menuId: 'dept-dropdown-menu',
+      searchInputId: 'dept-search-input',
+      optionsListId: 'dept-options-list',
+      options: deptOptions,
+      stateKey: 'department'
+    });
+
+    const draftKeys = [
+      'lms_draft_active',
+      'lms_list_name',
+      'lms_vessel',
+      'lms_urgency',
+      'lms_department',
+      'lms_create_date',
+      'lms_tags',
+      'lms_remarks',
+      'lms_checklist_items',
+      'lms_attachments_list',
+      'lms_items_list',
+      'lms_selected_segment',
+      'lms_list_status',
+      'lms_saved_list_record'
+    ];
+
+    // Workflow Rule: If user goes directly to the Landing page from here, discard data
+    document.querySelectorAll('a[href="page1.html"], .brand-jibe').forEach(link => {
+      link.addEventListener('click', () => {
+        draftKeys.forEach(k => localStorage.removeItem(k));
+      });
+    });
+
+    // Helper to safely escape HTML
+    function escapeHtml(str) {
+      if (!str) return '';
+      return String(str)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#039;');
+    }
+
+    // Helper to calculate user initials
+    function getInitials(name) {
+      if (!name || !name.trim()) return 'IX';
+      const parts = name.trim().split(/\s+/);
+      if (parts.length >= 2) {
+        return (parts[0][0] + parts[parts.length - 1][0]).toUpperCase();
+      }
+      return name.trim().substring(0, 2).toUpperCase();
+    }
+
+    const currentUserName = localStorage.getItem('jibe_username') || 'Ivan Xavier';
+    const currentUserInitials = localStorage.getItem('jibe_user_initials') || getInitials(currentUserName);
+
+    document.querySelectorAll('.jibe-display-username').forEach(el => {
+      el.textContent = currentUserName;
+    });
+
+    // Update any table rows where Created By is Ivan Xavier
+    document.querySelectorAll('.lms-table tbody tr').forEach(row => {
+      const cells = row.querySelectorAll('td');
+      if (cells[5] && cells[5].textContent.trim() === 'Ivan Xavier') {
+        cells[5].textContent = currentUserName;
+      }
+      if (cells[8] && cells[8].textContent.trim() === 'IX') {
+        cells[8].textContent = currentUserInitials;
+      }
+    });
+
+    // Dynamic Saved List Rendering on Page 2 (Workflow Phases 2, 3, 5, 6, 8)
+    function renderSavedListRow() {
+      const savedList = JSON.parse(localStorage.getItem('lms_saved_list_record') || 'null');
+      const listName = (savedList && savedList.name) || localStorage.getItem('lms_list_name');
+      if (!listName || !listName.trim()) return;
+
+      const vessel = (savedList && savedList.vessel) || localStorage.getItem('lms_vessel') || 'SESP Demo Vessel';
+      const itemsList = JSON.parse(localStorage.getItem('lms_items_list') || '[]');
+      const itemsCount = (savedList && savedList.itemsCount !== undefined) ? savedList.itemsCount : (itemsList.length || 0);
+      const tag = (savedList && savedList.tags) || localStorage.getItem('lms_tags') || '';
+      const status = (savedList && savedList.status) || localStorage.getItem('lms_list_status') || 'Active';
+      const segments = (savedList && savedList.segments) || (itemsCount > 0 ? 'Chemicals' : '');
+      const description = (savedList && savedList.remarks) || localStorage.getItem('lms_remarks') || '';
+
+      const savedUserName = localStorage.getItem('jibe_username') || 'Ivan Xavier';
+      const savedUserInitials = localStorage.getItem('jibe_user_initials') || getInitials(savedUserName);
+
+      const tbody = document.querySelector('.lms-table tbody');
+      if (!tbody) return;
+
+      const existingDynRow = document.getElementById('lms-dynamic-saved-row');
+      if (existingDynRow) existingDynRow.remove();
+
+      const tr = document.createElement('tr');
+      tr.id = 'lms-dynamic-saved-row';
+      tr.style.backgroundColor = '#f8fafc';
+      tr.innerHTML = `
+        <td style="color: #2f79bb; font-weight: 600;">LIST-SPDM-60028/26</td>
+        <td>
+          <div class="lms-name-cell">
+            <span class="lms-list-name" style="color: #2f79bb; font-weight: 600;">${escapeHtml(listName)}</span>
+          </div>
+        </td>
+        <td><span class="lms-status-badge ${status === 'Completed' ? 'status-completed' : ''}">${escapeHtml(status)}</span></td>
+        <td>${itemsCount} ${itemsCount === 1 ? 'item' : 'Items'}</td>
+        <td>${escapeHtml(vessel.length > 15 ? vessel.substring(0, 12) + '...' : vessel)}</td>
+        <td>${escapeHtml(savedUserName)}</td>
+        <td>${escapeHtml(tag)}</td>
+        <td>${escapeHtml(description ? (description.length > 20 ? description.substring(0, 18) + '...' : description) : '')}</td>
+        <td>${escapeHtml(segments)}</td>
+        <td>${escapeHtml(savedUserInitials)}</td>
+      `;
+
+      tbody.insertBefore(tr, tbody.firstChild);
+    }
+
+    renderSavedListRow();
+
+    // Create Button Submit Action (Captures list parameters and saves dynamically)
+    if (submitBtn) {
+      submitBtn.addEventListener('click', () => {
+        if (!submitBtn.disabled) {
+          const now = new Date();
+          const dd = String(now.getDate()).padStart(2, '0');
+          const mm = String(now.getMonth() + 1).padStart(2, '0');
+          const yyyy = now.getFullYear();
+          const formattedDate = `${dd}-${mm}-${yyyy}`;
+
+          const finalListName = (formState.listName && formState.listName.trim()) 
+            ? formState.listName.trim() 
+            : 'Test List';
+
+          const finalVessel = formState.vessel || 'SESP Demo Vessel';
+          const finalUrgency = formState.urgency || 'D-Regular Spares/Stores';
+          const finalDept = formState.department || 'Engine';
+
+          localStorage.setItem('lms_draft_active', 'true');
+          localStorage.setItem('lms_list_name', finalListName);
+          localStorage.setItem('lms_create_date', formattedDate);
+          localStorage.setItem('lms_vessel', finalVessel);
+          localStorage.setItem('lms_urgency', finalUrgency);
+          localStorage.setItem('lms_department', finalDept);
+          localStorage.setItem('lms_list_status', 'Active');
+
+          const initialRecord = {
+            id: 'LIST-SPDM-60028/26',
+            name: finalListName,
+            vessel: finalVessel,
+            urgency: finalUrgency,
+            department: finalDept,
+            status: 'Active',
+            itemsCount: 0,
+            tags: '',
+            remarks: '',
+            segments: '',
+            createDate: formattedDate
+          };
+          localStorage.setItem('lms_saved_list_record', JSON.stringify(initialRecord));
+
+          window.lmsListName = finalListName;
+          window.lmsCreateDate = formattedDate;
+          window.lmsVessel = finalVessel;
+          window.lmsUrgency = finalUrgency;
+          window.lmsDepartment = finalDept;
+
+          // Redirect to next step (page3.html)
+          window.location.href = 'page3.html';
+        }
+      });
+    }
+  });
+</script>
+</body>
+</html>
+

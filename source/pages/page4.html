@@ -1,0 +1,1784 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JiBe ERP - Browse Items</title>
+  <link rel="stylesheet" href="common.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+<div class="p4-layout">
+
+  <!-- NAVIGATION BAR (From page1.html with Highlights Removed - Image 1) -->
+  <nav class="jibe-navbar">
+    <ul class="nav-list">
+      <li class="nav-item">
+        <a href="page1.html" class="nav-link-item">Dashboard</a>
+      </li>
+      <li class="nav-item">
+        <a href="#" class="nav-link-item">Admin</a>
+      </li>
+      <li class="nav-item">
+        <a href="#" class="nav-link-item">Inspection</a>
+      </li>
+      <li class="nav-item">
+        <a href="#" class="nav-link-item">QHSE</a>
+      </li>
+      <li class="nav-item">
+        <a href="#" class="nav-link-item">Operations</a>
+      </li>
+      <li class="nav-item has-dropdown">
+        <a href="#" class="nav-link-item" id="procurement-btn">Procurement</a>
+        <ul class="procurement-dropdown-menu" id="procurement-dropdown">
+          <li class="dropdown-menu-item">
+            <a href="#" class="dropdown-link">Procurement Main</a>
+          </li>
+          <li class="dropdown-menu-item">
+            <a href="page2.html" class="dropdown-link">Lists</a>
+          </li>
+          <li class="dropdown-menu-item">
+            <a href="#" class="dropdown-link">Browsing and Search</a>
+          </li>
+          <li class="dropdown-menu-item">
+            <a href="#" class="dropdown-link">Catalogues List</a>
+          </li>
+          <li class="dropdown-menu-item">
+            <a href="#" class="dropdown-link">Items List</a>
+          </li>
+          <li class="dropdown-menu-item">
+            <a href="#" class="dropdown-link">Inventory Main</a>
+          </li>
+          <li class="dropdown-menu-item">
+            <a href="#" class="dropdown-link">Company Registry</a>
+          </li>
+          <li class="dropdown-menu-item">
+            <a href="#" class="dropdown-link">Logistics</a>
+          </li>
+        </ul>
+      </li>
+      <li class="nav-item">
+        <a href="#" class="nav-link-item">Technical</a>
+      </li>
+      <li class="nav-item">
+        <a href="#" class="nav-link-item">Certificates</a>
+      </li>
+      <li class="nav-item">
+        <a href="#" class="nav-link-item">Insights</a>
+      </li>
+      <li class="nav-item">
+        <a href="#" class="nav-link-item">Projects</a>
+      </li>
+    </ul>
+
+    <div class="nav-right-actions" title="Warnings">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
+        <line x1="12" y1="9" x2="12" y2="13"/>
+        <line x1="12" y1="17" x2="12.01" y2="17"/>
+      </svg>
+    </div>
+  </nav>
+
+  <!-- Top Right Toast Notification Banner (Image 1, 2, 3) -->
+  <div class="p4-toast-notification" id="p4-toast-notification">
+    <div class="p4-toast-content">
+      <span class="p4-toast-icon">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#1a73e8" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10"></circle>
+          <line x1="12" y1="16" x2="12" y2="12"></line>
+          <line x1="12" y1="8" x2="12.01" y2="8"></line>
+        </svg>
+      </span>
+      <span class="p4-toast-text" id="p4-toast-text">Item added to the List</span>
+    </div>
+    <button type="button" class="p4-toast-close" id="p4-toast-close" title="Close notification">&times;</button>
+  </div>
+
+  <!-- TOP BAR: Back link + Filter/Search Bar + Browse All (Image 1) -->
+  <div class="p4-top-bar">
+    <!-- Back to List -->
+    <a href="page3.html#items" class="p4-back-btn" id="p4-back-btn" title="Back to List">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="19" y1="12" x2="5" y2="12"></line>
+        <polyline points="12 19 5 12 12 5"></polyline>
+      </svg>
+      <span>Back to List</span>
+    </a>
+
+    <!-- Composite Filter & Search Bar -->
+    <div class="p4-search-composite-bar">
+      <!-- Vessel selection pill -->
+      <div class="p4-vessel-segment" id="p4-vessel-segment">
+        <span id="p4-display-vessel">SESP Demo Vessel</span>
+        <button type="button" class="p4-btn-clear" id="p4-vessel-clear" title="Clear vessel">&times;</button>
+        <svg class="p4-caret" width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <polyline points="6 9 12 15 18 9"></polyline>
+        </svg>
+      </div>
+
+      <!-- Segment dropdown selector (Image 1) -->
+      <div class="p4-segment-wrap" id="p4-segment-wrap">
+        <div class="p4-segment-selector" id="p4-segment-selector">
+          <span id="p4-segment-text">Select segment</span>
+          <button type="button" class="p4-btn-clear" id="p4-segment-clear" title="Clear segment" style="display: none;">&times;</button>
+          <svg class="p4-caret" width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
+        </div>
+
+        <!-- Segment Dropdown Menu (Image 1) -->
+        <div class="p4-segment-dropdown" id="p4-segment-dropdown" style="display: none;">
+          <!-- Search input with magnifying glass and cyan line -->
+          <div class="p4-dropdown-search-row">
+            <div class="p4-dropdown-search-wrap">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#1e293b" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+              </svg>
+              <input type="text" class="p4-dropdown-search-input" id="p4-segment-search-input" placeholder="" autocomplete="off">
+            </div>
+          </div>
+
+          <!-- Options list matching Image 1 exactly -->
+          <ul class="p4-segment-options-list" id="p4-segment-options-list">
+            <li class="p4-segment-option active" data-value="Chemicals">Chemicals</li>
+            <li class="p4-segment-option" data-value="High Value Stores">High Value Stores</li>
+            <li class="p4-segment-option" data-value="Logistics">Logistics</li>
+            <li class="p4-segment-option" data-value="Medicine">Medicine</li>
+            <li class="p4-segment-option" data-value="Services (Other)">Services (Other)</li>
+            <li class="p4-segment-option" data-value="Shipboard IT Equipment & Services">Shipboard IT Equipment & Services</li>
+            <li class="p4-segment-option" data-value="Shore IT Equipment & Services">Shore IT Equipment & Services</li>
+            <li class="p4-segment-option" data-value="Spares">Spares</li>
+            <li class="p4-segment-option" data-value="Stores">Stores</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Search input field -->
+      <div class="p4-search-input-wrap">
+        <input type="text" class="p4-search-input" id="p4-search-input" placeholder="Select vessel and segment filters">
+      </div>
+
+      <!-- Search action button -->
+      <button type="button" class="p4-search-btn" id="p4-search-btn" title="Search">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Browse all Link -->
+    <a href="#" class="p4-browse-all-link" id="p4-browse-all">Browse all</a>
+  </div>
+
+  <!-- CENTER EMPTY STATE (Shown when no segment selected) -->
+  <main class="p4-empty-state-container" id="p4-empty-container">
+    <!-- Container Cargo Ship Line Art Illustration -->
+    <div class="p4-empty-illustration">
+      <svg width="130" height="95" viewBox="0 0 130 95" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- Mast & Antenna on Bridge Tower -->
+        <line x1="97" y1="12" x2="97" y2="24" stroke="#8da4c4" stroke-width="1.8" stroke-linecap="round"/>
+        <line x1="92" y1="16" x2="102" y2="16" stroke="#8da4c4" stroke-width="1.6" stroke-linecap="round"/>
+        
+        <!-- Funnel / Exhaust Stack -->
+        <path d="M103 26V35H109V26H103Z" stroke="#8da4c4" stroke-width="1.6" stroke-linejoin="round"/>
+        
+        <!-- Bridge / Superstructure -->
+        <path d="M88 24H105V46H84V35H88V24Z" stroke="#8da4c4" stroke-width="1.8" stroke-linejoin="round"/>
+        <!-- Bridge Navigation Windows -->
+        <line x1="91" y1="28" x2="93" y2="28" stroke="#8da4c4" stroke-width="1.8" stroke-linecap="round"/>
+        <line x1="96" y1="28" x2="98" y2="28" stroke="#8da4c4" stroke-width="1.8" stroke-linecap="round"/>
+        <line x1="101" y1="28" x2="103" y2="28" stroke="#8da4c4" stroke-width="1.8" stroke-linecap="round"/>
+        
+        <!-- Cargo Containers Stack -->
+        <!-- Stack 1 (Aft stack) -->
+        <rect x="67" y="27" width="15" height="9" rx="0.5" stroke="#8da4c4" stroke-width="1.6"/>
+        <rect x="67" y="37" width="15" height="9" rx="0.5" stroke="#8da4c4" stroke-width="1.6"/>
+        
+        <!-- Stack 2 (Mid stack) -->
+        <rect x="50" y="27" width="15" height="9" rx="0.5" stroke="#8da4c4" stroke-width="1.6"/>
+        <rect x="50" y="37" width="15" height="9" rx="0.5" stroke="#8da4c4" stroke-width="1.6"/>
+        
+        <!-- Stack 3 (Forward stack) -->
+        <rect x="33" y="37" width="15" height="9" rx="0.5" stroke="#8da4c4" stroke-width="1.6"/>
+        
+        <!-- Corrugation ribs inside containers -->
+        <line x1="72" y1="29" x2="72" y2="34" stroke="#8da4c4" stroke-width="1" stroke-linecap="round"/>
+        <line x1="77" y1="29" x2="77" y2="34" stroke="#8da4c4" stroke-width="1" stroke-linecap="round"/>
+        <line x1="55" y1="29" x2="55" y2="34" stroke="#8da4c4" stroke-width="1" stroke-linecap="round"/>
+        <line x1="60" y1="29" x2="60" y2="34" stroke="#8da4c4" stroke-width="1" stroke-linecap="round"/>
+        <line x1="38" y1="39" x2="38" y2="44" stroke="#8da4c4" stroke-width="1" stroke-linecap="round"/>
+        <line x1="43" y1="39" x2="43" y2="44" stroke="#8da4c4" stroke-width="1" stroke-linecap="round"/>
+        
+        <!-- Deck line -->
+        <line x1="22" y1="46" x2="111" y2="46" stroke="#8da4c4" stroke-width="1.8" stroke-linecap="round"/>
+        
+        <!-- Hull Outline: Raked Bow, flat keel, rounded stern -->
+        <path d="M18 46L29 65H102C108 65 112 60 112 53V46" stroke="#8da4c4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        
+        <!-- Hull portholes -->
+        <circle cx="35" cy="55" r="1" fill="#8da4c4"/>
+        <circle cx="43" cy="55" r="1" fill="#8da4c4"/>
+        <circle cx="51" cy="55" r="1" fill="#8da4c4"/>
+        
+        <!-- Water Wave Ripples -->
+        <path d="M12 71C16 68 20 68 24 71C28 74 32 74 36 71C40 68 44 68 48 71C52 74 56 74 60 71C64 68 68 68 72 71C76 74 80 74 84 71C88 68 92 68 96 71C100 74 104 74 108 71C112 68 116 68 120 71" stroke="#8da4c4" stroke-width="1.8" stroke-linecap="round" fill="none"/>
+        <path d="M24 78C28 75 32 75 36 78C40 81 44 81 48 78C52 75 56 75 60 78C64 81 68 81 72 78C76 75 80 75 84 78C88 81 92 81 96 78C100 75 104 75 108 78" stroke="#8da4c4" stroke-width="1.5" stroke-dasharray="2 3" stroke-linecap="round" fill="none"/>
+      </svg>
+    </div>
+
+    <!-- Empty State Text -->
+    <h2 class="p4-empty-title">No item was selected</h2>
+    <p class="p4-empty-subtitle">Please select a vessel and segment to view items and use the search</p>
+  </main>
+
+  <!-- 3-PANE BROWSE VIEW (Shown when Chemicals / Segment is selected - Image 1) -->
+  <div class="p4-browse-container" id="p4-browse-content" style="display: none;">
+    <!-- COLUMN 1: FILTERS SIDEBAR (Image 1, 2, 3) -->
+    <aside class="p4-filters-sidebar" id="p4-filters-sidebar">
+      <div class="p4-pane-header">
+        <button type="button" class="p4-pane-collapse-btn" id="btn-collapse-filters" title="Collapse panel">
+          <svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="11 17 6 12 11 7"></polyline>
+            <polyline points="18 17 13 12 18 7"></polyline>
+          </svg>
+        </button>
+      </div>
+
+      <!-- CHEMICALS FILTERS (Default) -->
+      <div id="p4-filters-chemicals">
+        <!-- Group 1: Brand -->
+        <div class="p4-filter-group">
+          <div class="p4-filter-title">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#64748b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+            </svg>
+            <span>Brand</span>
+          </div>
+          <ul class="p4-filter-list">
+            <li class="p4-filter-item">
+              <label class="p4-filter-checkbox-label">
+                <input type="checkbox" class="p4-filter-checkbox">
+                <span class="p4-filter-name">3K INDUSTRY</span>
+              </label>
+              <span class="p4-filter-count">1</span>
+            </li>
+            <li class="p4-filter-item">
+              <label class="p4-filter-checkbox-label">
+                <input type="checkbox" class="p4-filter-checkbox">
+                <span class="p4-filter-name">AKATUKI SEIKI</span>
+              </label>
+              <span class="p4-filter-count">1</span>
+            </li>
+            <li class="p4-filter-item">
+              <label class="p4-filter-checkbox-label">
+                <input type="checkbox" class="p4-filter-checkbox">
+                <span class="p4-filter-name">UNKNOWN</span>
+              </label>
+              <span class="p4-filter-count">8</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="p4-filter-divider"></div>
+
+        <!-- Group 2: Criticality -->
+        <div class="p4-filter-group">
+          <div class="p4-filter-title">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#64748b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+            </svg>
+            <span>Criticality</span>
+          </div>
+          <ul class="p4-filter-list">
+            <li class="p4-filter-item">
+              <label class="p4-filter-checkbox-label">
+                <input type="checkbox" class="p4-filter-checkbox">
+                <span class="p4-filter-name">Critical</span>
+              </label>
+              <span class="p4-filter-count">3</span>
+            </li>
+            <li class="p4-filter-item">
+              <label class="p4-filter-checkbox-label">
+                <input type="checkbox" class="p4-filter-checkbox">
+                <span class="p4-filter-name">Non Critical</span>
+              </label>
+              <span class="p4-filter-count">3</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="p4-filter-divider"></div>
+
+        <!-- Group 3: Tags -->
+        <div class="p4-filter-group">
+          <div class="p4-filter-title">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#64748b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+            </svg>
+            <span>Tags</span>
+          </div>
+          <ul class="p4-filter-list">
+            <li class="p4-filter-item">
+              <label class="p4-filter-checkbox-label">
+                <input type="checkbox" class="p4-filter-checkbox">
+                <span class="p4-filter-name">Anti-Piracy Good</span>
+              </label>
+              <span class="p4-filter-count">1</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- SERVICES FILTERS SIDEBAR (Image 1, 2) -->
+      <div id="p4-filters-services" style="display: none;">
+        <!-- Group 1: Job Actions -->
+        <div class="p4-filter-group">
+          <div class="p4-filter-title">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#64748b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+            </svg>
+            <span>Job Actions</span>
+          </div>
+          <ul class="p4-filter-list">
+            <li class="p4-filter-item">
+              <label class="p4-filter-checkbox-label">
+                <input type="checkbox" class="p4-filter-checkbox">
+                <span class="p4-filter-name">Finding</span>
+              </label>
+              <span class="p4-filter-count">58</span>
+            </li>
+            <li class="p4-filter-item">
+              <label class="p4-filter-checkbox-label">
+                <input type="checkbox" class="p4-filter-checkbox">
+                <span class="p4-filter-name">Minor Periodic Inspection</span>
+              </label>
+              <span class="p4-filter-count">2</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="p4-filter-divider"></div>
+
+        <!-- Group 2: Urgency -->
+        <div class="p4-filter-group">
+          <div class="p4-filter-title">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#64748b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+            </svg>
+            <span>Urgency</span>
+          </div>
+          <ul class="p4-filter-list">
+            <li class="p4-filter-item">
+              <label class="p4-filter-checkbox-label">
+                <input type="checkbox" class="p4-filter-checkbox">
+                <span class="p4-filter-name">Non Critical</span>
+              </label>
+              <span class="p4-filter-count">2</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="p4-filter-divider"></div>
+
+        <!-- Group 3: Date Due -->
+        <div class="p4-filter-group">
+          <div class="p4-filter-title">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#64748b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+            </svg>
+            <span>Date Due</span>
+          </div>
+          <ul class="p4-filter-list">
+            <li class="p4-filter-item">
+              <label class="p4-filter-checkbox-label">
+                <input type="checkbox" class="p4-filter-checkbox">
+                <span class="p4-filter-name">Due within 30 days</span>
+              </label>
+              <span class="p4-filter-count">4</span>
+            </li>
+            <li class="p4-filter-item">
+              <label class="p4-filter-checkbox-label">
+                <input type="checkbox" class="p4-filter-checkbox">
+                <span class="p4-filter-name">Due within 7 days</span>
+              </label>
+              <span class="p4-filter-count">4</span>
+            </li>
+            <li class="p4-filter-item">
+              <label class="p4-filter-checkbox-label">
+                <input type="checkbox" class="p4-filter-checkbox">
+                <span class="p4-filter-name">Due within 90 days</span>
+              </label>
+              <span class="p4-filter-count">7</span>
+            </li>
+            <li class="p4-filter-item">
+              <label class="p4-filter-checkbox-label">
+                <input type="checkbox" class="p4-filter-checkbox">
+                <span class="p4-filter-name">Overdue</span>
+              </label>
+              <span class="p4-filter-count">49</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="p4-filter-divider"></div>
+
+        <!-- Group 4: Tags -->
+        <div class="p4-filter-group">
+          <div class="p4-filter-title">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#64748b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+            </svg>
+            <span>Tags</span>
+          </div>
+          <ul class="p4-filter-list">
+            <li class="p4-filter-item">
+              <label class="p4-filter-checkbox-label">
+                <input type="checkbox" class="p4-filter-checkbox">
+                <span class="p4-filter-name" style="text-decoration: underline red wavy;">EQUIPMENT</span>
+              </label>
+              <span class="p4-filter-count">2</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </aside>
+
+    <!-- COLUMN 2: MIDDLE CATEGORIES PANE (Image 1, 2) -->
+    <section class="p4-middle-pane" id="p4-middle-pane">
+      <div class="p4-pane-header">
+        <button type="button" class="p4-pane-collapse-btn" id="btn-collapse-middle" title="Collapse panel">
+          <svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="11 17 6 12 11 7"></polyline>
+            <polyline points="18 17 13 12 18 7"></polyline>
+          </svg>
+        </button>
+      </div>
+
+      <div class="p4-middle-content">
+        <!-- Search Description Input (Image 1) -->
+        <div class="p4-tree-search-wrap">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#64748b" stroke-width="2">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+          <input type="text" class="p4-tree-search-input" id="p4-tree-search-input" placeholder="Search Description">
+        </div>
+
+        <!-- Category Tree List (Chemicals Mode) -->
+        <ul class="p4-category-tree" id="p4-category-tree">
+          <li class="p4-tree-item active" id="tree-item-at-upgrades" data-category="A&T Upgrades">
+            <span class="p4-tree-chevron">
+              <svg width="7" height="7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </span>
+            <span class="p4-tree-icon">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="#2d3748"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round"/></svg>
+            </span>
+            <span class="p4-tree-label">A&amp;T Upgrades</span>
+          </li>
+
+          <li class="p4-tree-item" id="tree-item-active-gl2" data-category="Active GL2">
+            <span class="p4-tree-chevron-placeholder"></span>
+            <span class="p4-tree-icon">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="#2d3748"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round"/></svg>
+            </span>
+            <span class="p4-tree-label">Active GL2</span>
+          </li>
+
+          <li class="p4-tree-item" id="tree-item-chemicals" data-category="Chemicals">
+            <span class="p4-tree-chevron">
+              <svg width="7" height="7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </span>
+            <span class="p4-tree-icon">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="#2d3748"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round"/></svg>
+            </span>
+            <span class="p4-tree-label">Chemicals</span>
+          </li>
+
+          <li class="p4-tree-item" id="tree-item-demo-catalogue" data-category="Demo Catalogue">
+            <span class="p4-tree-chevron">
+              <svg width="7" height="7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </span>
+            <span class="p4-tree-icon">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="#2d3748"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round"/></svg>
+            </span>
+            <span class="p4-tree-label">Demo Catalogue</span>
+          </li>
+
+          <li class="p4-tree-item" id="tree-item-lubricants" data-category="Lubricants">
+            <span class="p4-tree-chevron">
+              <svg width="7" height="7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </span>
+            <span class="p4-tree-icon">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="#2d3748"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round"/></svg>
+            </span>
+            <span class="p4-tree-label">Lubricants</span>
+          </li>
+        </ul>
+
+        <!-- Services Tree (Services Mode - Image 1, 2) -->
+        <ul class="p4-services-tree" id="p4-services-tree" style="display: none;">
+          <li class="p4-tree-parent-node" id="tree-node-sesp">
+            <span class="p4-tree-chevron" style="color: #64748b;">
+              <svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </span>
+            <span class="p4-tree-icon" style="color: #64748b;">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+            </span>
+            <span>SESP Demo Vessel</span>
+          </li>
+          <li class="p4-tree-child-node" id="tree-item-bridge">
+            <span class="p4-tree-chevron" style="color: #64748b;">
+              <svg width="7" height="7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </span>
+            <span class="p4-tree-icon" style="color: #0284c7;">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+            </span>
+            <span>Bridge</span>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- COLUMN 3: RIGHT DATA TABLE PANE (Image 1, 2, 3, 4, 5) -->
+    <section class="p4-table-pane" id="p4-table-pane">
+      <div class="p4-pane-header">
+        <button type="button" class="p4-pane-collapse-btn" id="btn-collapse-table" title="Collapse panel">
+          <svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="11 17 6 12 11 7"></polyline>
+            <polyline points="18 17 13 12 18 7"></polyline>
+          </svg>
+        </button>
+      </div>
+
+      <div class="p4-table-container" id="p4-chemicals-table-wrap">
+        <!-- CHEMICALS DATA TABLE -->
+        <table class="p4-data-table" id="p4-items-table">
+          <thead>
+            <tr>
+              <th style="width: 11%;">Item Numbe</th>
+              <th style="width: 25%;">Name</th>
+              <th style="width: 15%;">Model</th>
+              <th style="width: 14%;">Brand</th>
+              <th style="width: 15%;">Catalog Name</th>
+              <th style="width: 7%;">ROB</th>
+              <th style="width: 6%;">UOM</th>
+              <th style="width: 7%;">UOM Quai</th>
+            </tr>
+          </thead>
+
+          <!-- CATEGORY 1: A&T Upgrades (Image 1) -->
+          <tbody id="tbody-at-upgrades" class="p4-category-tbody">
+            <!-- Group Header -->
+            <tr class="p4-group-header-row">
+              <td colspan="8">A&amp;T Upgrades &gt; List of HydroDynamic Upgrades</td>
+            </tr>
+
+            <!-- Row 1: EnviroLogic HF HP 32 -->
+            <tr class="p4-table-row" id="row-envirologic" style="cursor: pointer;">
+              <td style="color: #64748b;">12XXXX</td>
+              <td>
+                <a href="javascript:void(0)" class="p4-item-link" id="link-envirologic">EnviroLogic HF HP 32</a>
+              </td>
+              <td></td>
+              <td style="color: #1e293b;">UNKNOWN</td>
+              <td style="color: #64748b;" title="List of HydroDynamic Upgrades">List of HydroDyna...</td>
+              <td></td>
+              <td style="color: #1e293b;">EACH</td>
+              <td style="color: #1e293b;">1</td>
+            </tr>
+
+            <!-- Expanded Row for EnviroLogic (Image 1) -->
+            <tr class="p4-expanded-row" id="expanded-row-envirologic">
+              <td colspan="8">
+                <div class="p4-item-expanded-card">
+                  <!-- Thumbnail Gray Box with image placeholder SVG -->
+                  <div class="p4-item-thumb-box">
+                    <svg width="42" height="42" viewBox="0 0 24 24" fill="none" stroke="#93c5fd" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round">
+                      <rect x="3" y="3" width="18" height="18" rx="2" ry="2" fill="#eff6ff"></rect>
+                      <circle cx="8.5" cy="8.5" r="1.5" fill="#93c5fd"></circle>
+                      <polyline points="21 15 16 10 5 21"></polyline>
+                    </svg>
+                  </div>
+
+                  <!-- Details Title & Link -->
+                  <div class="p4-item-expanded-info">
+                    <h3 class="p4-item-expanded-title">EnviroLogic HF HP 32</h3>
+                    <a href="javascript:void(0)" class="p4-item-details-link">Item details</a>
+                  </div>
+
+                  <!-- Right Actions -->
+                  <div class="p4-item-expanded-actions">
+                    <div class="p4-actions-top-row">
+                      <!-- Stepper -->
+                      <div class="p4-stepper-wrap">
+                        <input type="number" class="p4-stepper-input" id="stepper-envirologic" value="1" min="1">
+                        <div class="p4-stepper-arrows">
+                          <button type="button" class="p4-stepper-arrow up" id="qty-up-envirologic">
+                            <svg width="7" height="7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18 15 12 9 6 15"/></svg>
+                          </button>
+                          <button type="button" class="p4-stepper-arrow down" id="qty-down-envirologic">
+                            <svg width="7" height="7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+                          </button>
+                        </div>
+                      </div>
+
+                      <!-- Add to List Split Button -->
+                      <div class="p4-split-btn-wrap">
+                        <button type="button" class="p4-btn-add-list" id="btn-add-envirologic">Add to List</button>
+                        <button type="button" class="p4-btn-split-arrow">
+                          <svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+                        </button>
+                      </div>
+                    </div>
+
+                    <!-- Active List Metadata -->
+                    <div class="p4-active-list-info">
+                      <span class="p4-active-list-label">Active list:</span>
+                      <div class="p4-active-list-name-row">
+                        <span class="p4-active-list-val">Test 1</span>
+                        <a href="javascript:void(0)" class="p4-active-list-change">Change</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+
+          <!-- CATEGORY 2: Chemicals under Active GL2 (Image 2 & 3) -->
+          <tbody id="tbody-chemicals" class="p4-category-tbody" style="display: none;">
+            <!-- Group Header 1 -->
+            <tr class="p4-group-header-row">
+              <td colspan="8">Chemicals &gt; Drew Marine (USA) &gt; Aux Engine</td>
+            </tr>
+
+            <!-- Row 1: Test30_H_2 (Image 2) -->
+            <tr class="p4-table-row">
+              <td style="color: #64748b;">123</td>
+              <td>
+                <span class="p4-item-text">Test30_H_2</span>
+                <span class="p4-badge-crit-c" title="Criticality C">C</span>
+              </td>
+              <td></td>
+              <td style="color: #1e293b;">AKATUKI SEIKI</td>
+              <td style="color: #64748b;">Aux Engine</td>
+              <td></td>
+              <td style="color: #1e293b;">G</td>
+              <td style="color: #1e293b;">1</td>
+            </tr>
+
+            <!-- Row 2: Test UAT (Image 2, Click to expand Image 3) -->
+            <tr class="p4-table-row" id="row-test-uat" style="cursor: pointer;">
+              <td style="color: #64748b;">Test UAT</td>
+              <td>
+                <a href="javascript:void(0)" class="p4-item-link" id="link-test-uat">Test UAT</a>
+                <span class="p4-badge-recycle" title="Hazardous / Recycled">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#dc2626" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M7 19H4.815a1.83 1.83 0 0 1-1.57-.881 1.785 1.785 0 0 1-.004-1.784L7.196 9.5"/>
+                    <path d="M11 19h8.2a1.8 1.8 0 0 0 1.6-1 1.8 1.8 0 0 0 0-1.8L17 9.5"/>
+                    <path d="m14 4.5-5 8.5"/>
+                    <polyline points="3 14 7 19 2 20"/>
+                    <polyline points="13 14 11 19 15 22"/>
+                  </svg>
+                </span>
+                <span class="p4-badge-diamond" title="Special Warning">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#ea580c" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="3" y="3" width="18" height="18" rx="2" transform="rotate(45 12 12)" stroke="#ea580c" fill="none"/>
+                    <circle cx="12" cy="12" r="2.5" fill="#ea580c"/>
+                  </svg>
+                </span>
+              </td>
+              <td style="color: #1e293b;">123</td>
+              <td style="color: #1e293b;">3K INDUSTRY</td>
+              <td style="color: #64748b;">Aux Engine</td>
+              <td></td>
+              <td style="color: #1e293b;">BAG</td>
+              <td style="color: #1e293b;">1</td>
+            </tr>
+
+            <!-- Expanded Row for Test UAT (Image 3) -->
+            <tr class="p4-expanded-row" id="expanded-row-test-uat" style="display: none;">
+              <td colspan="8">
+                <div class="p4-item-expanded-card">
+                  <!-- Thumbnail Gray Box -->
+                  <div class="p4-item-thumb-box">
+                    <svg width="42" height="42" viewBox="0 0 24 24" fill="none" stroke="#93c5fd" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round">
+                      <rect x="3" y="3" width="18" height="18" rx="2" ry="2" fill="#eff6ff"></rect>
+                      <circle cx="8.5" cy="8.5" r="1.5" fill="#93c5fd"></circle>
+                      <polyline points="21 15 16 10 5 21"></polyline>
+                    </svg>
+                  </div>
+
+                  <!-- Details Title, Subtitle & Link -->
+                  <div class="p4-item-expanded-info">
+                    <div class="p4-item-title-wrap">
+                      <h3 class="p4-item-expanded-title">Test UAT</h3>
+                      <span class="p4-item-expanded-subtitle">Test</span>
+                    </div>
+                    <a href="javascript:void(0)" class="p4-item-details-link">Item details</a>
+                  </div>
+
+                  <!-- Right Actions -->
+                  <div class="p4-item-expanded-actions">
+                    <div class="p4-actions-top-row">
+                      <!-- Stepper -->
+                      <div class="p4-stepper-wrap">
+                        <input type="number" class="p4-stepper-input" id="stepper-test-uat" value="1" min="1">
+                        <div class="p4-stepper-arrows">
+                          <button type="button" class="p4-stepper-arrow up" id="qty-up-test-uat">
+                            <svg width="7" height="7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18 15 12 9 6 15"/></svg>
+                          </button>
+                          <button type="button" class="p4-stepper-arrow down" id="qty-down-test-uat">
+                            <svg width="7" height="7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+                          </button>
+                        </div>
+                      </div>
+
+                      <!-- Add to List Split Button -->
+                      <div class="p4-split-btn-wrap">
+                        <button type="button" class="p4-btn-add-list" id="btn-add-test-uat">Add to List</button>
+                        <button type="button" class="p4-btn-split-arrow">
+                          <svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+                        </button>
+                      </div>
+                    </div>
+
+                    <!-- Active List Metadata -->
+                    <div class="p4-active-list-info">
+                      <span class="p4-active-list-label">Active list:</span>
+                      <div class="p4-active-list-name-row">
+                        <span class="p4-active-list-val">Test 1</span>
+                        <a href="javascript:void(0)" class="p4-active-list-change">Change</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </td>
+            </tr>
+
+            <!-- Group Header 2 -->
+            <tr class="p4-group-header-row">
+              <td colspan="8">Chemicals &gt; Golden Ocean Marine Services &gt; Cleaners</td>
+            </tr>
+
+            <!-- Row 3: Drew XP Test Kit Cleaner -->
+            <tr class="p4-table-row">
+              <td style="color: #64748b;">RP0005...</td>
+              <td>
+                <span class="p4-item-text">Drew XP Test Kit Cleaner, 2X50...</span>
+              </td>
+              <td></td>
+              <td style="color: #1e293b;">UNKNOWN</td>
+              <td style="color: #64748b;">Cleaners</td>
+              <td></td>
+              <td style="color: #1e293b;">EACH</td>
+              <td style="color: #1e293b;">1</td>
+            </tr>
+          </tbody>
+
+          <!-- CATEGORY 3: Demo Catalogue (Image 4 & 5) -->
+          <tbody id="tbody-demo-catalogue" class="p4-category-tbody" style="display: none;">
+            <!-- Group Header 1 -->
+            <tr class="p4-group-header-row">
+              <td colspan="8">Demo Catalogue &gt; Demo Chemical Catalogue</td>
+            </tr>
+
+            <!-- Row 1: DCSI002 (Image 4) -->
+            <tr class="p4-table-row">
+              <td style="color: #64748b;">DCSI002</td>
+              <td>
+                <span class="p4-item-text">Dummy chemical segment it...</span>
+                <span class="p4-badge-crit-c" title="Criticality C">C</span>
+              </td>
+              <td></td>
+              <td style="color: #1e293b;">UNKNOWN</td>
+              <td style="color: #64748b;" title="Demo Chemical Catalogue">Demo Chemical Ca...</td>
+              <td></td>
+              <td style="color: #1e293b;">EACH</td>
+              <td style="color: #1e293b;">1</td>
+            </tr>
+
+            <!-- Row 2: DCSI003 (Image 4, Click to expand Image 5) -->
+            <tr class="p4-table-row" id="row-dcsi003" style="cursor: pointer;">
+              <td style="color: #64748b;">DCSI003</td>
+              <td>
+                <a href="javascript:void(0)" class="p4-item-link" id="link-dcsi003">Dummy chemical segment it...</a>
+                <span class="p4-badge-diamond" title="Special Warning">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#ea580c" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="3" y="3" width="18" height="18" rx="2" transform="rotate(45 12 12)" stroke="#ea580c" fill="none"/>
+                    <circle cx="12" cy="12" r="2.5" fill="#ea580c"/>
+                  </svg>
+                </span>
+              </td>
+              <td></td>
+              <td style="color: #1e293b;">UNKNOWN</td>
+              <td style="color: #64748b;" title="Demo Chemical Catalogue">Demo Chemical Ca...</td>
+              <td></td>
+              <td style="color: #1e293b;">EACH</td>
+              <td style="color: #1e293b;">1</td>
+            </tr>
+
+            <!-- Expanded Row for DCSI003 (Image 5) -->
+            <tr class="p4-expanded-row" id="expanded-row-dcsi003" style="display: none;">
+              <td colspan="8">
+                <div class="p4-item-expanded-card">
+                  <!-- Thumbnail Gray Box -->
+                  <div class="p4-item-thumb-box">
+                    <svg width="42" height="42" viewBox="0 0 24 24" fill="none" stroke="#93c5fd" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round">
+                      <rect x="3" y="3" width="18" height="18" rx="2" ry="2" fill="#eff6ff"></rect>
+                      <circle cx="8.5" cy="8.5" r="1.5" fill="#93c5fd"></circle>
+                      <polyline points="21 15 16 10 5 21"></polyline>
+                    </svg>
+                  </div>
+
+                  <!-- Details Title & Link -->
+                  <div class="p4-item-expanded-info">
+                    <h3 class="p4-item-expanded-title">Dummy chemical segment item 3</h3>
+                    <a href="javascript:void(0)" class="p4-item-details-link">Item details</a>
+                  </div>
+
+                  <!-- Right Actions -->
+                  <div class="p4-item-expanded-actions">
+                    <div class="p4-actions-top-row">
+                      <!-- Stepper -->
+                      <div class="p4-stepper-wrap">
+                        <input type="number" class="p4-stepper-input" id="stepper-dcsi003" value="1" min="1">
+                        <div class="p4-stepper-arrows">
+                          <button type="button" class="p4-stepper-arrow up" id="qty-up-dcsi003">
+                            <svg width="7" height="7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18 15 12 9 6 15"/></svg>
+                          </button>
+                          <button type="button" class="p4-stepper-arrow down" id="qty-down-dcsi003">
+                            <svg width="7" height="7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+                          </button>
+                        </div>
+                      </div>
+
+                      <!-- Add to List Split Button -->
+                      <div class="p4-split-btn-wrap">
+                        <button type="button" class="p4-btn-add-list" id="btn-add-dcsi003">Add to List</button>
+                        <button type="button" class="p4-btn-split-arrow">
+                          <svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+                        </button>
+                      </div>
+                    </div>
+
+                    <!-- Active List Metadata -->
+                    <div class="p4-active-list-info">
+                      <span class="p4-active-list-label">Active list:</span>
+                      <div class="p4-active-list-name-row">
+                        <span class="p4-active-list-val">Test 1</span>
+                        <a href="javascript:void(0)" class="p4-active-list-change">Change</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </td>
+            </tr>
+
+            <!-- Row 3: DCSI001 in Demo Chemical Catalogue -->
+            <tr class="p4-table-row">
+              <td style="color: #64748b;">DCSI001</td>
+              <td>
+                <span class="p4-item-text">Dummy chemical segment ite...</span>
+              </td>
+              <td></td>
+              <td style="color: #1e293b;">UNKNOWN</td>
+              <td style="color: #64748b;" title="Demo Chemical Catalogue">Demo Chemical Ca...</td>
+              <td></td>
+              <td style="color: #1e293b;">EACH</td>
+              <td style="color: #1e293b;">1</td>
+            </tr>
+
+            <!-- Group Header 2 -->
+            <tr class="p4-group-header-row">
+              <td colspan="8">Demo Catalogue &gt; Demo Sub-catalogue</td>
+            </tr>
+
+            <!-- Row 4: DCSI001 in Demo Sub-catalogue -->
+            <tr class="p4-table-row">
+              <td style="color: #64748b;">DCSI001</td>
+              <td>
+                <span class="p4-item-text">Dummy chemical segment ite...</span>
+              </td>
+              <td></td>
+              <td style="color: #1e293b;">UNKNOWN</td>
+              <td style="color: #64748b;" title="Demo Sub-catalogue">Demo Sub-catalog...</td>
+              <td></td>
+              <td style="color: #1e293b;">EACH</td>
+              <td style="color: #1e293b;">1</td>
+            </tr>
+        </table>
+      </div>
+
+      <!-- SERVICES TABLE CONTAINER (Image 1, 2, 3, 4) -->
+      <div class="p4-table-container" id="p4-services-table-wrap" style="display: none;">
+        <table class="p4-data-table">
+          <thead>
+            <tr>
+              <th style="width: 14%;">Code</th>
+              <th style="width: 20%;">Title</th>
+              <th style="width: 22%;">Machinery Location</th>
+              <th style="width: 13%;">Due Date</th>
+              <th style="width: 14%;">Job Action</th>
+              <th style="width: 17%;">Department</th>
+            </tr>
+          </thead>
+          <tbody id="tbody-services">
+            <!-- Group header (Image 2) -->
+            <tr class="p4-group-header-row" id="p4-services-group-header" style="display: none;">
+              <td colspan="6">GSM Calling System#1 &gt; GSM Calling System - General#1</td>
+            </tr>
+
+            <!-- Row 1: NC-V-7 (Interactive -> Expands Image 3) -->
+            <tr class="p4-table-row p4-service-row" id="row-service-1" style="display: none; cursor: pointer;">
+              <td style="color: #1e293b; font-weight: 500;">NC-V-7</td>
+              <td style="color: #1e293b;">Test</td>
+              <td style="color: #64748b;">GSM Calling Syste...</td>
+              <td style="color: #1e293b;">09-05-2026</td>
+              <td style="color: #1e293b;">Finding</td>
+              <td style="color: #64748b;">GSM Calling Syste...</td>
+            </tr>
+
+            <!-- Expanded Card under NC-V-7 (Image 3 & 4) -->
+            <tr class="p4-expanded-row" id="expanded-row-service-item" style="display: none;">
+              <td colspan="6">
+                <div class="p4-service-expanded-card">
+                  <div class="p4-service-info-col">
+                    <div class="p4-service-title">Test</div>
+                    <div class="p4-service-model">Model 1101</div>
+                    <div class="p4-service-meta">
+                      <span class="p4-service-meta-label">Component</span>
+                      <span class="p4-service-meta-val">GSM Calling System - General#1</span>
+                      <span class="p4-service-meta-label" style="margin-left: 12px;">Make</span>
+                      <span class="p4-service-meta-val">ON-WAVES</span>
+                    </div>
+                    <div class="p4-service-desc">Test</div>
+                    <a href="javascript:void(0)" class="p4-service-details-link">View details</a>
+                  </div>
+
+                  <div class="p4-service-actions-col">
+                    <!-- Segment Policy Error Banner (Image 4) -->
+                    <div class="p4-segment-policy-error-popup" id="p4-policy-error-popup" style="display: none;">
+                      <div class="p4-policy-error-icon">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#dc2626" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                          <circle cx="12" cy="12" r="10"></circle>
+                          <line x1="15" y1="9" x2="9" y2="15"></line>
+                          <line x1="9" y1="9" x2="15" y2="15"></line>
+                        </svg>
+                      </div>
+                      <div class="p4-policy-error-body">
+                        Adding this item violates the allowed segments policy and is therefore restricted. The list can only contain the following groups of segments: [["Spares", "Services"], ["Chemicals"], ["High values Stores"],["Medicine"],["Shipboard IT Equipment & Services"],["Shore IT Equipment & Services"],["Stores"]].
+                      </div>
+                      <button type="button" class="p4-policy-error-close" id="btn-policy-error-close">&times;</button>
+                    </div>
+
+                    <!-- Add to List Split Button -->
+                    <div class="p4-split-btn-wrap">
+                      <button type="button" class="p4-btn-add-list" id="btn-add-service-item">Add to List</button>
+                      <button type="button" class="p4-btn-split-arrow" id="btn-split-service-item">
+                        <svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                      </button>
+                    </div>
+
+                    <!-- Active List Meta -->
+                    <div class="p4-active-list-info">
+                      <span class="p4-active-list-label">Active list:</span>
+                      <div class="p4-active-list-name-row">
+                        <span class="p4-active-list-val" id="p4-service-active-list-name">Test 1</span>
+                        <a href="javascript:void(0)" class="p4-active-list-change">Change</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </td>
+            </tr>
+
+            <!-- Rows 2 to 12 (Shown after Bridge is clicked) -->
+            <tr class="p4-table-row p4-service-row" style="display: none; cursor: pointer;">
+              <td style="color: #1e293b; font-weight: 500;">VT-V-61</td>
+              <td style="color: #1e293b;">Test</td>
+              <td style="color: #64748b;">GSM Calling Syste...</td>
+              <td style="color: #1e293b;">10-04-2026</td>
+              <td style="color: #1e293b;">Finding</td>
+              <td style="color: #64748b;">GSM Calling Syste...</td>
+            </tr>
+            <tr class="p4-table-row p4-service-row" style="display: none; cursor: pointer;">
+              <td style="color: #1e293b; font-weight: 500;">OBS-O-86</td>
+              <td style="color: #1e293b;">Test</td>
+              <td style="color: #64748b;">GSM Calling Syste...</td>
+              <td style="color: #1e293b;">23-01-2026</td>
+              <td style="color: #1e293b;">Finding</td>
+              <td style="color: #64748b;">GSM Calling Syste...</td>
+            </tr>
+            <tr class="p4-table-row p4-service-row" style="display: none; cursor: pointer;">
+              <td style="color: #1e293b; font-weight: 500;">OBS-O-94</td>
+              <td style="color: #1e293b;">Demo</td>
+              <td style="color: #64748b;">GSM Calling Syste...</td>
+              <td style="color: #1e293b;">10-04-2026</td>
+              <td style="color: #1e293b;">Finding</td>
+              <td style="color: #64748b;">GSM Calling Syste...</td>
+            </tr>
+            <tr class="p4-table-row p4-service-row" style="display: none; cursor: pointer;">
+              <td style="color: #1e293b; font-weight: 500;">VT-O-92</td>
+              <td style="color: #1e293b;">1. The Company has an Audit ...</td>
+              <td style="color: #64748b;">GSM Calling Syste...</td>
+              <td style="color: #1e293b;">10-04-2026</td>
+              <td style="color: #1e293b;">Finding</td>
+              <td style="color: #64748b;">GSM Calling Syste...</td>
+            </tr>
+            <tr class="p4-table-row p4-service-row" style="display: none; cursor: pointer;">
+              <td style="color: #1e293b; font-weight: 500;">OBS-O-112</td>
+              <td style="color: #1e293b;">Test</td>
+              <td style="color: #64748b;">GSM Calling Syste...</td>
+              <td style="color: #1e293b;">26-06-2028</td>
+              <td style="color: #1e293b;">Finding</td>
+              <td style="color: #64748b;">GSM Calling Syste...</td>
+            </tr>
+            <tr class="p4-table-row p4-service-row" style="display: none; cursor: pointer;">
+              <td style="color: #1e293b; font-weight: 500;">OBS-V-26</td>
+              <td style="color: #1e293b;">Test</td>
+              <td style="color: #64748b;">GSM Calling Syste...</td>
+              <td style="color: #1e293b;">07-10-2026</td>
+              <td style="color: #1e293b;">Finding</td>
+              <td style="color: #64748b;">GSM Calling Syste...</td>
+            </tr>
+            <tr class="p4-table-row p4-service-row" style="display: none; cursor: pointer;">
+              <td style="color: #1e293b; font-weight: 500;">PSC-Def-V-9</td>
+              <td style="color: #1e293b;">Test</td>
+              <td style="color: #64748b;">GSM Calling Syste...</td>
+              <td style="color: #1e293b;">02-06-2026</td>
+              <td style="color: #1e293b;">Finding</td>
+              <td style="color: #64748b;">GSM Calling Syste...</td>
+            </tr>
+            <tr class="p4-table-row p4-service-row" style="display: none; cursor: pointer;">
+              <td style="color: #1e293b; font-weight: 500;">REC-O-40</td>
+              <td style="color: #1e293b;">Test</td>
+              <td style="color: #64748b;">GSM Calling Syste...</td>
+              <td style="color: #1e293b;">09-05-2026</td>
+              <td style="color: #1e293b;">Finding</td>
+              <td style="color: #64748b;">GSM Calling Syste...</td>
+            </tr>
+            <tr class="p4-table-row p4-service-row" style="display: none; cursor: pointer;">
+              <td style="color: #1e293b; font-weight: 500;">VT-O-95</td>
+              <td style="color: #1e293b;">demo</td>
+              <td style="color: #64748b;">GSM Calling Syste...</td>
+              <td style="color: #1e293b;">18-03-2026</td>
+              <td style="color: #1e293b;">Finding</td>
+              <td style="color: #64748b;">GSM Calling Syste...</td>
+            </tr>
+            <tr class="p4-table-row p4-service-row" style="display: none; cursor: pointer;">
+              <td style="color: #1e293b; font-weight: 500;">NC-V-8</td>
+              <td style="color: #1e293b;">Test</td>
+              <td style="color: #64748b;">GSM Calling Syste...</td>
+              <td style="color: #1e293b;">10-05-2026</td>
+              <td style="color: #1e293b;">Finding</td>
+              <td style="color: #64748b;">GSM Calling Syste...</td>
+            </tr>
+            <tr class="p4-table-row p4-service-row" style="display: none; cursor: pointer;">
+              <td style="color: #1e293b; font-weight: 500;">OBS-O-91</td>
+              <td style="color: #1e293b;">Test</td>
+              <td style="color: #64748b;">GSM Calling Syste...</td>
+              <td style="color: #1e293b;">09-04-2026</td>
+              <td style="color: #1e293b;">Finding</td>
+              <td style="color: #64748b;">GSM Calling Syste...</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <!-- Services Pagination (Image 1, 2) -->
+        <div class="p4-pagination-footer" id="p4-services-pagination">
+          <span class="p4-pg-btn">&laquo;</span>
+          <span class="p4-pg-btn">&lsaquo;</span>
+          <span id="p4-services-pagination-numbers"></span>
+          <span class="p4-pg-btn">&rsaquo;</span>
+          <span class="p4-pg-btn">&raquo;</span>
+          <span class="p4-pg-meta" id="p4-services-pg-total-pages">Total Pages: 0</span>
+          <span class="p4-pg-meta" id="p4-services-pg-total-records">Records: 0</span>
+        </div>
+      </div>
+
+
+      <!-- Table Pagination Footer (Image 1, 2, 3) -->
+      <div class="p4-pagination-footer" id="p4-pagination-footer">
+        <span class="p4-pg-btn">&laquo;</span>
+        <span class="p4-pg-btn">&lsaquo;</span>
+        <span id="p4-pagination-numbers"></span>
+        <span class="p4-pg-btn">&rsaquo;</span>
+        <span class="p4-pg-btn">&raquo;</span>
+        <span class="p4-pg-meta" id="p4-pg-total-pages">Total Pages: 0</span>
+        <span class="p4-pg-meta" id="p4-pg-total-records">Records: 0</span>
+      </div>
+    </section>
+  </div>
+</div>
+
+<!-- Page 4 JavaScript -->
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    // Populate vessel name from localStorage if available
+    const displayVessel = document.getElementById('p4-display-vessel');
+    const storedVessel = localStorage.getItem('lms_vessel_name');
+    if (displayVessel && storedVessel) {
+      displayVessel.textContent = storedVessel;
+    }
+
+    // Clear vessel button
+    const btnVesselClear = document.getElementById('p4-vessel-clear');
+    if (btnVesselClear) {
+      btnVesselClear.addEventListener('click', (e) => {
+        e.stopPropagation();
+        if (displayVessel) {
+          displayVessel.textContent = 'Select vessel';
+          displayVessel.style.color = '#94a3b8';
+        }
+        btnVesselClear.style.display = 'none';
+      });
+    }
+
+    // Procurement Dropdown Menu in Navbar
+    const procurementBtn = document.getElementById('procurement-btn');
+    const procurementDropdown = document.getElementById('procurement-dropdown');
+
+    if (procurementBtn && procurementDropdown) {
+      procurementBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        procurementDropdown.classList.toggle('open');
+      });
+
+      document.addEventListener('click', (e) => {
+        if (!e.target.closest('.has-dropdown')) {
+          procurementDropdown.classList.remove('open');
+        }
+      });
+    }
+
+    // Segment Dropdown & 3-Pane Browse Transition (Image 1)
+    const segmentSelector = document.getElementById('p4-segment-selector');
+    const segmentDropdown = document.getElementById('p4-segment-dropdown');
+    const segmentText = document.getElementById('p4-segment-text');
+    const btnSegmentClear = document.getElementById('p4-segment-clear');
+    const segmentSearchInput = document.getElementById('p4-segment-search-input');
+    const segmentOptions = document.querySelectorAll('.p4-segment-option');
+    const p4SearchInput = document.getElementById('p4-search-input');
+    const p4SearchBtn = document.getElementById('p4-search-btn');
+    const emptyContainer = document.getElementById('p4-empty-container');
+    const browseContent = document.getElementById('p4-browse-content');
+
+    function applySegmentSelection(segmentName) {
+      if (segmentName === 'Services (Other)' || segmentName === 'Services') {
+        segmentName = 'Services';
+      }
+
+      if (segmentText) {
+        segmentText.textContent = segmentName;
+        segmentSelector.classList.add('has-selection');
+      }
+
+      if (btnSegmentClear) {
+        btnSegmentClear.style.display = 'inline-flex';
+      }
+
+      if (p4SearchInput) {
+        p4SearchInput.placeholder = 'Search by item #, ID, catalogue, name';
+      }
+
+      if (p4SearchBtn) {
+        p4SearchBtn.classList.add('active-blue');
+      }
+
+      // Transition from empty state to 3-pane browse layout (Image 1)
+      if (emptyContainer) emptyContainer.style.display = 'none';
+      if (browseContent) browseContent.style.display = 'flex';
+
+      localStorage.setItem('lms_selected_segment', segmentName);
+
+      const filtersChemicals = document.getElementById('p4-filters-chemicals');
+      const filtersServices = document.getElementById('p4-filters-services');
+      const categoryTree = document.getElementById('p4-category-tree');
+      const servicesTree = document.getElementById('p4-services-tree');
+      const chemicalsTableWrap = document.getElementById('p4-chemicals-table-wrap');
+      const servicesTableWrap = document.getElementById('p4-services-table-wrap');
+      const chemicalsPagination = document.getElementById('p4-pagination-footer');
+
+      if (segmentName === 'Services') {
+        if (filtersChemicals) filtersChemicals.style.display = 'none';
+        if (filtersServices) filtersServices.style.display = 'block';
+        if (categoryTree) categoryTree.style.display = 'none';
+        if (servicesTree) servicesTree.style.display = 'block';
+        if (chemicalsTableWrap) chemicalsTableWrap.style.display = 'none';
+        if (chemicalsPagination) chemicalsPagination.style.display = 'none';
+        if (servicesTableWrap) servicesTableWrap.style.display = 'block';
+
+        // Reset to initial Services empty state (Image 1)
+        const treeBridge = document.getElementById('tree-item-bridge');
+        if (treeBridge) treeBridge.classList.remove('active');
+
+        const groupHeader = document.getElementById('p4-services-group-header');
+        if (groupHeader) groupHeader.style.display = 'none';
+
+        document.querySelectorAll('.p4-service-row').forEach(row => {
+          row.style.display = 'none';
+        });
+
+        const expRow = document.getElementById('expanded-row-service-item');
+        if (expRow) expRow.style.display = 'none';
+
+        const policyPopup = document.getElementById('p4-policy-error-popup');
+        if (policyPopup) policyPopup.style.display = 'none';
+
+        const p4ServicesPgNumbers = document.getElementById('p4-services-pagination-numbers');
+        const p4ServicesPgTotalPages = document.getElementById('p4-services-pg-total-pages');
+        const p4ServicesPgTotalRecords = document.getElementById('p4-services-pg-total-records');
+        if (p4ServicesPgNumbers) p4ServicesPgNumbers.innerHTML = '';
+        if (p4ServicesPgTotalPages) p4ServicesPgTotalPages.textContent = 'Total Pages: 0';
+        if (p4ServicesPgTotalRecords) p4ServicesPgTotalRecords.textContent = 'Records: 0';
+      } else {
+        if (filtersChemicals) filtersChemicals.style.display = 'block';
+        if (filtersServices) filtersServices.style.display = 'none';
+        if (categoryTree) categoryTree.style.display = 'block';
+        if (servicesTree) servicesTree.style.display = 'none';
+        if (chemicalsTableWrap) chemicalsTableWrap.style.display = 'block';
+        if (chemicalsPagination) chemicalsPagination.style.display = 'flex';
+        if (servicesTableWrap) servicesTableWrap.style.display = 'none';
+      }
+    }
+
+    function clearSegmentSelection() {
+      if (segmentText) {
+        segmentText.textContent = 'Select segment';
+        segmentSelector.classList.remove('has-selection');
+      }
+
+      if (btnSegmentClear) {
+        btnSegmentClear.style.display = 'none';
+      }
+
+      if (p4SearchInput) {
+        p4SearchInput.placeholder = 'Select vessel and segment filters';
+      }
+
+      if (p4SearchBtn) {
+        p4SearchBtn.classList.remove('active-blue');
+      }
+
+      // Transition back to empty state
+      if (browseContent) browseContent.style.display = 'none';
+      if (emptyContainer) emptyContainer.style.display = 'flex';
+
+      localStorage.removeItem('lms_selected_segment');
+    }
+
+    function toggleSegmentDropdown(closeOnly) {
+      if (!segmentDropdown || !segmentSelector) return;
+      const isCurrentlyOpen = segmentDropdown.style.display !== 'none';
+      if (closeOnly === true || isCurrentlyOpen) {
+        segmentDropdown.style.display = 'none';
+        segmentSelector.classList.remove('open');
+      } else {
+        segmentDropdown.style.display = 'block';
+        segmentSelector.classList.add('open');
+        if (segmentSearchInput) {
+          segmentSearchInput.value = '';
+          segmentOptions.forEach(opt => opt.style.display = 'block');
+          setTimeout(() => segmentSearchInput.focus(), 50);
+        }
+      }
+    }
+
+    if (segmentSelector) {
+      segmentSelector.addEventListener('click', (e) => {
+        e.stopPropagation();
+        toggleSegmentDropdown();
+      });
+    }
+
+    if (btnSegmentClear) {
+      btnSegmentClear.addEventListener('click', (e) => {
+        e.stopPropagation();
+        clearSegmentSelection();
+        toggleSegmentDropdown(true);
+      });
+    }
+
+    if (segmentSearchInput) {
+      segmentSearchInput.addEventListener('click', (e) => {
+        e.stopPropagation();
+      });
+
+      segmentSearchInput.addEventListener('input', (e) => {
+        const query = e.target.value.toLowerCase().trim();
+        segmentOptions.forEach(opt => {
+          const val = opt.textContent.toLowerCase();
+          opt.style.display = val.includes(query) ? 'block' : 'none';
+        });
+      });
+    }
+
+    segmentOptions.forEach(opt => {
+      opt.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const chosenVal = opt.getAttribute('data-value');
+        segmentOptions.forEach(o => o.classList.remove('active'));
+        opt.classList.add('active');
+
+        applySegmentSelection(chosenVal);
+        toggleSegmentDropdown(true);
+      });
+    });
+
+    document.addEventListener('click', (e) => {
+      if (!e.target.closest('#p4-segment-wrap')) {
+        toggleSegmentDropdown(true);
+      }
+    });
+
+    // Pane collapse toggles
+    const btnCollapseMiddle = document.getElementById('btn-collapse-middle');
+    const btnCollapseTable = document.getElementById('btn-collapse-table');
+    const filtersSidebar = document.getElementById('p4-filters-sidebar');
+    const middlePane = document.getElementById('p4-middle-pane');
+
+    if (btnCollapseMiddle && filtersSidebar) {
+      btnCollapseMiddle.addEventListener('click', () => {
+        const isHidden = filtersSidebar.style.display === 'none';
+        filtersSidebar.style.display = isHidden ? 'block' : 'none';
+      });
+    }
+
+    if (btnCollapseTable && middlePane) {
+      btnCollapseTable.addEventListener('click', () => {
+        const isHidden = middlePane.style.display === 'none';
+        middlePane.style.display = isHidden ? 'flex' : 'none';
+      });
+    }
+
+    // Category Tree Search (Image 1)
+    const treeSearchInput = document.getElementById('p4-tree-search-input');
+    const treeItems = document.querySelectorAll('.p4-tree-item');
+
+    if (treeSearchInput) {
+      treeSearchInput.addEventListener('input', (e) => {
+        const q = e.target.value.toLowerCase().trim();
+        treeItems.forEach(item => {
+          const name = item.getAttribute('data-category').toLowerCase();
+          item.style.display = name.includes(q) ? 'flex' : 'none';
+        });
+      });
+    }
+
+    // Toast Notification Handler (Image 1, 2, 3)
+    const toastNotification = document.getElementById('p4-toast-notification');
+    const toastText = document.getElementById('p4-toast-text');
+    const toastClose = document.getElementById('p4-toast-close');
+    let toastTimeout = null;
+
+    function showToast(msg = 'Item added to the List') {
+      if (!toastNotification) return;
+      if (toastText) toastText.textContent = msg;
+      toastNotification.style.display = 'flex';
+
+      if (toastTimeout) clearTimeout(toastTimeout);
+      toastTimeout = setTimeout(() => {
+        toastNotification.style.display = 'none';
+      }, 4000);
+    }
+
+    if (toastClose && toastNotification) {
+      toastClose.addEventListener('click', () => {
+        toastNotification.style.display = 'none';
+        if (toastTimeout) clearTimeout(toastTimeout);
+      });
+    }
+
+    // Refresh Active List Name in all expanded drawers
+    function refreshActiveListName() {
+      const storedListName = localStorage.getItem('lms_list_name') || window.lmsListName || 'Test 1';
+      document.querySelectorAll('.p4-active-list-val').forEach(el => {
+        el.textContent = storedListName;
+      });
+    }
+    refreshActiveListName();
+
+    // Change Active List link handler
+    document.querySelectorAll('.p4-active-list-change').forEach(changeLink => {
+      changeLink.addEventListener('click', (e) => {
+        e.preventDefault();
+        const currentName = localStorage.getItem('lms_list_name') || 'Test 1';
+        const newName = prompt('Enter active list name:', currentName);
+        if (newName && newName.trim()) {
+          localStorage.setItem('lms_list_name', newName.trim());
+          refreshActiveListName();
+        }
+      });
+    });
+
+    // Universal Stepper Quantity Controls
+    document.querySelectorAll('.p4-stepper-wrap').forEach(wrap => {
+      const input = wrap.querySelector('.p4-stepper-input');
+      const upBtn = wrap.querySelector('.p4-stepper-arrow.up');
+      const downBtn = wrap.querySelector('.p4-stepper-arrow.down');
+
+      if (upBtn && input) {
+        upBtn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          input.value = parseInt(input.value || '1', 10) + 1;
+        });
+      }
+
+      if (downBtn && input) {
+        downBtn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          const val = parseInt(input.value || '1', 10);
+          if (val > 1) input.value = val - 1;
+        });
+      }
+    });
+
+    // Helper to add item to localStorage list and save to page 2 (Workflow Phases 5 & 6)
+    function saveItemToList(item) {
+      try {
+        const list = JSON.parse(localStorage.getItem('lms_items_list') || '[]');
+        const exists = list.some(i => (i.partNo && i.partNo === item.partNo) || (i.name && i.name === item.name));
+        if (!exists) {
+          list.push(item);
+        }
+        localStorage.setItem('lms_items_list', JSON.stringify(list));
+
+        // Save and update this list on page 2
+        const savedRecord = JSON.parse(localStorage.getItem('lms_saved_list_record') || '{}');
+        savedRecord.id = 'LIST-SPDM-60028/26';
+        savedRecord.name = localStorage.getItem('lms_list_name') || 'Test List';
+        savedRecord.itemsCount = list.length;
+        savedRecord.segments = 'Chemicals';
+        savedRecord.status = localStorage.getItem('lms_list_status') || 'Active';
+        savedRecord.vessel = localStorage.getItem('lms_vessel') || 'SESP Demo Vessel';
+        savedRecord.tags = localStorage.getItem('lms_tags') || '';
+        localStorage.setItem('lms_saved_list_record', JSON.stringify(savedRecord));
+      } catch (err) {
+        console.error('Failed to save item to localStorage', err);
+      }
+    }
+
+    // Workflow Rule: Discard in-progress draft list data when navigating to page1.html
+    const draftKeys = [
+      'lms_draft_active',
+      'lms_list_name',
+      'lms_vessel',
+      'lms_urgency',
+      'lms_department',
+      'lms_create_date',
+      'lms_tags',
+      'lms_remarks',
+      'lms_checklist_items',
+      'lms_attachments_list',
+      'lms_items_list',
+      'lms_selected_segment',
+      'lms_list_status',
+      'lms_saved_list_record'
+    ];
+    document.querySelectorAll('a[href="page1.html"], .brand-jibe').forEach(link => {
+      link.addEventListener('click', () => {
+        draftKeys.forEach(k => localStorage.removeItem(k));
+      });
+    });
+
+    // Category Switching & Pagination
+    const paginationNumbers = document.getElementById('p4-pagination-numbers');
+    const pgTotalPages = document.getElementById('p4-pg-total-pages');
+    const pgTotalRecords = document.getElementById('p4-pg-total-records');
+
+    function switchCategory(categoryName) {
+      // Highlight tree item
+      treeItems.forEach(item => {
+        const cat = item.getAttribute('data-category');
+        if (cat === categoryName) {
+          item.classList.add('active');
+        } else {
+          item.classList.remove('active');
+        }
+      });
+
+      // Hide all category tbodies
+      document.querySelectorAll('.p4-category-tbody').forEach(tb => {
+        tb.style.display = 'none';
+      });
+
+      refreshActiveListName();
+
+      if (categoryName === 'A&T Upgrades') {
+        const tb = document.getElementById('tbody-at-upgrades');
+        if (tb) tb.style.display = 'table-row-group';
+        if (paginationNumbers) paginationNumbers.innerHTML = '<span class="p4-pg-btn active-page">1</span>';
+        if (pgTotalPages) pgTotalPages.textContent = 'Total Pages: 1';
+        if (pgTotalRecords) pgTotalRecords.textContent = 'Records: 1';
+      } else if (categoryName === 'Chemicals') {
+        const tb = document.getElementById('tbody-chemicals');
+        if (tb) tb.style.display = 'table-row-group';
+        if (paginationNumbers) paginationNumbers.innerHTML = '<span class="p4-pg-btn active-page">1</span>';
+        if (pgTotalPages) pgTotalPages.textContent = 'Total Pages: 1';
+        if (pgTotalRecords) pgTotalRecords.textContent = 'Records: 3';
+      } else if (categoryName === 'Demo Catalogue') {
+        const tb = document.getElementById('tbody-demo-catalogue');
+        if (tb) tb.style.display = 'table-row-group';
+        if (paginationNumbers) paginationNumbers.innerHTML = '<span class="p4-pg-btn active-page">1</span>';
+        if (pgTotalPages) pgTotalPages.textContent = 'Total Pages: 1';
+        if (pgTotalRecords) pgTotalRecords.textContent = 'Records: 4';
+      }
+    }
+
+    // Attach Category Tree Click Listeners
+    treeItems.forEach(item => {
+      item.addEventListener('click', () => {
+        const cat = item.getAttribute('data-category');
+        if (cat) switchCategory(cat);
+      });
+    });
+
+    // --- ITEM 1: EnviroLogic HF HP 32 (Image 1) ---
+    const linkEnvirologic = document.getElementById('link-envirologic');
+    const rowEnvirologic = document.getElementById('row-envirologic');
+    const expEnvirologic = document.getElementById('expanded-row-envirologic');
+    const btnAddEnvirologic = document.getElementById('btn-add-envirologic');
+
+    function toggleEnvirologic(e) {
+      if (e) e.preventDefault();
+      if (!expEnvirologic) return;
+      const isOpen = expEnvirologic.style.display !== 'none';
+      expEnvirologic.style.display = isOpen ? 'none' : 'table-row';
+    }
+
+    if (linkEnvirologic) linkEnvirologic.addEventListener('click', toggleEnvirologic);
+    if (rowEnvirologic) {
+      rowEnvirologic.addEventListener('click', (e) => {
+        if (!e.target.closest('a')) toggleEnvirologic(e);
+      });
+    }
+
+    if (btnAddEnvirologic) {
+      btnAddEnvirologic.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const qtyInput = document.getElementById('stepper-envirologic');
+        const qty = qtyInput ? qtyInput.value : '1';
+        saveItemToList({
+          component: 'A&T Upgrades > List ...',
+          partNo: '12XXXX',
+          name: 'EnviroLogic HF HP 32',
+          brand: 'UNKNOWN',
+          model: '',
+          uom: 'EACH',
+          qty: qty
+        });
+        showToast('Item added to the List');
+      });
+    }
+
+    // --- ITEM 2: Test UAT (Image 2 & 3) ---
+    const linkTestUat = document.getElementById('link-test-uat');
+    const rowTestUat = document.getElementById('row-test-uat');
+    const expTestUat = document.getElementById('expanded-row-test-uat');
+    const btnAddTestUat = document.getElementById('btn-add-test-uat');
+
+    function toggleTestUat(e) {
+      if (e) e.preventDefault();
+      if (!expTestUat) return;
+      const isOpen = expTestUat.style.display !== 'none';
+      expTestUat.style.display = isOpen ? 'none' : 'table-row';
+    }
+
+    if (linkTestUat) linkTestUat.addEventListener('click', toggleTestUat);
+    if (rowTestUat) {
+      rowTestUat.addEventListener('click', (e) => {
+        if (!e.target.closest('a')) toggleTestUat(e);
+      });
+    }
+
+    if (btnAddTestUat) {
+      btnAddTestUat.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const qtyInput = document.getElementById('stepper-test-uat');
+        const qty = qtyInput ? qtyInput.value : '1';
+        saveItemToList({
+          component: 'Chemicals > Drew M...',
+          partNo: 'Test UAT',
+          name: 'Test UAT',
+          brand: '3K INDUST...',
+          model: '123',
+          uom: 'BAG',
+          qty: qty
+        });
+        showToast('Item added to the List');
+      });
+    }
+
+    // --- ITEM 3: DCSI003 / Dummy chemical segment item 3 (Image 4 & 5) ---
+    const linkDcsi003 = document.getElementById('link-dcsi003');
+    const rowDcsi003 = document.getElementById('row-dcsi003');
+    const expDcsi003 = document.getElementById('expanded-row-dcsi003');
+    const btnAddDcsi003 = document.getElementById('btn-add-dcsi003');
+
+    function toggleDcsi003(e) {
+      if (e) e.preventDefault();
+      if (!expDcsi003) return;
+      const isOpen = expDcsi003.style.display !== 'none';
+      expDcsi003.style.display = isOpen ? 'none' : 'table-row';
+    }
+
+    if (linkDcsi003) linkDcsi003.addEventListener('click', toggleDcsi003);
+    if (rowDcsi003) {
+      rowDcsi003.addEventListener('click', (e) => {
+        if (!e.target.closest('a')) toggleDcsi003(e);
+      });
+    }
+
+    if (btnAddDcsi003) {
+      btnAddDcsi003.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const qtyInput = document.getElementById('stepper-dcsi003');
+        const qty = qtyInput ? qtyInput.value : '1';
+        saveItemToList({
+          component: 'Demo Catalogue > D...',
+          partNo: 'DCSI003',
+          name: 'Dummy chemical segm...',
+          brand: 'UNKNOWN',
+          model: '',
+          uom: 'EACH',
+          qty: qty
+        });
+        showToast('Item added to the List');
+      });
+    }
+
+    // Back to List link handler to guarantee all 3 items exist when returning to Page 3
+    const p4BackBtn = document.getElementById('p4-back-btn');
+    if (p4BackBtn) {
+      p4BackBtn.addEventListener('click', () => {
+        const cur = JSON.parse(localStorage.getItem('lms_items_list') || '[]');
+        const items = cur.length >= 3 ? cur : [
+          { component: 'A&T Upgrades > List ...', partNo: '12XXXX', name: 'EnviroLogic HF HP 32', brand: 'UNKNOWN', model: '', uom: 'EACH', qty: '1' },
+          { component: 'Chemicals > Drew M...', partNo: 'Test UAT', name: 'Test UAT', brand: '3K INDUST...', model: '123', uom: 'BAG', qty: '1' },
+          { component: 'Demo Catalogue > D...', partNo: 'DCSI003', name: 'Dummy chemical segm...', brand: 'UNKNOWN', model: '', uom: 'EACH', qty: '1' }
+        ];
+        localStorage.setItem('lms_items_list', JSON.stringify(items));
+
+        // Save this list on page 2 (Workflow Phases 5 & 6 requirement)
+        const savedRecord = JSON.parse(localStorage.getItem('lms_saved_list_record') || '{}');
+        savedRecord.id = 'LIST-SPDM-60028/26';
+        savedRecord.name = localStorage.getItem('lms_list_name') || 'Test List';
+        savedRecord.itemsCount = items.length;
+        savedRecord.segments = 'Chemicals';
+        savedRecord.status = localStorage.getItem('lms_list_status') || 'Active';
+        savedRecord.vessel = localStorage.getItem('lms_vessel') || 'SESP Demo Vessel';
+        savedRecord.tags = localStorage.getItem('lms_tags') || '';
+        localStorage.setItem('lms_saved_list_record', JSON.stringify(savedRecord));
+      });
+    }
+
+    // --- SERVICES MODE INTERACTIONS (Images 1, 2, 3, 4) ---
+    const treeBridge = document.getElementById('tree-item-bridge');
+    const groupHeaderServices = document.getElementById('p4-services-group-header');
+    const serviceRows = document.querySelectorAll('.p4-service-row');
+    const expServiceRow = document.getElementById('expanded-row-service-item');
+    const btnAddServiceItem = document.getElementById('btn-add-service-item');
+    const btnSplitServiceItem = document.getElementById('btn-split-service-item');
+    const policyErrorPopup = document.getElementById('p4-policy-error-popup');
+    const btnPolicyErrorClose = document.getElementById('btn-policy-error-close');
+    const p4ServicesPgNumbers = document.getElementById('p4-services-pagination-numbers');
+    const p4ServicesPgTotalPages = document.getElementById('p4-services-pg-total-pages');
+    const p4ServicesPgTotalRecords = document.getElementById('p4-services-pg-total-records');
+
+    // 1. Click Bridge under SESP Demo Vessel -> Update page like Image 2
+    if (treeBridge) {
+      treeBridge.addEventListener('click', () => {
+        treeBridge.classList.add('active');
+
+        if (groupHeaderServices) {
+          groupHeaderServices.style.display = 'table-row';
+        }
+
+        serviceRows.forEach(row => {
+          row.style.display = 'table-row';
+        });
+
+        if (p4ServicesPgNumbers) {
+          p4ServicesPgNumbers.innerHTML = '<span class="p4-pg-btn active-page">1</span>';
+        }
+        if (p4ServicesPgTotalPages) p4ServicesPgTotalPages.textContent = 'Total Pages: 1';
+        if (p4ServicesPgTotalRecords) p4ServicesPgTotalRecords.textContent = 'Records: 60';
+      });
+    }
+
+    // 2. Click any item -> Expands detail card underneath it like Image 3
+    serviceRows.forEach(row => {
+      row.addEventListener('click', (e) => {
+        if (e.target.closest('a') || e.target.closest('button')) return;
+        if (!expServiceRow) return;
+
+        const isCurrentlyNext = row.nextElementSibling === expServiceRow;
+        const isOpen = expServiceRow.style.display !== 'none';
+
+        if (isCurrentlyNext && isOpen) {
+          expServiceRow.style.display = 'none';
+        } else {
+          row.parentNode.insertBefore(expServiceRow, row.nextSibling);
+          expServiceRow.style.display = 'table-row';
+          refreshActiveListName();
+          if (policyErrorPopup) {
+            policyErrorPopup.style.display = 'none';
+          }
+        }
+      });
+    });
+
+    // 3. Click Add to List -> Displays allowed segments policy error popup like Image 4
+    function showPolicyErrorPopup(e) {
+      if (e) {
+        e.preventDefault();
+        e.stopPropagation();
+      }
+      if (policyErrorPopup) {
+        policyErrorPopup.style.display = 'flex';
+      }
+    }
+
+    if (btnAddServiceItem) {
+      btnAddServiceItem.addEventListener('click', showPolicyErrorPopup);
+    }
+    if (btnSplitServiceItem) {
+      btnSplitServiceItem.addEventListener('click', showPolicyErrorPopup);
+    }
+
+    // 4. Close Policy Error Popup
+    if (btnPolicyErrorClose && policyErrorPopup) {
+      btnPolicyErrorClose.addEventListener('click', (e) => {
+        e.stopPropagation();
+        policyErrorPopup.style.display = 'none';
+      });
+    }
+
+    // Auto-initialize based on URL query parameter (?mode=services) or localStorage
+    const urlParams = new URLSearchParams(window.location.search);
+    const modeParam = urlParams.get('mode');
+
+    if (modeParam === 'services' || window.location.hash === '#services') {
+      applySegmentSelection('Services');
+    } else {
+      const savedSegment = localStorage.getItem('lms_selected_segment');
+      if (savedSegment && savedSegment !== 'Services') {
+        applySegmentSelection(savedSegment);
+        switchCategory('A&T Upgrades');
+      } else {
+        // By default open Chemicals segment & A&T Upgrades so Image 1 is immediately interactive
+        applySegmentSelection('Chemicals');
+        switchCategory('A&T Upgrades');
+      }
+    }
+  });
+</script>
+</body>
+</html>

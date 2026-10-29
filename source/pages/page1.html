@@ -1,0 +1,1015 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JiBe ERP - Dashboard</title>
+  <link rel="stylesheet" href="common.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+<div class="app-wrapper">
+
+  <!-- TOP HEADER -->
+  <header class="jibe-top-header">
+    <div class="top-header-left">
+      <a href="page1.html" class="brand-jibe" title="JiBe ERP">
+        <div class="brand-logo-img">
+          <!-- JiBe Leaf Logo and Wordmark SVG -->
+          <svg width="72" height="26" viewBox="0 0 72 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <!-- Left olive leaf -->
+            <path d="M4.5 13C3.5 9.8 4.2 6.2 6.8 3.8C9.4 1.4 13 0.8 16 2C15.8 5.2 15 8.8 12.4 11.2C9.8 13.6 6.2 14.2 4.5 13Z" fill="#78B928"/>
+            <!-- Lower right light green leaflet -->
+            <path d="M4.2 14C5.2 17.2 8.2 18.8 11.4 18.2C8.8 20.8 5.2 21.2 3.2 20.2C2.2 18.2 2.6 15.6 4.2 14Z" fill="#A8D64A"/>
+            <!-- J -->
+            <path d="M22 6.5V17.5C22 19.6 20.4 20.6 18.2 20.6C16.6 20.6 15.3 19.8 14.7 18.9L15.9 17.5C16.4 18.1 17.2 18.7 18.1 18.7C19.2 18.7 20 18.1 20 17V6.5H22Z" fill="#2d3748"/>
+            <!-- i -->
+            <path d="M24.8 10.2H26.8V20.4H24.8V10.2ZM25.8 6.5C26.5 6.5 27.1 7.1 27.1 7.8C27.1 8.5 26.5 9.1 25.8 9.1C25.1 9.1 24.5 8.5 24.5 7.8C24.5 7.1 25.1 6.5 25.8 6.5Z" fill="#2d3748"/>
+            <!-- B -->
+            <path d="M30 6.5H35.2C36.9 6.5 38.1 7.4 38.1 8.8C38.1 9.9 37.3 10.6 36.3 11C37.6 11.3 38.6 12.3 38.6 13.8C38.6 15.5 37.2 16.5 35.3 16.5H30V6.5ZM32.1 10.6H34.8C35.7 10.6 36.2 10.1 36.2 9.5C36.2 8.8 35.7 8.3 34.8 8.3H32.1V10.6ZM32.1 14.7H35.1C36 14.7 36.6 14.1 36.6 13.4C36.6 12.7 36 12.1 35.1 12.1H32.1V14.7Z" fill="#2d3748"/>
+            <!-- E -->
+            <path d="M41 6.5H47.2V8.3H43.2V10.6H46.8V12.3H43.2V14.7H47.5V16.5H41V6.5Z" fill="#2d3748"/>
+          </svg>
+        </div>
+      </a>
+    </div>
+
+    <div class="top-header-right">
+      <!-- Gray utility tray housing calendar, sliders, and bell icons -->
+      <div class="header-utility-tray">
+        <!-- Calendar Icon -->
+        <button class="tray-icon-btn" title="Calendar" type="button">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+            <line x1="16" y1="2" x2="16" y2="6"/>
+            <line x1="8" y1="2" x2="8" y2="6"/>
+            <line x1="3" y1="10" x2="21" y2="10"/>
+            <circle cx="8" cy="14" r="1" fill="currentColor"/>
+            <circle cx="12" cy="14" r="1" fill="currentColor"/>
+            <circle cx="16" cy="14" r="1" fill="currentColor"/>
+            <circle cx="8" cy="18" r="1" fill="currentColor"/>
+            <circle cx="12" cy="18" r="1" fill="currentColor"/>
+          </svg>
+        </button>
+
+        <!-- Sliders / Controls Icon -->
+        <button class="tray-icon-btn" title="Filters" type="button">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="4" y1="21" x2="4" y2="14"/>
+            <line x1="4" y1="10" x2="4" y2="3"/>
+            <line x1="12" y1="21" x2="12" y2="12"/>
+            <line x1="12" y1="8" x2="12" y2="3"/>
+            <line x1="20" y1="21" x2="20" y2="16"/>
+            <line x1="20" y1="12" x2="20" y2="3"/>
+            <circle cx="4" cy="12" r="2" fill="currentColor"/>
+            <circle cx="12" cy="10" r="2" fill="currentColor"/>
+            <circle cx="20" cy="14" r="2" fill="currentColor"/>
+          </svg>
+        </button>
+
+        <!-- Bell Notification Icon -->
+        <button class="tray-icon-btn" title="Notifications" type="button">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/>
+            <path d="M13.73 21a2 2 0 0 1-3.46 0"/>
+          </svg>
+        </button>
+      </div>
+
+      <!-- User Profile -->
+      <div class="user-profile" id="header-user-profile" style="cursor: pointer;" title="Click to change username">
+        <span class="user-name">
+          <span class="jibe-display-username">Ivan Xavier</span>
+          <svg width="8" height="5" viewBox="0 0 8 5" fill="none">
+            <path d="M1 1L4 4L7 1" stroke="#64748b" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </span>
+        <span class="user-sub">Seaspan Ship Management Ltd.</span>
+      </div>
+
+      <!-- Seaspan Brand Logo -->
+      <div class="company-brand-box">
+        <div class="seaspan-logo-mark">
+          <!-- Seaspan Red Wave Symbol -->
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="#cc0000">
+            <path d="M2.5 17.5L7 6.5H10.5L7.5 17.5H4.5L2.5 17.5Z"/>
+            <path d="M9.5 17.5L14 6.5H17.5L14.5 17.5H11.5L9.5 17.5Z"/>
+            <path d="M16.5 17.5L21 6.5H23.5L20.5 17.5H17.5L16.5 17.5Z"/>
+          </svg>
+        </div>
+        <span class="seaspan-logo-text">seaspan</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- NAVIGATION BAR (Exact 1:1 Match to User Reference) -->
+  <nav class="jibe-navbar">
+    <ul class="nav-list">
+      <li class="nav-item">
+        <a href="page1.html" class="nav-link-item">Dashboard</a>
+      </li>
+      <li class="nav-item">
+        <a href="#" class="nav-link-item">Admin</a>
+      </li>
+      <li class="nav-item">
+        <a href="#" class="nav-link-item">Inspection</a>
+      </li>
+      <li class="nav-item">
+        <a href="#" class="nav-link-item">QHSE</a>
+      </li>
+      <li class="nav-item">
+        <a href="#" class="nav-link-item">Operations</a>
+      </li>
+      <li class="nav-item has-dropdown">
+        <a href="#" class="nav-link-item nav-item-active-blue" id="procurement-btn">Procurement</a>
+        <ul class="procurement-dropdown-menu" id="procurement-dropdown">
+          <li class="dropdown-menu-item">
+            <a href="#" class="dropdown-link">Procurement Main</a>
+          </li>
+          <li class="dropdown-menu-item">
+            <a href="page2.html" class="dropdown-link dropdown-link-highlighted">Lists</a>
+          </li>
+          <li class="dropdown-menu-item">
+            <a href="#" class="dropdown-link">Browsing and Search</a>
+          </li>
+          <li class="dropdown-menu-item">
+            <a href="#" class="dropdown-link">Catalogues List</a>
+          </li>
+          <li class="dropdown-menu-item">
+            <a href="#" class="dropdown-link">Items List</a>
+          </li>
+          <li class="dropdown-menu-item">
+            <a href="#" class="dropdown-link">Inventory Main</a>
+          </li>
+          <li class="dropdown-menu-item">
+            <a href="#" class="dropdown-link">Company Registry</a>
+          </li>
+          <li class="dropdown-menu-item">
+            <a href="#" class="dropdown-link">Logistics</a>
+          </li>
+        </ul>
+      </li>
+      <li class="nav-item">
+        <a href="#" class="nav-link-item">Technical</a>
+      </li>
+      <li class="nav-item">
+        <a href="#" class="nav-link-item">Certificates</a>
+      </li>
+      <li class="nav-item">
+        <a href="#" class="nav-link-item">Insights</a>
+      </li>
+      <li class="nav-item">
+        <a href="#" class="nav-link-item">Projects</a>
+      </li>
+    </ul>
+
+    <!-- Warning Triangle Icon at Far Right -->
+    <div class="nav-right-actions" title="Warnings">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
+        <line x1="12" y1="9" x2="12" y2="13"/>
+        <line x1="12" y1="17" x2="12.01" y2="17"/>
+      </svg>
+    </div>
+  </nav>
+
+  <!-- MAIN DASHBOARD CONTENT (3x3 FULL-VIEWPORT ERP GRID) -->
+  <main class="dashboard-page-content">
+
+    <!-- ROW 1, COL 1: 6 KPI METRICS (3x2 GRID) -->
+    <div class="kpi-container-grid">
+      <div class="kpi-tile">
+        <div class="kpi-tile-title">Pending with me</div>
+        <div class="kpi-tile-num">5946</div>
+      </div>
+      <div class="kpi-tile">
+        <div class="kpi-tile-title">Open Incidents</div>
+        <div class="kpi-tile-num">174</div>
+      </div>
+      <div class="kpi-tile">
+        <div class="kpi-tile-title">Open Near Miss</div>
+        <div class="kpi-tile-num">119</div>
+      </div>
+      <div class="kpi-tile">
+        <div class="kpi-tile-title">Open Observations</div>
+        <div class="kpi-tile-num">0</div>
+      </div>
+      <div class="kpi-tile">
+        <div class="kpi-tile-title">Open NCs</div>
+        <div class="kpi-tile-num">198</div>
+      </div>
+      <div class="kpi-tile">
+        <div class="kpi-tile-title">Overdue Findings</div>
+        <div class="kpi-tile-num">373</div>
+      </div>
+    </div>
+
+    <!-- ROW 1, COL 2: OVERDUE QHSE TASKS CARD (Filled with dummy rows) -->
+    <div class="erp-card">
+      <div class="erp-card-title">Overdue QHSE Tasks</div>
+      <table class="qhse-table-container">
+        <thead>
+          <tr>
+            <th class="th-vessel" style="width: 22%;">Vessel</th>
+            <th style="width: 15.6%;">Incident</th>
+            <th style="width: 15.6%;">Near Miss</th>
+            <th style="width: 15.6%;">Certificate</th>
+            <th style="width: 15.6%;">PSC</th>
+            <th style="width: 15.6%;">PSC<br>Deficier</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="qhse-vessel-name">Alta...</td>
+            <td><div class="qhse-cell-box">2</div></td>
+            <td><div class="qhse-cell-box">0</div></td>
+            <td><div class="qhse-cell-box">0</div></td>
+            <td><div class="qhse-cell-box">0</div></td>
+            <td><div class="qhse-cell-box">0</div></td>
+          </tr>
+          <tr>
+            <td class="qhse-vessel-name">CMA ...</td>
+            <td><div class="qhse-cell-box">2</div></td>
+            <td><div class="qhse-cell-box">1</div></td>
+            <td><div class="qhse-cell-box">26</div></td>
+            <td><div class="qhse-cell-box">1</div></td>
+            <td><div class="qhse-cell-box">0</div></td>
+          </tr>
+          <tr>
+            <td class="qhse-vessel-name">MSC ...</td>
+            <td><div class="qhse-cell-box">1</div></td>
+            <td><div class="qhse-cell-box">0</div></td>
+            <td><div class="qhse-cell-box">14</div></td>
+            <td><div class="qhse-cell-box">0</div></td>
+            <td><div class="qhse-cell-box">0</div></td>
+          </tr>
+          <tr>
+            <td class="qhse-vessel-name">ONE ...</td>
+            <td><div class="qhse-cell-box">0</div></td>
+            <td><div class="qhse-cell-box">2</div></td>
+            <td><div class="qhse-cell-box">8</div></td>
+            <td><div class="qhse-cell-box">1</div></td>
+            <td><div class="qhse-cell-box">0</div></td>
+          </tr>
+          <tr>
+            <td class="qhse-vessel-name">EVER...</td>
+            <td><div class="qhse-cell-box">1</div></td>
+            <td><div class="qhse-cell-box">0</div></td>
+            <td><div class="qhse-cell-box">5</div></td>
+            <td><div class="qhse-cell-box">0</div></td>
+            <td><div class="qhse-cell-box">0</div></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- ROW 1, COL 3: UPCOMING PORT CALLS CARD (Filled with dummy rows) -->
+    <div class="erp-card">
+      <div class="erp-card-title">Upcoming Port Calls</div>
+      <table class="erp-table">
+        <thead>
+          <tr>
+            <th style="width: 25%;">Vessel Name</th>
+            <th style="width: 25%;">Port Call</th>
+            <th style="width: 25%;">Port Call</th>
+            <th style="width: 25%;">Port Call</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td style="vertical-align: top; padding-top: 4px; font-weight: 600; color: #1e293b;">YM Width</td>
+            <td>
+              <div class="port-entry">
+                <div class="port-title">Kaohsiung</div>
+                <div class="port-timing">Arrival : 03-10-202<br>Departure : 03-10-</div>
+              </div>
+            </td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td style="vertical-align: top; padding-top: 4px; font-weight: 600; color: #1e293b;">Salvador Exp...</td>
+            <td>
+              <div class="port-entry">
+                <div class="port-title">Qingdao (Tsing</div>
+                <div class="port-timing">Arrival : 07-10-202<br>Departure : 08-10</div>
+              </div>
+            </td>
+            <td>
+              <div class="port-entry">
+                <div class="port-title">Orient Shipyard</div>
+                <div class="port-timing">Arrival : 12-10-202<br>Departure : 12-10</div>
+              </div>
+            </td>
+            <td>
+              <div class="port-entry">
+                <div class="port-title">Ningbo</div>
+                <div class="port-timing">Arrival : 14-10-202<br>Departure : 15-10</div>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td style="vertical-align: top; padding-top: 4px; font-weight: 600; color: #1e293b;">Seaspan B...</td>
+            <td>
+              <div class="port-entry">
+                <div class="port-title">Singapore</div>
+                <div class="port-timing">Arrival : 18-10-202<br>Departure : 19-10</div>
+              </div>
+            </td>
+            <td>
+              <div class="port-entry">
+                <div class="port-title">Tanjung Pel...</div>
+                <div class="port-timing">Arrival : 21-10-202<br>Departure : 22-10</div>
+              </div>
+            </td>
+            <td></td>
+          </tr>
+          <tr>
+            <td style="vertical-align: top; padding-top: 4px; font-weight: 600; color: #1e293b;">Berlin Exp...</td>
+            <td>
+              <div class="port-entry">
+                <div class="port-title">Rotterdam</div>
+                <div class="port-timing">Arrival : 25-10-202<br>Departure : 27-10</div>
+              </div>
+            </td>
+            <td>
+              <div class="port-entry">
+                <div class="port-title">Hamburg</div>
+                <div class="port-timing">Arrival : 29-10-202<br>Departure : 31-10</div>
+              </div>
+            </td>
+            <td>
+              <div class="port-entry">
+                <div class="port-title">Antwerp</div>
+                <div class="port-timing">Arrival : 02-11-202<br>Departure : 04-11</div>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- ROW 2, COL 1: OPEN INCIDENTS CARD (Retains No Records Found empty state) -->
+    <div class="erp-card">
+      <div class="erp-card-title">Open Incidents</div>
+      <table class="erp-table">
+        <thead>
+          <tr>
+            <th style="width: 14%;">Code</th>
+            <th style="width: 15%;">Date</th>
+            <th style="width: 25%;">Title</th>
+            <th style="width: 16%;">Due Date</th>
+            <th style="width: 15%;">Pending<br>with</th>
+            <th style="width: 15%;">Vessel</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td colspan="6" style="padding: 24px 4px; text-align: left; color: #374151; font-size: 11px; border-bottom: 1px solid #f8fafc;">
+              No Records Found
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <div style="flex: 1;"></div>
+    </div>
+
+    <!-- ROW 2, COL 2: OVERDUE CERTIFICATES CARD (Filled with dummy rows) -->
+    <div class="erp-card">
+      <div class="erp-card-title">Overdue Certificates</div>
+      <table class="erp-table">
+        <thead>
+          <tr>
+            <th style="width: 14%;">Code</th>
+            <th style="width: 17%;">Date</th>
+            <th style="width: 23%;">Title</th>
+            <th style="width: 16%;">Due Date</th>
+            <th style="width: 15%;">Status</th>
+            <th style="width: 15%;">Vessel</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <span class="cell-icon-wrap">
+                <!-- Navy doc icon -->
+                <svg class="cell-svg-icon" width="12" height="12" viewBox="0 0 24 24" fill="#2d3748">
+                  <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/>
+                </svg>
+                <span>CE...</span>
+              </span>
+            </td>
+            <td>01-01-...</td>
+            <td>Garbag...</td>
+            <td><span class="badge-pill-red">29-05-2</span></td>
+            <td><span class="status-dot dot-blue">Pen...</span></td>
+            <td>SESP ...</td>
+          </tr>
+          <tr>
+            <td>
+              <span class="cell-icon-wrap">
+                <svg class="cell-svg-icon" width="12" height="12" viewBox="0 0 24 24" fill="#2d3748">
+                  <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/>
+                </svg>
+                <span>CE...</span>
+              </span>
+            </td>
+            <td>02-01-...</td>
+            <td>NOx Te...</td>
+            <td></td>
+            <td><span class="status-dot dot-blue">Pen...</span></td>
+            <td>SESP ...</td>
+          </tr>
+          <tr>
+            <td>
+              <span class="cell-icon-wrap">
+                <svg class="cell-svg-icon" width="12" height="12" viewBox="0 0 24 24" fill="#2d3748">
+                  <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/>
+                </svg>
+                <span>CE...</span>
+              </span>
+            </td>
+            <td>01-06-...</td>
+            <td>Internat...</td>
+            <td><span class="badge-pill-red">31-05-2</span></td>
+            <td><span class="status-dot dot-blue">Pen...</span></td>
+            <td>SESP ...</td>
+          </tr>
+          <tr>
+            <td>
+              <span class="cell-icon-wrap">
+                <svg class="cell-svg-icon" width="12" height="12" viewBox="0 0 24 24" fill="#2d3748">
+                  <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/>
+                </svg>
+                <span>CE...</span>
+              </span>
+            </td>
+            <td>30-07-...</td>
+            <td>7.5 Yea...</td>
+            <td><span class="badge-pill-red">31-07-2</span></td>
+            <td><span class="status-dot dot-blue">Pen...</span></td>
+            <td>SESP ...</td>
+          </tr>
+          <tr>
+            <td>
+              <span class="cell-icon-wrap">
+                <svg class="cell-svg-icon" width="12" height="12" viewBox="0 0 24 24" fill="#2d3748">
+                  <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/>
+                </svg>
+                <span>CE...</span>
+              </span>
+            </td>
+            <td>12-08-...</td>
+            <td>Ballast...</td>
+            <td><span class="badge-pill-red">15-08-2</span></td>
+            <td><span class="status-dot dot-blue">Pen...</span></td>
+            <td>SESP ...</td>
+          </tr>
+          <tr>
+            <td>
+              <span class="cell-icon-wrap">
+                <svg class="cell-svg-icon" width="12" height="12" viewBox="0 0 24 24" fill="#2d3748">
+                  <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/>
+                </svg>
+                <span>CE...</span>
+              </span>
+            </td>
+            <td>05-09-...</td>
+            <td>Safety E...</td>
+            <td><span class="badge-pill-red">10-09-2</span></td>
+            <td><span class="status-dot dot-blue">Pen...</span></td>
+            <td>SESP ...</td>
+          </tr>
+          <tr>
+            <td>
+              <span class="cell-icon-wrap">
+                <svg class="cell-svg-icon" width="12" height="12" viewBox="0 0 24 24" fill="#2d3748">
+                  <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/>
+                </svg>
+                <span>CE...</span>
+              </span>
+            </td>
+            <td>18-09-...</td>
+            <td>Load Line...</td>
+            <td><span class="badge-pill-red">20-09-2</span></td>
+            <td><span class="status-dot dot-blue">Pen...</span></td>
+            <td>SESP ...</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- ROW 2, COL 3: OPEN FINDINGS CARD (Filled with dummy rows) -->
+    <div class="erp-card">
+      <div class="erp-card-title">Open Findings</div>
+      <table class="erp-table">
+        <thead>
+          <tr>
+            <th style="width: 14%;">Code</th>
+            <th style="width: 17%;">Date</th>
+            <th style="width: 23%;">Title</th>
+            <th style="width: 16%;">Due Date</th>
+            <th style="width: 15%;">Status</th>
+            <th style="width: 15%;">Vessel</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <span class="cell-icon-wrap">
+                <!-- Green Tag SVG Icon -->
+                <svg class="cell-svg-icon" width="12" height="12" viewBox="0 0 24 24" fill="#059669">
+                  <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10H7v-2h10v2zm0-4H7V7h10v2z"/>
+                </svg>
+                <span>NC...</span>
+              </span>
+            </td>
+            <td>09-07-...</td>
+            <td>Emerge...</td>
+            <td><span class="badge-pill-red">07-10-2</span></td>
+            <td><span class="status-dot dot-blue">In P...</span></td>
+            <td>SESP ...</td>
+          </tr>
+          <tr>
+            <td>
+              <span class="cell-icon-wrap">
+                <svg class="cell-svg-icon" width="12" height="12" viewBox="0 0 24 24" fill="#059669">
+                  <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10H7v-2h10v2zm0-4H7V7h10v2z"/>
+                </svg>
+                <span>NC...</span>
+              </span>
+            </td>
+            <td>14-03-...</td>
+            <td>NC fro...</td>
+            <td><span class="badge-pill-red">11-06-2</span></td>
+            <td><span class="status-dot dot-blue">In P...</span></td>
+            <td>SESP ...</td>
+          </tr>
+          <tr>
+            <td>
+              <span class="cell-icon-wrap">
+                <svg class="cell-svg-icon" width="12" height="12" viewBox="0 0 24 24" fill="#059669">
+                  <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10H7v-2h10v2zm0-4H7V7h10v2z"/>
+                </svg>
+                <span>NC...</span>
+              </span>
+            </td>
+            <td>23-04-...</td>
+            <td>Test N...</td>
+            <td><span class="badge-pill-red">22-05-2</span></td>
+            <td><span class="status-dot dot-blue">In P...</span></td>
+            <td>SESP ...</td>
+          </tr>
+          <tr>
+            <td>
+              <span class="cell-icon-wrap">
+                <svg class="cell-svg-icon" width="12" height="12" viewBox="0 0 24 24" fill="#059669">
+                  <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10H7v-2h10v2zm0-4H7V7h10v2z"/>
+                </svg>
+                <span>NC...</span>
+              </span>
+            </td>
+            <td>02-05-...</td>
+            <td>test</td>
+            <td><span class="badge-pill-red">31-05-2</span></td>
+            <td><span class="status-dot dot-blue">In P...</span></td>
+            <td>SESP ...</td>
+          </tr>
+          <tr>
+            <td>
+              <span class="cell-icon-wrap">
+                <svg class="cell-svg-icon" width="12" height="12" viewBox="0 0 24 24" fill="#059669">
+                  <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10H7v-2h10v2zm0-4H7V7h10v2z"/>
+                </svg>
+                <span>NC...</span>
+              </span>
+            </td>
+            <td>12-05-...</td>
+            <td>Lifeboat...</td>
+            <td><span class="badge-pill-red">18-06-2</span></td>
+            <td><span class="status-dot dot-blue">In P...</span></td>
+            <td>SESP ...</td>
+          </tr>
+          <tr>
+            <td>
+              <span class="cell-icon-wrap">
+                <svg class="cell-svg-icon" width="12" height="12" viewBox="0 0 24 24" fill="#059669">
+                  <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10H7v-2h10v2zm0-4H7V7h10v2z"/>
+                </svg>
+                <span>NC...</span>
+              </span>
+            </td>
+            <td>28-05-...</td>
+            <td>Bridge N...</td>
+            <td><span class="badge-pill-red">15-07-2</span></td>
+            <td><span class="status-dot dot-blue">In P...</span></td>
+            <td>SESP ...</td>
+          </tr>
+          <tr>
+            <td>
+              <span class="cell-icon-wrap">
+                <svg class="cell-svg-icon" width="12" height="12" viewBox="0 0 24 24" fill="#059669">
+                  <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10H7v-2h10v2zm0-4H7V7h10v2z"/>
+                </svg>
+                <span>NC...</span>
+              </span>
+            </td>
+            <td>10-06-...</td>
+            <td>Oily Wat...</td>
+            <td><span class="badge-pill-red">30-07-2</span></td>
+            <td><span class="status-dot dot-blue">In P...</span></td>
+            <td>SESP ...</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- ROW 3, COL 1: TASKS PENDING WITH ME CARD (Filled with dummy rows) -->
+    <div class="erp-card">
+      <div class="erp-card-title">Tasks pending with me</div>
+      <table class="erp-table">
+        <thead>
+          <tr>
+            <th style="width: 14%;">Code</th>
+            <th style="width: 18%;">Title</th>
+            <th style="width: 17%;">Due Date</th>
+            <th style="width: 16%;">Type</th>
+            <th style="width: 17%;">Status</th>
+            <th style="width: 18%;">Vessel</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <span class="cell-icon-wrap">
+                <svg class="cell-svg-icon" width="12" height="12" viewBox="0 0 24 24" fill="#2d3748">
+                  <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/>
+                </svg>
+                <span>CE...</span>
+              </span>
+            </td>
+            <td>ECRC (...</td>
+            <td><span class="badge-pill-red">30-06-2</span></td>
+            <td>Certific...</td>
+            <td><span class="status-dot dot-purple">Veri...</span></td>
+            <td>SESP ...</td>
+          </tr>
+          <tr>
+            <td>
+              <span class="cell-icon-wrap">
+                <svg class="cell-svg-icon" width="12" height="12" viewBox="0 0 24 24" fill="#2d3748">
+                  <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/>
+                </svg>
+                <span>CE...</span>
+              </span>
+            </td>
+            <td>GMDSS...</td>
+            <td></td>
+            <td>Certific...</td>
+            <td><span class="status-dot dot-purple">Veri...</span></td>
+            <td>SESP ...</td>
+          </tr>
+          <tr>
+            <td>
+              <span class="cell-icon-wrap">
+                <svg class="cell-svg-icon" width="12" height="12" viewBox="0 0 24 24" fill="#2d3748">
+                  <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/>
+                </svg>
+                <span>CE...</span>
+              </span>
+            </td>
+            <td>IOPP S...</td>
+            <td><span class="badge-pill-red">15-07-2</span></td>
+            <td>Certific...</td>
+            <td><span class="status-dot dot-purple">Veri...</span></td>
+            <td>SESP ...</td>
+          </tr>
+          <tr>
+            <td>
+              <span class="cell-icon-wrap">
+                <svg class="cell-svg-icon" width="12" height="12" viewBox="0 0 24 24" fill="#2d3748">
+                  <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/>
+                </svg>
+                <span>CE...</span>
+              </span>
+            </td>
+            <td>ISM Au...</td>
+            <td><span class="badge-pill-red">22-08-2</span></td>
+            <td>Audit Re...</td>
+            <td><span class="status-dot dot-purple">Veri...</span></td>
+            <td>SESP ...</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- ROW 3, COL 2: OPEN PSC DEFICIENCIES CARD (Filled with dummy rows) -->
+    <div class="erp-card">
+      <div class="erp-card-title">Open PSC Deficiencies</div>
+      <table class="erp-table">
+        <thead>
+          <tr>
+            <th style="width: 20%;">Code</th>
+            <th style="width: 25%;">Date</th>
+            <th style="width: 22%;">Due Date</th>
+            <th style="width: 17%;">Status</th>
+            <th style="width: 16%;">Vessel</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <span class="cell-icon-wrap">
+                <!-- Blue Gear SVG Icon -->
+                <svg class="cell-svg-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="3"/>
+                  <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+                </svg>
+                <span>PSC-...</span>
+              </span>
+            </td>
+            <td>09-07-2021</td>
+            <td><span class="badge-pill-red">09-07-202</span></td>
+            <td><span class="status-dot dot-blue">In Pro...</span></td>
+            <td>SESP De...</td>
+          </tr>
+          <tr>
+            <td>
+              <span class="cell-icon-wrap">
+                <svg class="cell-svg-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="3"/>
+                  <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+                </svg>
+                <span>PSC-...</span>
+              </span>
+            </td>
+            <td>02-10-2024</td>
+            <td><span class="badge-pill-red">01-10-202</span></td>
+            <td><span class="status-dot dot-blue">In Pro...</span></td>
+            <td>SESP De...</td>
+          </tr>
+          <tr>
+            <td>
+              <span class="cell-icon-wrap">
+                <svg class="cell-svg-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="3"/>
+                  <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+                </svg>
+                <span>PSC-...</span>
+              </span>
+            </td>
+            <td>15-11-2024</td>
+            <td><span class="badge-pill-red">14-11-202</span></td>
+            <td><span class="status-dot dot-blue">In Pro...</span></td>
+            <td>SESP De...</td>
+          </tr>
+          <tr>
+            <td>
+              <span class="cell-icon-wrap">
+                <svg class="cell-svg-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="3"/>
+                  <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+                </svg>
+                <span>PSC-...</span>
+              </span>
+            </td>
+            <td>03-12-2024</td>
+            <td><span class="badge-pill-red">01-12-202</span></td>
+            <td><span class="status-dot dot-blue">In Pro...</span></td>
+            <td>SESP De...</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- ROW 3, COL 3: INSPECTIONS PENDING REVIEW CARD (Filled with dummy rows) -->
+    <div class="erp-card">
+      <div class="erp-card-title">Inspections Pending Review</div>
+      <table class="erp-table">
+        <thead>
+          <tr>
+            <th style="width: 14%;">Code</th>
+            <th style="width: 17%;">Date</th>
+            <th style="width: 17%;">Due Date</th>
+            <th style="width: 18%;">Type</th>
+            <th style="width: 16%;">Status</th>
+            <th style="width: 18%;">Vessel</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <span class="cell-icon-wrap">
+                <!-- Blue Magnifying Checklist SVG Icon -->
+                <svg class="cell-svg-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#0284c7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                  <polyline points="14 2 14 8 20 8"/>
+                  <line x1="16" y1="13" x2="8" y2="13"/>
+                  <line x1="16" y1="17" x2="8" y2="17"/>
+                </svg>
+                <span>IN...</span>
+              </span>
+            </td>
+            <td>16-10-...</td>
+            <td>26-10-...</td>
+            <td>Externa...</td>
+            <td><span class="status-dot dot-green">Co...</span></td>
+            <td>SESP ...</td>
+          </tr>
+          <tr>
+            <td>
+              <span class="cell-icon-wrap">
+                <svg class="cell-svg-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#0284c7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                  <polyline points="14 2 14 8 20 8"/>
+                  <line x1="16" y1="13" x2="8" y2="13"/>
+                  <line x1="16" y1="17" x2="8" y2="17"/>
+                </svg>
+                <span>IN...</span>
+              </span>
+            </td>
+            <td>17-10-...</td>
+            <td>27-10-...</td>
+            <td>Externa...</td>
+            <td><span class="status-dot dot-green">Co...</span></td>
+            <td>SESP ...</td>
+          </tr>
+          <tr>
+            <td>
+              <span class="cell-icon-wrap">
+                <svg class="cell-svg-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#0284c7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                  <polyline points="14 2 14 8 20 8"/>
+                  <line x1="16" y1="13" x2="8" y2="13"/>
+                  <line x1="16" y1="17" x2="8" y2="17"/>
+                </svg>
+                <span>IN...</span>
+              </span>
+            </td>
+            <td>20-10-...</td>
+            <td>30-10-...</td>
+            <td>Internal...</td>
+            <td><span class="status-dot dot-green">Co...</span></td>
+            <td>SESP ...</td>
+          </tr>
+          <tr>
+            <td>
+              <span class="cell-icon-wrap">
+                <svg class="cell-svg-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#0284c7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                  <polyline points="14 2 14 8 20 8"/>
+                  <line x1="16" y1="13" x2="8" y2="13"/>
+                  <line x1="16" y1="17" x2="8" y2="17"/>
+                </svg>
+                <span>IN...</span>
+              </span>
+            </td>
+            <td>24-10-...</td>
+            <td>03-11-...</td>
+            <td>SIRE In...</td>
+            <td><span class="status-dot dot-green">Co...</span></td>
+            <td>SESP ...</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </main>
+</div>
+
+<!-- USERNAME ONBOARDING MODAL ("What should we call you?") -->
+<div class="username-modal-backdrop" id="username-modal-backdrop" style="display: flex;">
+  <div class="username-modal-card">
+    <h2 class="username-modal-title">What should we call you?</h2>
+    <form id="username-form" onsubmit="return false;">
+      <div class="username-input-wrap">
+        <svg class="username-input-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+          <circle cx="12" cy="7" r="4"></circle>
+        </svg>
+        <input type="text" id="username-input" class="username-input" placeholder="Username" autocomplete="off" required>
+      </div>
+      <button type="submit" id="username-proceed-btn" class="username-proceed-btn">Proceed</button>
+    </form>
+  </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    // Helper to calculate user initials
+    function getInitials(name) {
+      if (!name || !name.trim()) return 'IX';
+      const parts = name.trim().split(/\s+/);
+      if (parts.length >= 2) {
+        return (parts[0][0] + parts[parts.length - 1][0]).toUpperCase();
+      }
+      return name.trim().substring(0, 2).toUpperCase();
+    }
+
+    function applyUsername(name) {
+      const finalName = name && name.trim() ? name.trim() : 'Ivan Xavier';
+      const initials = getInitials(finalName);
+      localStorage.setItem('jibe_username', finalName);
+      localStorage.setItem('jibe_user_initials', initials);
+
+      document.querySelectorAll('.jibe-display-username').forEach(el => {
+        el.textContent = finalName;
+      });
+      document.querySelectorAll('.jibe-display-initials').forEach(el => {
+        el.textContent = initials;
+      });
+    }
+
+    // Username Onboarding Modal Logic
+    const usernameModal = document.getElementById('username-modal-backdrop');
+    const usernameInput = document.getElementById('username-input');
+    const usernameForm = document.getElementById('username-form');
+    const userProfileBtn = document.getElementById('header-user-profile');
+
+    const savedUser = localStorage.getItem('jibe_username');
+    if (savedUser) {
+      applyUsername(savedUser);
+      if (usernameInput) usernameInput.value = savedUser;
+    }
+
+    if (usernameInput) {
+      setTimeout(() => usernameInput.focus(), 100);
+    }
+
+    function submitUsername() {
+      const entered = usernameInput ? usernameInput.value.trim() : '';
+      const chosenName = entered || 'Ivan Xavier';
+      applyUsername(chosenName);
+      if (usernameModal) {
+        usernameModal.style.display = 'none';
+      }
+    }
+
+    if (usernameForm) {
+      usernameForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        submitUsername();
+      });
+    }
+
+    const proceedBtn = document.getElementById('username-proceed-btn');
+    if (proceedBtn) {
+      proceedBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        submitUsername();
+      });
+    }
+
+    if (userProfileBtn) {
+      userProfileBtn.addEventListener('click', () => {
+        if (usernameInput) {
+          usernameInput.value = localStorage.getItem('jibe_username') || 'Ivan Xavier';
+        }
+        if (usernameModal) {
+          usernameModal.style.display = 'flex';
+          setTimeout(() => usernameInput.focus(), 50);
+        }
+      });
+    }
+
+    const procBtn = document.getElementById('procurement-btn');
+    const dropdown = document.getElementById('procurement-dropdown');
+
+    if (procBtn && dropdown) {
+      procBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        dropdown.classList.toggle('open');
+      });
+
+      // Close dropdown when clicking outside
+      document.addEventListener('click', (e) => {
+        if (!dropdown.contains(e.target) && e.target !== procBtn) {
+          dropdown.classList.remove('open');
+        }
+      });
+    }
+
+    // Workflow Rule: Discard in-progress draft list data when user visits Landing Page
+    const draftKeys = [
+      'lms_draft_active',
+      'lms_list_name',
+      'lms_vessel',
+      'lms_urgency',
+      'lms_department',
+      'lms_create_date',
+      'lms_tags',
+      'lms_remarks',
+      'lms_checklist_items',
+      'lms_attachments_list',
+      'lms_items_list',
+      'lms_selected_segment',
+      'lms_list_status'
+    ];
+    draftKeys.forEach(key => localStorage.removeItem(key));
+  });
+</script>
+</body>
+</html>

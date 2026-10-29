@@ -1,0 +1,16 @@
+# Large Media Files (GitHub limit warning at 50MB, hard block at 100MB)
+*.mp4
+
+# OS & Editor generated files
+.DS_Store
+Thumbs.db
+Desktop.ini
+.vscode/
+.idea/
+*.swp
+*.tmp
+*.log
+
+# System Scratch / Brain logs
+.system_generated/
+scratch/

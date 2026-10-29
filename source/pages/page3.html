@@ -1,0 +1,2731 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JiBe ERP - List Details</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="common.css">
+</head>
+<body>
+
+<div class="app-wrapper">
+  <!-- TOP HEADER (Identical to Dashboard & LMS Header) -->
+  <header class="jibe-top-header">
+    <div class="top-header-left">
+      <a href="page1.html" class="brand-jibe" title="JiBe ERP Dashboard">
+        <div class="brand-logo-img">
+          <svg width="68" height="26" viewBox="0 0 100 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M14 6H19V25C19 29.5 15.5 32 10.5 32C6.5 32 3.5 30 2 28L4.5 24C5.5 25.5 7.5 27 10 27C12.5 27 14 25.5 14 23V6Z" fill="#525d6b"/>
+            <path d="M25 12H30V31H25V12Z" fill="#525d6b"/>
+            <path d="M26 10C24.5 7 26 2 31 1C31 6 29.5 9 26 10Z" fill="#78B928"/>
+            <path d="M28 8C27 6 28 3 30.5 2C30.5 5 29.5 7 28 8Z" fill="#558B17"/>
+            <path d="M37 6H47C51 6 53.5 8 53.5 11C53.5 13 52 14.5 50 15.2C52.5 16 54.5 18 54.5 21C54.5 24.5 51.5 27 47 27H37V6ZM42 10.5V14H46.5C48 14 49 13 49 11.8C49 10.5 48 10.5 46.5 10.5H42ZM42 17.5V22.5H47C48.5 22.5 49.5 21.5 49.5 20C49.5 18.5 48.5 17.5 47 17.5H42Z" fill="#525d6b"/>
+            <path d="M68 20.5H58.5C59 23 61 24.5 63.5 24.5C65.5 24.5 67 23.5 67.5 22L71.5 23.5C70 26.5 67 28 63.5 28C57.5 28 54 23.5 54 18.5C54 13.5 58 9 63.5 9C69 9 72 13 72 18.5C72 19.3 71.9 20 71.8 20.5H68ZM63.5 12.5C61 12.5 59.2 14 58.7 17H67.5C67 14 65.5 12.5 63.5 12.5Z" fill="#525d6b"/>
+          </svg>
+        </div>
+      </a>
+    </div>
+
+    <div class="top-header-right">
+      <div class="header-utility-tray">
+        <button class="tray-icon-btn" title="Calendar / Schedule">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+            <line x1="16" y1="2" x2="16" y2="6"></line>
+            <line x1="8" y1="2" x2="8" y2="6"></line>
+            <line x1="3" y1="10" x2="21" y2="10"></line>
+            <line x1="8" y1="14" x2="8.01" y2="14"></line>
+            <line x1="12" y1="14" x2="12.01" y2="14"></line>
+            <line x1="16" y1="14" x2="16.01" y2="14"></line>
+          </svg>
+        </button>
+        <button class="tray-icon-btn" title="Settings / Controls">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="4" y1="21" x2="4" y2="14"></line>
+            <line x1="4" y1="10" x2="4" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="12"></line>
+            <line x1="12" y1="8" x2="12" y2="3"></line>
+            <line x1="20" y1="21" x2="20" y2="16"></line>
+            <line x1="20" y1="12" x2="20" y2="3"></line>
+            <line x1="1" y1="14" x2="7" y2="14"></line>
+            <line x1="9" y1="8" x2="15" y2="8"></line>
+            <line x1="17" y1="16" x2="23" y2="16"></line>
+          </svg>
+        </button>
+        <button class="tray-icon-btn" title="Alerts & Notifications">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+            <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+          </svg>
+        </button>
+      </div>
+
+      <div class="user-profile" id="header-user-profile" style="cursor: pointer;" title="Click to change username">
+        <span class="user-name">
+          <span class="jibe-display-username">Ivan Xavier</span>
+          <svg width="9" height="9" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M7 10l5 5 5-5z"/>
+          </svg>
+        </span>
+        <span class="user-sub">Seaspan Ship Management Ltd.</span>
+      </div>
+
+      <div class="company-brand-box">
+        <div class="seaspan-logo-mark">
+          <svg width="22" height="15" viewBox="0 0 40 26" fill="none">
+            <path d="M4 14C9 8 16 8 20 14C24 20 31 20 36 14" stroke="#cc0000" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M4 7C9 1 16 1 20 7C24 13 31 13 36 7" stroke="#cc0000" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <span class="seaspan-logo-text">seaspan</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- NAVIGATION BAR (Exact 1:1 Match to User Reference Base Template) -->
+  <nav class="jibe-navbar">
+    <ul class="nav-list">
+      <li class="nav-item">
+        <a href="page1.html" class="nav-link-item">Dashboard</a>
+      </li>
+      <li class="nav-item">
+        <a href="#" class="nav-link-item">Admin</a>
+      </li>
+      <li class="nav-item">
+        <a href="#" class="nav-link-item">Inspection</a>
+      </li>
+      <li class="nav-item">
+        <a href="#" class="nav-link-item">QHSE</a>
+      </li>
+      <li class="nav-item">
+        <a href="#" class="nav-link-item">Operations</a>
+      </li>
+      <li class="nav-item has-dropdown">
+        <a href="#" class="nav-link-item" id="procurement-btn">Procurement</a>
+        <ul class="procurement-dropdown-menu" id="procurement-dropdown">
+          <li class="dropdown-menu-item">
+            <a href="#" class="dropdown-link">Procurement Main</a>
+          </li>
+          <li class="dropdown-menu-item">
+            <a href="page2.html" class="dropdown-link">Lists</a>
+          </li>
+          <li class="dropdown-menu-item">
+            <a href="#" class="dropdown-link">Browsing and Search</a>
+          </li>
+          <li class="dropdown-menu-item">
+            <a href="#" class="dropdown-link">Catalogues List</a>
+          </li>
+          <li class="dropdown-menu-item">
+            <a href="#" class="dropdown-link">Items List</a>
+          </li>
+          <li class="dropdown-menu-item">
+            <a href="#" class="dropdown-link">Inventory Main</a>
+          </li>
+          <li class="dropdown-menu-item">
+            <a href="#" class="dropdown-link">Company Registry</a>
+          </li>
+          <li class="dropdown-menu-item">
+            <a href="#" class="dropdown-link">Logistics</a>
+          </li>
+        </ul>
+      </li>
+      <li class="nav-item">
+        <a href="#" class="nav-link-item">Technical</a>
+      </li>
+      <li class="nav-item">
+        <a href="#" class="nav-link-item">Certificates</a>
+      </li>
+      <li class="nav-item">
+        <a href="#" class="nav-link-item">Insights</a>
+      </li>
+      <li class="nav-item">
+        <a href="#" class="nav-link-item">Projects</a>
+      </li>
+    </ul>
+
+    <div class="nav-right-actions" title="Warnings">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
+        <line x1="12" y1="9" x2="12" y2="13"/>
+        <line x1="12" y1="17" x2="12.01" y2="17"/>
+      </svg>
+    </div>
+  </nav>
+
+  <!-- PAGE 3 LAYOUT -->
+  <div class="p3-layout">
+    <!-- LEFT SIDEBAR -->
+    <aside class="p3-sidebar">
+      <ul class="sidebar-menu-list">
+        <!-- Item 1: List Details -->
+        <li class="sidebar-item-group" id="sidebar-group-list-details">
+          <div class="sidebar-item-header active-green" id="sidebar-header-list-details">
+            <div class="sidebar-header-left">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                <polyline points="14 2 14 8 20 8"></polyline>
+                <line x1="16" y1="13" x2="8" y2="13"></line>
+                <line x1="16" y1="17" x2="8" y2="17"></line>
+                <line x1="10" y1="9" x2="8" y2="9"></line>
+              </svg>
+              <span>List Details</span>
+            </div>
+            <span class="sidebar-chevron">
+              <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </span>
+          </div>
+
+          <ul class="sidebar-sub-list" id="sidebar-sub-list-details">
+            <li><a href="#card-general-info" class="sidebar-sub-item">General Information</a></li>
+            <li><a href="#card-checklist" class="sidebar-sub-item">Checklist</a></li>
+            <li><a href="#card-attachments" class="sidebar-sub-item">Attachments</a></li>
+          </ul>
+        </li>
+
+        <!-- Item 2: Items (with options: Items, Services, Machinery - Image 1) -->
+        <li class="sidebar-item-group" id="sidebar-group-items">
+          <div class="sidebar-item-header" id="sidebar-header-items">
+            <div class="sidebar-header-left">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="9" cy="21" r="1"></circle>
+                <circle cx="20" cy="21" r="1"></circle>
+                <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+              </svg>
+              <span>Items</span>
+            </div>
+            <span class="sidebar-chevron">
+              <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </span>
+          </div>
+
+          <!-- Items Submenu Options (Image 1) -->
+          <ul class="sidebar-sub-list" id="sidebar-sub-items" style="display: none;">
+            <li><a href="#card-items-table" class="sidebar-sub-item">Items</a></li>
+            <li><a href="#card-services-table" class="sidebar-sub-item">Services</a></li>
+            <li><a href="#card-machinery-table" class="sidebar-sub-item">Machinery</a></li>
+          </ul>
+        </li>
+
+        <!-- Item 3: Linked Records -->
+        <li class="sidebar-item-group" id="sidebar-group-linked">
+          <div class="sidebar-item-header" id="sidebar-header-linked">
+            <div class="sidebar-header-left">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                <polyline points="15 3 21 3 21 9"></polyline>
+                <line x1="10" y1="14" x2="21" y2="3"></line>
+              </svg>
+              <span>Linked Records</span>
+            </div>
+          </div>
+        </li>
+      </ul>
+
+      <!-- Bottom Collapse Toggle -->
+      <div class="sidebar-footer-collapse" title="Collapse Sidebar">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <polyline points="11 17 6 12 11 7"></polyline>
+          <polyline points="18 17 13 12 18 7"></polyline>
+        </svg>
+      </div>
+    </aside>
+
+    <!-- MAIN CONTAINER -->
+    <main class="p3-main-container">
+      <!-- TOP SUMMARY HEADER (Static) -->
+      <section class="p3-top-summary">
+        <div class="p3-meta-top-row">
+          <div class="p3-badges-left">
+            <!-- Vessel Badge -->
+            <span class="p3-vessel-badge">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2">
+                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                <polyline points="9 22 9 12 15 12 15 22"></polyline>
+              </svg>
+              <span id="display-vessel-name">SESP Demo Vessel</span>
+            </span>
+
+            <!-- Document ID Badge -->
+            <span class="p3-list-id-badge">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                <polyline points="14 2 14 8 20 8"></polyline>
+              </svg>
+              <span>LIST-SPDM-60028/26</span>
+            </span>
+
+            <!-- Active Status Badge -->
+            <span class="p3-status-purple">Active</span>
+          </div>
+
+          <!-- Top Action Buttons -->
+          <div class="p3-actions-right">
+            <button class="action-icon-btn" title="More Options">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+                <circle cx="12" cy="5" r="1.5"></circle>
+                <circle cx="12" cy="12" r="1.5"></circle>
+                <circle cx="12" cy="19" r="1.5"></circle>
+              </svg>
+            </button>
+            <button class="btn-create-req disabled" id="btn-create-req" disabled>Create Requisition</button>
+            <button class="btn-save-list-disabled disabled" id="btn-save-list" disabled>Save List</button>
+          </div>
+        </div>
+
+        <!-- Success Notification Banner (Image 1) -->
+        <div class="save-list-notification" id="save-list-notification">
+          <div class="save-toast-content">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+            <span>ItemList saved successfully.</span>
+          </div>
+          <button class="save-toast-close" id="btn-save-toast-close" type="button" title="Dismiss">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#15803d" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+          </button>
+        </div>
+
+        <!-- List Name Title (Dynamic from variable/localStorage) -->
+        <h1 class="p3-list-title" id="display-list-title">Test List</h1>
+
+        <!-- Metadata Grid -->
+        <div class="p3-meta-grid">
+          <div>
+            <div class="p3-meta-col-label">Create Date</div>
+            <div class="p3-meta-col-value" id="display-create-date">02-10-2026</div>
+          </div>
+          <div>
+            <div class="p3-meta-col-label">Urgency</div>
+            <div class="p3-meta-col-value" id="display-urgency">D-Regular Spares...</div>
+          </div>
+          <div>
+            <div class="p3-meta-col-label">No. Of Items</div>
+            <div class="p3-meta-col-value" id="display-items-count">3</div>
+          </div>
+          <div>
+            <div class="p3-meta-col-label">Assigned To</div>
+            <div class="p3-meta-col-value"></div>
+          </div>
+          <div>
+            <div class="p3-meta-col-label">Vessel Department</div>
+            <div class="p3-meta-col-value" id="display-dept">Engine</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- TWO-COLUMN BODY CONTENT -->
+      <div class="p3-body-columns">
+        <!-- LEFT SUBDIVISION (Outlined in red by user: Independent Vertical Scrolling) -->
+        <div class="p3-scrollable-subdivision" id="scrollable-content-subdivision">
+          <!-- VIEW 1: LIST DETAILS (Default) -->
+          <div class="p3-subdivision-view" id="view-list-details">
+            <!-- CARD 1: General Information -->
+            <section class="p3-card" id="card-general-info">
+            <h2 class="p3-card-title">General Information</h2>
+
+            <div class="p3-gen-info-grid">
+              <!-- Left Column: Segments -->
+              <div>
+                <div class="p3-field-label-muted">Segments</div>
+              </div>
+
+              <!-- Right Column: Tags -->
+              <div class="p3-tags-container">
+                <div class="p3-field-label-muted">Tags</div>
+                <div class="p3-tags-select-box" id="tags-select-box">
+                  <span id="tags-selected-text">Select</span>
+                  <div class="p3-tag-actions-right">
+                    <span class="p3-tag-clear-btn" id="tags-clear-btn" style="display: none;">&times;</span>
+                    <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                      <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                  </div>
+                </div>
+
+                <!-- Tags Dropdown Menu (Image 2) -->
+                <div class="p3-tags-dropdown-menu" id="tags-dropdown-menu">
+                  <div class="tags-search-row">
+                    <span class="tags-select-all-box"></span>
+                    <div class="tags-search-input-wrap">
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#64748b" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                      </svg>
+                      <input type="text" class="tags-search-input" id="tags-search-input" placeholder="">
+                    </div>
+                  </div>
+                  <ul class="tags-options-list" id="tags-options-list">
+                    <li class="tags-option-item" data-tag="Anti-Piracy Good">
+                      <span class="tag-checkbox-box"></span>
+                      <span>Anti-Piracy Good</span>
+                    </li>
+                    <li class="tags-option-item" data-tag="Contracted Items">
+                      <span class="tag-checkbox-box"></span>
+                      <span>Contracted Items</span>
+                    </li>
+                    <li class="tags-option-item" data-tag="Hold">
+                      <span class="tag-checkbox-box"></span>
+                      <span>Hold</span>
+                    </li>
+                    <li class="tags-option-item" data-tag="MARPOL" id="tag-option-marpol">
+                      <span class="tag-checkbox-box"></span>
+                      <span>MARPOL</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              <!-- Full-width Row: General Remarks -->
+              <div class="p3-remarks-fullwidth-row">
+                <div class="p3-field-label-muted">General Remarks</div>
+                <div class="p3-field-label-danger">(Internal use ONLY)</div>
+
+                <!-- Static placeholder (initial state) -->
+                <div class="p3-remarks-placeholder" id="remarks-placeholder-initial">Enter remarks</div>
+
+                <!-- Rich text editor box with 2500 char limit (shown once Tags is clicked) -->
+                <div class="p3-remarks-editor-box" id="remarks-editor-box" style="display: none;">
+                  <div class="p3-editor-toolbar">
+                    <button type="button" class="editor-tool-btn btn-bold" data-cmd="bold" title="Bold">B</button>
+                    <button type="button" class="editor-tool-btn btn-italic" data-cmd="italic" title="Italic">I</button>
+                    <button type="button" class="editor-tool-btn btn-underline" data-cmd="underline" title="Underline">U</button>
+                    <span class="editor-tool-sep">|</span>
+                    <button type="button" class="editor-tool-btn" data-cmd="insertOrderedList" title="Numbered List">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="10" y1="6" x2="21" y2="6"></line>
+                        <line x1="10" y1="12" x2="21" y2="12"></line>
+                        <line x1="10" y1="18" x2="21" y2="18"></line>
+                        <path d="M4 6h1v4"></path>
+                        <path d="M4 10h2"></path>
+                        <path d="M6 18H4c0-1 2-2 2-3s-1-1.5-2-1"></path>
+                      </svg>
+                    </button>
+                    <button type="button" class="editor-tool-btn" data-cmd="insertUnorderedList" title="Bullet List">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="9" y1="6" x2="20" y2="6"></line>
+                        <line x1="9" y1="12" x2="20" y2="12"></line>
+                        <line x1="9" y1="18" x2="20" y2="18"></line>
+                        <circle cx="4" cy="6" r="1.5" fill="currentColor"></circle>
+                        <circle cx="4" cy="12" r="1.5" fill="currentColor"></circle>
+                        <circle cx="4" cy="18" r="1.5" fill="currentColor"></circle>
+                      </svg>
+                    </button>
+                  </div>
+                  <textarea class="p3-editor-textarea" id="remarks-textarea" maxlength="2500" placeholder="Enter remarks"></textarea>
+                  <div class="p3-editor-footer">
+                    <span class="p3-char-counter" id="remarks-char-counter">0 / 2500</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- CARD 2: Checklist (Interactive Images 1-4) -->
+          <section class="p3-card" id="card-checklist">
+            <div class="p3-card-action-row" id="checklist-header-row">
+              <h2 class="p3-card-row-title">Checklist</h2>
+              
+              <!-- View Mode Action (Image 1) -->
+              <div id="checklist-view-actions">
+                <button class="btn-card-outline" id="btn-checklist-edit">Edit</button>
+              </div>
+
+              <!-- Edit Mode Actions (Image 2-4) -->
+              <div id="checklist-edit-actions" style="display: none; gap: 10px; align-items: center;">
+                <button class="btn-card-outline" id="btn-checklist-discard">Discard Changes</button>
+                <button class="btn-save-blue" id="btn-checklist-save">Save</button>
+              </div>
+            </div>
+
+            <!-- Checklist View List (shown in view mode if items exist) -->
+            <div id="checklist-view-container" style="display: none; margin-top: 12px;">
+              <ul class="checklist-items-view-list" id="checklist-view-list"></ul>
+            </div>
+
+            <!-- Checklist Edit Body (Image 2, 3, 4) -->
+            <div id="checklist-edit-body" style="display: none; margin-top: 14px;">
+              <!-- Container for editable checklist rows (Image 3 & 4) -->
+              <div id="checklist-inputs-container"></div>
+
+              <!-- Add checklist item button (Image 2) -->
+              <div class="btn-add-checklist-item" id="btn-add-checklist-item">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <line x1="12" y1="8" x2="12" y2="16"></line>
+                  <line x1="8" y1="12" x2="16" y2="12"></line>
+                </svg>
+                <span>Add checklist item</span>
+              </div>
+              <div class="checklist-divider-bottom"></div>
+            </div>
+          </section>
+
+          <!-- CARD 3: Attachments (Images 1 & 2) -->
+          <section class="p3-card" id="card-attachments">
+            <div class="p3-card-action-row">
+              <h2 class="p3-card-row-title">Attachments</h2>
+              <button class="btn-card-outline" id="btn-attach-file">Attach File</button>
+            </div>
+
+            <!-- Attachments Table (Image 1) -->
+            <div class="attachments-table-container">
+              <table class="attachments-table" id="attachments-table">
+                <thead>
+                  <tr>
+                    <th style="width: 32%;">Name</th>
+                    <th style="width: 18%;">Size (KB)</th>
+                    <th style="width: 22%;">Date Attached</th>
+                    <th style="width: 28%;">Comments</th>
+                  </tr>
+                </thead>
+                <tbody id="attachments-tbody">
+                  <!-- Populated dynamically via JS -->
+                </tbody>
+              </table>
+
+              <!-- Empty state (Image 1) -->
+              <div class="attachments-no-records" id="attachments-no-records">
+                No Records Found
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <!-- VIEW 2: ITEMS (Image 1) -->
+        <div class="p3-subdivision-view" id="view-items" style="display: none;">
+          <!-- CARD 1: Items -->
+          <section class="p3-card" id="card-items-table">
+            <div class="p3-card-action-row">
+              <h2 class="p3-card-row-title">Items</h2>
+              <button class="btn-card-outline" id="btn-browse-item">Browse Item</button>
+            </div>
+
+            <div class="p3-toolbar-row">
+              <div class="p3-filter-selects">
+                <div class="p3-filter-label-value">
+                  <span>Brand:</span>
+                  <span class="p3-filter-val">Select</span>
+                </div>
+                <div class="p3-filter-label-value">
+                  <span>Model:</span>
+                  <span class="p3-filter-val">Select</span>
+                </div>
+              </div>
+
+              <div class="p3-toolbar-actions-right">
+                <div class="p3-table-search-box">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#64748b" stroke-width="2">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                  </svg>
+                  <input type="text" placeholder="Search">
+                </div>
+
+                <button class="p3-toolbar-icon-btn" title="Filter">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"></polygon>
+                  </svg>
+                </button>
+
+                <div class="p3-toolbar-divider"></div>
+
+                <button class="p3-toolbar-icon-btn" title="More Options">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor">
+                    <circle cx="12" cy="5" r="1.5"></circle>
+                    <circle cx="12" cy="12" r="1.5"></circle>
+                    <circle cx="12" cy="19" r="1.5"></circle>
+                  </svg>
+                </button>
+              </div>
+            </div>
+
+            <table class="p3-data-table">
+              <thead>
+                <tr>
+                  <th style="width: 4%;">#</th>
+                  <th style="width: 22%;">Component</th>
+                  <th style="width: 18%;">Part No.</th>
+                  <th style="width: 26%;">Item Name</th>
+                  <th style="width: 12%;">Brand</th>
+                  <th style="width: 10%;">Model</th>
+                  <th style="width: 8%;">UOM</th>
+                </tr>
+              </thead>
+              <tbody id="p3-items-tbody">
+                <tr>
+                  <td colspan="7" class="p3-empty-table-row">No Records Found</td>
+                </tr>
+              </tbody>
+            </table>
+
+            <div class="p3-mini-pagination" id="p3-items-pagination">
+              <span class="pg-btn">|&lsaquo;</span>
+              <span class="pg-btn">&lsaquo;</span>
+              <span class="pg-num active-pg">1</span>
+              <span class="pg-btn">&rsaquo;</span>
+              <span class="pg-btn">&rsaquo;|</span>
+              <span class="p3-filter-val" style="margin-left: 6px;">25</span>
+              <svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+              <span>Items per page</span>
+              <span style="color: #cbd5e1; margin: 0 4px;">|</span>
+              <span id="p3-items-total-info">Total Pages: 1 Items: 3</span>
+            </div>
+          </section>
+
+          <!-- CARD 2: Services -->
+          <section class="p3-card" id="card-services-table">
+            <div class="p3-card-action-row">
+              <h2 class="p3-card-row-title">Services</h2>
+              <button class="btn-card-outline" id="btn-browse-services">Browse Services</button>
+            </div>
+
+            <div class="p3-toolbar-row" style="justify-content: flex-end;">
+              <div class="p3-toolbar-actions-right">
+                <div class="p3-table-search-box">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#64748b" stroke-width="2">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                  </svg>
+                  <input type="text" placeholder="Search">
+                </div>
+
+                <button class="p3-toolbar-icon-btn" title="Filter">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"></polygon>
+                  </svg>
+                </button>
+
+                <div class="p3-toolbar-divider"></div>
+
+                <button class="p3-toolbar-icon-btn" title="More Options">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor">
+                    <circle cx="12" cy="5" r="1.5"></circle>
+                    <circle cx="12" cy="12" r="1.5"></circle>
+                    <circle cx="12" cy="19" r="1.5"></circle>
+                  </svg>
+                </button>
+              </div>
+            </div>
+
+            <table class="p3-data-table">
+              <thead>
+                <tr>
+                  <th style="width: 4%;">#</th>
+                  <th style="width: 22%;">Component</th>
+                  <th style="width: 14%;">Code</th>
+                  <th style="width: 24%;">Title</th>
+                  <th style="width: 24%;">Description</th>
+                  <th style="width: 12%;">Due Date</th>
+                </tr>
+              </thead>
+              <tbody id="p3-services-tbody">
+                <tr>
+                  <td colspan="6" class="p3-empty-table-row">No Records Found</td>
+                </tr>
+              </tbody>
+            </table>
+
+            <div class="p3-mini-pagination">
+              <span class="pg-btn">|&lsaquo;</span>
+              <span class="pg-btn">&lsaquo;</span>
+              <span class="pg-btn">&rsaquo;</span>
+              <span class="pg-btn">&rsaquo;|</span>
+              <span class="p3-filter-val" style="margin-left: 6px;">25</span>
+              <svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+              <span>Items per page</span>
+              <span style="color: #cbd5e1; margin: 0 4px;">|</span>
+              <span>Total Pages: 0 Items: 0</span>
+            </div>
+          </section>
+
+          <!-- CARD 3: Machinery (Permanent - Image 5) -->
+          <section class="p3-card" id="card-machinery-table">
+            <h2 class="p3-card-title">Machinery</h2>
+
+            <div class="p3-toolbar-row">
+              <div class="p3-filter-selects">
+                <div class="p3-filter-label-value">
+                  <span>Maker/Make:</span>
+                  <span class="p3-filter-val">Select</span>
+                </div>
+                <div class="p3-filter-label-value">
+                  <span>Model:</span>
+                  <span class="p3-filter-val">Select</span>
+                </div>
+                <div class="p3-filter-label-value">
+                  <span>Machinery:</span>
+                  <span class="p3-filter-val">Select</span>
+                </div>
+              </div>
+
+              <div class="p3-toolbar-actions-right">
+                <div class="p3-table-search-box">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#64748b" stroke-width="2">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                  </svg>
+                  <input type="text" placeholder="Search">
+                </div>
+
+                <button class="p3-toolbar-icon-btn" title="Filter">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"></polygon>
+                  </svg>
+                </button>
+
+                <div class="p3-toolbar-divider"></div>
+
+                <button class="p3-toolbar-icon-btn" title="More Options">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor">
+                    <circle cx="12" cy="5" r="1.5"></circle>
+                    <circle cx="12" cy="12" r="1.5"></circle>
+                    <circle cx="12" cy="19" r="1.5"></circle>
+                  </svg>
+                </button>
+              </div>
+            </div>
+
+            <table class="p3-data-table">
+              <thead>
+                <tr>
+                  <th style="width: 22%;">
+                    <div style="display: inline-flex; align-items: center; gap: 4px;">
+                      <span>Machinery</span>
+                      <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="7 10 12 5 17 10"></polyline>
+                        <polyline points="7 14 12 19 17 14"></polyline>
+                      </svg>
+                    </div>
+                  </th>
+                  <th style="width: 18%;">Maker/Make</th>
+                  <th style="width: 15%;">Licensee</th>
+                  <th style="width: 15%;">Model</th>
+                  <th style="width: 15%;">Serial Number</th>
+                  <th style="width: 15%;">Particulars</th>
+                </tr>
+              </thead>
+              <tbody id="p3-machinery-tbody">
+                <tr>
+                  <td colspan="6" class="p3-empty-table-row">No Records Found</td>
+                </tr>
+              </tbody>
+            </table>
+          </section>
+        </div>
+      </div>
+
+        <!-- RIGHT COLUMN: Feed & Discussions -->
+        <aside class="p3-feed-container">
+          <div class="p3-feed-header">
+            <h3 class="p3-feed-title">Feed & Discussions</h3>
+            <div class="p3-feed-icons" title="Expand feed">
+              <!-- 4 dots icon (::) -->
+              <svg width="11" height="11" viewBox="0 0 16 16" fill="currentColor">
+                <circle cx="3.5" cy="3.5" r="1.8"/>
+                <circle cx="12.5" cy="3.5" r="1.8"/>
+                <circle cx="3.5" cy="12.5" r="1.8"/>
+                <circle cx="12.5" cy="12.5" r="1.8"/>
+              </svg>
+              <!-- Next arrow -->
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <polyline points="9 18 15 12 9 6"></polyline>
+              </svg>
+            </div>
+          </div>
+
+          <!-- Feed Input Row -->
+          <div class="p3-feed-input-row">
+            <div class="p3-avatar-circle jibe-display-initials">IX</div>
+            <div class="p3-feedback-input-box">
+              <input type="text" class="p3-feedback-text" placeholder="Share your feedback">
+              <span class="p3-send-icon" title="Send">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/>
+                </svg>
+              </span>
+            </div>
+          </div>
+
+          <!-- Feed Entry Card -->
+          <div class="p3-feed-entry-card">
+            <div class="p3-avatar-circle jibe-display-initials">IX</div>
+            <div class="p3-feed-entry-body">
+              <div class="p3-feed-user-row">
+                <span class="p3-feed-username jibe-display-username">Ivan Xavier</span>
+                <span class="p3-feed-date" id="display-feed-date">02-10-2026</span>
+              </div>
+              <div class="p3-feed-marked-text">Marked as New Item List</div>
+              <div class="p3-feed-bubble" id="display-feed-bubble">
+                New ITEM LIST LIST-SPDM-60028/26 is created
+              </div>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </main>
+  </div>
+</div>
+
+<!-- Upload Modal (Image 2) -->
+<div class="upload-modal-backdrop" id="upload-modal-backdrop">
+  <div class="upload-modal-box" id="upload-modal-box">
+    <!-- Header -->
+    <div class="upload-modal-header">
+      <h3 class="upload-modal-title">Upload</h3>
+      <button class="upload-modal-close" id="btn-modal-close" type="button" title="Close">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Drop & Browse Area -->
+    <div class="upload-drop-zone" id="upload-drop-zone">
+      <div class="upload-drop-left" id="upload-drop-left" title="Click to choose a file">
+        <div class="upload-cloud-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 14.899A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 2.5 8.242"></path>
+            <path d="M12 12v9"></path>
+            <path d="m16 16-4-4-4 4"></path>
+          </svg>
+        </div>
+        <span class="upload-drop-text" id="upload-drop-text">Drop file here or click to upload</span>
+      </div>
+      <button type="button" class="btn-modal-browse" id="btn-modal-browse">Browse</button>
+      <input type="file" id="attachment-file-input" style="display: none;">
+    </div>
+
+    <!-- Attachment Remarks Section -->
+    <div class="upload-remarks-container">
+      <label class="upload-remarks-label" for="upload-remarks-textarea">Attachment Remarks:</label>
+      <div class="upload-remarks-wrapper">
+        <textarea class="upload-remarks-textarea" id="upload-remarks-textarea" maxlength="5000"></textarea>
+        <span class="upload-remarks-counter" id="upload-remarks-counter">0/5000 Characters</span>
+      </div>
+    </div>
+
+    <!-- Modal Actions -->
+    <div class="upload-modal-actions">
+      <button type="button" class="btn-modal-cancel" id="btn-modal-cancel">Cancel</button>
+      <button type="button" class="btn-modal-upload" id="btn-modal-upload" disabled>Upload</button>
+    </div>
+  </div>
+</div>
+
+<!-- CREATE REQUISITION MODAL (Images 1, 2, 5) -->
+<div class="req-modal-backdrop" id="req-modal-backdrop">
+  <div class="req-modal-dialog" id="req-modal-dialog">
+    <!-- Header -->
+    <div class="req-modal-header">
+      <h3 class="req-modal-title">Create Requisition</h3>
+      <button type="button" class="req-modal-close" id="btn-req-close" title="Close">&times;</button>
+    </div>
+
+    <!-- Form Body (2 columns matching Image 1) -->
+    <div class="req-modal-body">
+      <!-- Left Column -->
+      <div style="display: flex; flex-direction: column; gap: 16px;">
+        <!-- Field 1: Vessel * -->
+        <div class="req-field-group">
+          <label class="req-field-label">Vessel<span class="required-star">*</span></label>
+          <div class="req-underline-input-wrap">
+            <input type="text" class="req-underline-input readonly" id="req-input-vessel" value="SESP Demo Vessel" readonly>
+          </div>
+        </div>
+
+        <!-- Field 2: Purchase Type * (Images 1, 2, 5) -->
+        <div class="req-field-group" id="req-field-purchase-type">
+          <label class="req-field-label">Purchase Type<span class="required-star">*</span></label>
+          <div class="req-underline-input-wrap" id="req-wrap-purchase-type">
+            <div class="req-select-trigger" id="req-trigger-purchase-type">
+              <span class="req-select-val placeholder" id="req-val-purchase-type">Select</span>
+              <div class="req-input-actions">
+                <button type="button" class="req-clear-btn" id="btn-clear-purchase-type" style="display: none;">&times;</button>
+                <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+              </div>
+            </div>
+          </div>
+
+          <!-- Purchase Type Searchable Dropdown Menu (Image 2) -->
+          <div class="req-dropdown-menu" id="req-dropdown-purchase-type">
+            <div class="req-dropdown-search-row">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#1e293b" stroke-width="2.2">
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+              </svg>
+              <input type="text" class="req-dropdown-search-input" id="input-search-purchase-type" placeholder="" autocomplete="off">
+            </div>
+            <ul class="req-dropdown-options-list" id="list-options-purchase-type">
+              <li class="req-dropdown-option active" data-value="High Value Stores">High Value Stores</li>
+              <li class="req-dropdown-option" data-value="Direct PO">Direct PO</li>
+              <li class="req-dropdown-option" data-value="Logistics">Logistics</li>
+              <li class="req-dropdown-option" data-value="IT Office Spares & Services">IT Office Spares & Services</li>
+              <li class="req-dropdown-option" data-value="Standard PO">Standard PO</li>
+              <li class="req-dropdown-option" data-value="Shipboard IT Equipment & Services">Shipboard IT Equipment & Services</li>
+              <li class="req-dropdown-option" data-value="SDR PO">SDR PO</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Field 3: Urgency * (Image 1) -->
+        <div class="req-field-group">
+          <label class="req-field-label">Urgency<span class="required-star">*</span></label>
+          <div class="req-underline-input-wrap">
+            <div class="req-select-trigger" id="req-trigger-urgency">
+              <span class="req-select-val" id="req-val-urgency">D-Regular Spares/Stores</span>
+              <div class="req-input-actions">
+                <button type="button" class="req-clear-btn" id="btn-clear-urgency">&times;</button>
+                <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Column -->
+      <div style="display: flex; flex-direction: column; gap: 16px;">
+        <!-- Field 4: Port Call (Image 1) -->
+        <div class="req-field-group" id="req-field-port-call">
+          <label class="req-field-label">Port Call</label>
+          <div class="req-underline-input-wrap" id="req-wrap-port-call">
+            <div class="req-select-trigger" id="req-trigger-port-call">
+              <span class="req-select-val placeholder" id="req-val-port-call"></span>
+              <div class="req-input-actions">
+                <button type="button" class="req-clear-btn" id="btn-clear-port-call" style="display: none;">&times;</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Port Call Dropdown Menu -->
+          <div class="req-dropdown-menu" id="req-dropdown-port-call">
+            <ul class="req-dropdown-options-list" id="list-options-port-call">
+              <li class="req-dropdown-option" data-value="SESP-PC-2026-001 (Singapore)">SESP-PC-2026-001 (Singapore)</li>
+              <li class="req-dropdown-option" data-value="SESP-PC-2026-002 (Rotterdam)">SESP-PC-2026-002 (Rotterdam)</li>
+              <li class="req-dropdown-option" data-value="SESP-PC-2026-003 (Busan)">SESP-PC-2026-003 (Busan)</li>
+              <li class="req-dropdown-option" data-value="SESP-PC-2026-004 (Shanghai)">SESP-PC-2026-004 (Shanghai)</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Field 5: Delivery Port * (Image 1, 3, 4, 5) -->
+        <div class="req-field-group">
+          <label class="req-field-label">Delivery Port<span class="required-star">*</span></label>
+          <div class="req-underline-input-wrap" id="req-wrap-delivery-port" style="cursor: pointer;">
+            <div class="req-select-trigger" id="req-trigger-delivery-port">
+              <span class="req-select-val placeholder" id="req-val-delivery-port"></span>
+              <div class="req-input-actions">
+                <button type="button" class="req-clear-btn" id="btn-clear-delivery-port" style="display: none;">&times;</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Field 6: Delivery Date * (Image 1 & 5) -->
+        <div class="req-field-group" id="req-field-delivery-date">
+          <label class="req-field-label">Delivery Date<span class="required-star">*</span></label>
+          <div class="req-underline-input-wrap" id="req-wrap-delivery-date" style="cursor: pointer;">
+            <input type="text" class="req-underline-input" id="req-input-delivery-date" placeholder="" readonly style="cursor: pointer;">
+          </div>
+
+          <!-- Calendar Popover (Image 5) -->
+          <div class="req-calendar-popover" id="req-calendar-popover">
+            <div class="req-cal-header">
+              <button type="button" class="req-cal-nav" id="btn-cal-prev" title="Previous Month">
+                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"></polyline></svg>
+              </button>
+              <span id="req-cal-month-year">October 2026</span>
+              <button type="button" class="req-cal-nav" id="btn-cal-next" title="Next Month">
+                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+              </button>
+            </div>
+            <div class="req-cal-weekdays">
+              <span>Su</span><span>Mo</span><span>Tu</span><span>We</span><span>Th</span><span>Fr</span><span>Sa</span>
+            </div>
+            <div class="req-cal-grid" id="req-cal-grid">
+              <!-- Grid will be populated by JS -->
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Subject * Full Width (Image 1 & 5) -->
+      <div class="req-subject-group">
+        <label class="req-field-label">Subject<span class="required-star">*</span></label>
+        <textarea class="req-subject-textarea" id="req-subject-textarea">Test 1</textarea>
+      </div>
+    </div>
+
+    <!-- Footer Actions -->
+    <div class="req-modal-footer">
+      <button type="button" class="req-btn-cancel" id="btn-req-cancel">Cancel</button>
+      <button type="button" class="req-btn-save" id="btn-req-save">Save</button>
+    </div>
+  </div>
+</div>
+
+<!-- PORTS SEARCH & SELECTION MODAL (Images 3 & 4) -->
+<div class="ports-modal-backdrop" id="ports-modal-backdrop">
+  <div class="ports-modal-dialog" id="ports-modal-dialog">
+    <!-- Header -->
+    <div class="ports-modal-header">
+      <h3 class="ports-modal-title">Ports</h3>
+      <button type="button" class="ports-modal-close" id="btn-ports-close" title="Close">&times;</button>
+    </div>
+
+    <!-- Toolbar Search -->
+    <div class="ports-toolbar-row">
+      <div class="ports-search-box">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#64748b" stroke-width="2">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+        <input type="text" class="ports-search-input" id="input-ports-search" placeholder="Search">
+        <button type="button" class="ports-search-clear" id="btn-ports-search-clear" style="display: none;">&times;</button>
+      </div>
+    </div>
+
+    <!-- Table Container -->
+    <div class="ports-table-wrap">
+      <table class="ports-data-table">
+        <thead>
+          <tr>
+            <th style="width: 45%;">Port Name</th>
+            <th style="width: 55%;">Port Country</th>
+          </tr>
+        </thead>
+        <tbody id="ports-table-tbody">
+          <!-- Populated by JS -->
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Footer Pagination & Actions -->
+    <div class="ports-modal-footer">
+      <div class="ports-pagination">
+        <span class="ports-pg-btn">|&lsaquo;</span>
+        <span class="ports-pg-btn">&lsaquo;</span>
+        <span id="ports-pg-numbers">
+          <span class="ports-pg-btn active">1</span>
+          <span class="ports-pg-btn">2</span>
+          <span class="ports-pg-btn">3</span>
+          <span class="ports-pg-btn">4</span>
+          <span class="ports-pg-btn">5</span>
+        </span>
+        <span class="ports-pg-btn">&rsaquo;</span>
+        <span class="ports-pg-btn">&rsaquo;|</span>
+        <span style="margin-left: 4px;">25</span>
+        <svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+        <span>Items per page</span>
+        <span style="color: #cbd5e1; margin: 0 4px;">|</span>
+        <span id="ports-pg-meta">Total Pages: 587 Items: 14664</span>
+      </div>
+
+      <div class="ports-footer-actions">
+        <button type="button" class="ports-btn-cancel" id="btn-ports-cancel">Cancel</button>
+        <button type="button" class="ports-btn-confirm" id="btn-ports-confirm">Confirm</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CONFIRM CREATE REQUISITION POPUP (Image 1) -->
+<div class="req-confirm-backdrop" id="req-confirm-backdrop">
+  <div class="req-confirm-dialog" id="req-confirm-dialog">
+    <div class="req-confirm-header">
+      <h3 class="req-confirm-title">Create Requisition</h3>
+    </div>
+    <div class="req-confirm-body">
+      <p class="req-confirm-msg">Are you sure you want to create a requisition?</p>
+    </div>
+    <div class="req-confirm-footer">
+      <button type="button" class="btn-confirm-cancel" id="btn-confirm-req-cancel">Cancel</button>
+      <button type="button" class="btn-confirm-ok" id="btn-confirm-req-ok">Confirm</button>
+    </div>
+  </div>
+</div>
+
+<!-- NEW REQUISITION SUCCESS POPUP (Image 2) -->
+<div class="req-created-backdrop" id="req-created-backdrop">
+  <div class="req-created-dialog" id="req-created-dialog">
+    <div class="req-created-header">
+      <h3 class="req-created-title">New Requisition</h3>
+      <button type="button" class="req-created-close" id="btn-created-req-close" title="Close">&times;</button>
+    </div>
+    <div class="req-created-body">
+      <p class="req-created-msg" id="req-created-msg">Requisition SPDM-60037/26 has been created successfully</p>
+    </div>
+    <div class="req-created-footer">
+      <button type="button" class="btn-created-close" id="btn-created-req-close-btn">Close</button>
+      <button type="button" class="btn-created-open" id="btn-created-req-open">Open Link</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    // 1. Navbar dropdown logic matching page1.html & page2.html
+    const procBtn = document.getElementById('procurement-btn');
+    const dropdown = document.getElementById('procurement-dropdown');
+
+    if (procBtn && dropdown) {
+      procBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        dropdown.classList.toggle('open');
+      });
+
+      document.addEventListener('click', (e) => {
+        if (!dropdown.contains(e.target) && e.target !== procBtn) {
+          dropdown.classList.remove('open');
+        }
+      });
+    }
+
+    // Top Action Buttons State Management
+    const btnCreateReq = document.getElementById('btn-create-req');
+    const btnSaveList = document.getElementById('btn-save-list');
+
+    let hasUnsavedDetailsChanges = false;
+
+    function updateHeaderButtonStates() {
+      const isCompleted = (localStorage.getItem('lms_list_status') === 'Completed') ||
+                          ((JSON.parse(localStorage.getItem('lms_saved_list_record') || '{}')).status === 'Completed');
+
+      if (isCompleted) {
+        // Once requisition is confirmed, both Create Requisition and Save List are locked disabled
+        if (btnCreateReq) {
+          btnCreateReq.disabled = true;
+          btnCreateReq.classList.add('disabled');
+        }
+        if (btnSaveList) {
+          btnSaveList.disabled = true;
+          btnSaveList.classList.remove('btn-save-list-active');
+          btnSaveList.classList.add('btn-save-list-disabled', 'disabled');
+        }
+        return;
+      }
+
+      // 1. Create Requisition button: enabled only when items are added from items section
+      let items = [];
+      try {
+        items = JSON.parse(localStorage.getItem('lms_items_list') || '[]');
+      } catch (e) {
+        items = [];
+      }
+
+      if (btnCreateReq) {
+        if (items.length > 0) {
+          btnCreateReq.disabled = false;
+          btnCreateReq.classList.remove('disabled');
+        } else {
+          btnCreateReq.disabled = true;
+          btnCreateReq.classList.add('disabled');
+        }
+      }
+
+      // 2. Save List button: disabled on arrival, enabled when user adds/modifies inputs in List Details
+      if (btnSaveList) {
+        if (hasUnsavedDetailsChanges) {
+          btnSaveList.disabled = false;
+          btnSaveList.classList.remove('btn-save-list-disabled', 'disabled');
+          btnSaveList.classList.add('btn-save-list-active');
+        } else {
+          btnSaveList.disabled = true;
+          btnSaveList.classList.remove('btn-save-list-active');
+          btnSaveList.classList.add('btn-save-list-disabled', 'disabled');
+        }
+      }
+    }
+
+    function setDetailsDirty(isDirty = true) {
+      const isCompleted = (localStorage.getItem('lms_list_status') === 'Completed') ||
+                          ((JSON.parse(localStorage.getItem('lms_saved_list_record') || '{}')).status === 'Completed');
+      if (isCompleted) return;
+      hasUnsavedDetailsChanges = isDirty;
+      updateHeaderButtonStates();
+    }
+
+    updateHeaderButtonStates();
+
+    // Helper to calculate user initials
+    function getInitials(name) {
+      if (!name || !name.trim()) return 'IX';
+      const parts = name.trim().split(/\s+/);
+      if (parts.length >= 2) {
+        return (parts[0][0] + parts[parts.length - 1][0]).toUpperCase();
+      }
+      return name.trim().substring(0, 2).toUpperCase();
+    }
+
+    const currentUserName = localStorage.getItem('jibe_username') || 'Ivan Xavier';
+    const currentUserInitials = localStorage.getItem('jibe_user_initials') || getInitials(currentUserName);
+
+    document.querySelectorAll('.jibe-display-username').forEach(el => {
+      el.textContent = currentUserName;
+    });
+
+    document.querySelectorAll('.jibe-display-initials').forEach(el => {
+      el.textContent = currentUserInitials;
+    });
+
+    // 2. Load locally stored list parameters from page2 modal (with fallback to reference image values)
+    const storedListName = localStorage.getItem('lms_list_name') || window.lmsListName || 'Test List';
+    const storedCreateDate = localStorage.getItem('lms_create_date') || window.lmsCreateDate || '02-10-2026';
+    const storedVessel = localStorage.getItem('lms_vessel') || window.lmsVessel;
+    const storedUrgency = localStorage.getItem('lms_urgency') || window.lmsUrgency;
+    const storedDept = localStorage.getItem('lms_department') || window.lmsDepartment;
+
+    const listTitleEl = document.getElementById('display-list-title');
+    if (listTitleEl) {
+      listTitleEl.textContent = storedListName && storedListName.trim() ? storedListName : 'Test 1';
+    }
+
+    const createDateEl = document.getElementById('display-create-date');
+    if (createDateEl) {
+      createDateEl.textContent = storedCreateDate && storedCreateDate.trim() ? storedCreateDate : '02-10-2026';
+    }
+
+    const feedDateEl = document.getElementById('display-feed-date');
+    if (feedDateEl) {
+      feedDateEl.textContent = '02-10-2026';
+    }
+
+    const feedBubbleEl = document.getElementById('display-feed-bubble');
+    if (feedBubbleEl) {
+      feedBubbleEl.textContent = 'New ITEM LIST LIST-SPDM-60028/26 is created';
+    }
+
+    // Reflect list name in document title
+    document.title = `${storedListName && storedListName.trim() ? storedListName : 'Test 1'} - JiBe ERP`;
+
+    const vesselEl = document.getElementById('display-vessel-name');
+    if (vesselEl && storedVessel) {
+      vesselEl.textContent = storedVessel;
+    }
+
+    const urgencyEl = document.getElementById('display-urgency');
+    if (urgencyEl) {
+      urgencyEl.textContent = (storedUrgency && storedUrgency.includes('D-Regular')) ? 'D-Regular Spares...' : (storedUrgency || 'D-Regular Spares...');
+    }
+
+    const deptEl = document.getElementById('display-dept');
+    if (deptEl && storedDept) {
+      deptEl.textContent = storedDept;
+    }
+
+    // Accordion toggles for Left Sidebar & Central View Switching (List Details vs Items - Image 1)
+    const headerListDetails = document.getElementById('sidebar-header-list-details');
+    const subListDetails = document.getElementById('sidebar-sub-list-details');
+    const headerItems = document.getElementById('sidebar-header-items');
+    const subItems = document.getElementById('sidebar-sub-items');
+    const viewListDetails = document.getElementById('view-list-details');
+    const viewItems = document.getElementById('view-items');
+    const subdivision = document.getElementById('scrollable-content-subdivision');
+
+    function switchView(viewName) {
+      const itemsChevron = headerItems ? headerItems.querySelector('.sidebar-chevron svg') : null;
+      const detailsChevron = headerListDetails ? headerListDetails.querySelector('.sidebar-chevron svg') : null;
+
+      if (viewName === 'items') {
+        // Activate Items in sidebar (Image 1: green icon & text, up chevron, white sub-item)
+        if (headerItems) headerItems.classList.add('active-green');
+        if (itemsChevron) itemsChevron.innerHTML = '<polyline points="18 15 12 9 6 15"></polyline>';
+        if (subItems) {
+          subItems.style.display = 'block';
+          const subLinks = subItems.querySelectorAll('.sidebar-sub-item');
+          subLinks.forEach(sl => sl.classList.remove('active'));
+          if (subLinks[0]) subLinks[0].classList.add('active');
+        }
+
+        // Collapse List Details (Image 1: normal, down chevron, collapsed submenu)
+        if (headerListDetails) headerListDetails.classList.remove('active-green');
+        if (detailsChevron) detailsChevron.innerHTML = '<polyline points="6 9 12 15 18 9"></polyline>';
+        if (subListDetails) subListDetails.style.display = 'none';
+
+        // Switch central subdivision view
+        if (viewListDetails) viewListDetails.style.display = 'none';
+        if (viewItems) viewItems.style.display = 'flex';
+
+        renderAddedItems();
+
+        if (subdivision) subdivision.scrollTop = 0;
+        window.scrollTo(0, 0);
+        setTimeout(() => {
+          if (subdivision) subdivision.scrollTop = 0;
+          window.scrollTo(0, 0);
+        }, 40);
+        setTimeout(() => {
+          if (subdivision) subdivision.scrollTop = 0;
+        }, 120);
+      } else {
+        // Activate List Details in sidebar
+        if (headerListDetails) headerListDetails.classList.add('active-green');
+        if (detailsChevron) detailsChevron.innerHTML = '<polyline points="18 15 12 9 6 15"></polyline>';
+        if (subListDetails) subListDetails.style.display = 'block';
+
+        // Collapse Items
+        if (headerItems) headerItems.classList.remove('active-green');
+        if (itemsChevron) itemsChevron.innerHTML = '<polyline points="6 9 12 15 18 9"></polyline>';
+        if (subItems) subItems.style.display = 'none';
+
+        // Switch central subdivision view
+        if (viewItems) viewItems.style.display = 'none';
+        if (viewListDetails) viewListDetails.style.display = 'flex';
+
+        if (subdivision) subdivision.scrollTop = 0;
+      }
+    }
+
+    if (headerListDetails) {
+      headerListDetails.addEventListener('click', () => {
+        switchView('list-details');
+      });
+    }
+
+    if (headerItems) {
+      headerItems.addEventListener('click', () => {
+        switchView('items');
+      });
+    }
+
+    // Browse Item Redirect to page4 (Image 1)
+    const btnBrowseItem = document.getElementById('btn-browse-item');
+    if (btnBrowseItem) {
+      btnBrowseItem.addEventListener('click', () => {
+        window.location.href = 'page4.html';
+      });
+    }
+
+    // Browse Services Redirect to page4?mode=services (Image 1)
+    const btnBrowseServices = document.getElementById('btn-browse-services');
+    if (btnBrowseServices) {
+      btnBrowseServices.addEventListener('click', () => {
+        window.location.href = 'page4.html?mode=services';
+      });
+    }
+
+    // Auto-activate Items view if navigated with #items hash or items present
+    if (window.location.hash === '#items') {
+      switchView('items');
+    }
+
+    // Render added items from page4 (Standardized to 3 items matching Image 1)
+    function renderAddedItems() {
+      const tbody = document.getElementById('p3-items-tbody');
+      const countEl = document.getElementById('display-items-count');
+      const totalInfoEl = document.getElementById('p3-items-total-info');
+
+      let items = [];
+      try {
+        items = JSON.parse(localStorage.getItem('lms_items_list') || '[]');
+      } catch (e) {
+        items = [];
+      }
+
+      // If user navigated with #items or items exist, standard 3 items matching Image 1
+      if (items.length === 0 && (window.location.hash === '#items' || localStorage.getItem('lms_selected_segment') === 'Chemicals')) {
+        items = [
+          { component: 'A&T Upgrades > List ...', partNo: '12XXXX', name: 'EnviroLogic HF HP 32', brand: 'UNKNOWN', model: '', uom: 'EACH', qty: '1' },
+          { component: 'Chemicals > Drew M...', partNo: 'Test UAT', name: 'Test UAT', brand: '3K INDUST...', model: '123', uom: 'BAG', qty: '1' },
+          { component: 'Demo Catalogue > D...', partNo: 'DCSI003', name: 'Dummy chemical segm...', brand: 'UNKNOWN', model: '', uom: 'EACH', qty: '1' }
+        ];
+        localStorage.setItem('lms_items_list', JSON.stringify(items));
+      }
+
+      if (countEl) {
+        countEl.textContent = items.length;
+      }
+      if (totalInfoEl) {
+        totalInfoEl.textContent = `Total Pages: ${items.length > 0 ? 1 : 0} Items: ${items.length}`;
+      }
+
+      // Save and update this list on page 2 (Workflow Phases 5 & 6 requirement)
+      if (items.length > 0) {
+        try {
+          const savedRecord = JSON.parse(localStorage.getItem('lms_saved_list_record') || '{}');
+          savedRecord.id = 'LIST-SPDM-60028/26';
+          savedRecord.name = localStorage.getItem('lms_list_name') || savedRecord.name || 'Test List';
+          savedRecord.itemsCount = items.length;
+          savedRecord.segments = 'Chemicals';
+          savedRecord.status = localStorage.getItem('lms_list_status') || savedRecord.status || 'Active';
+          savedRecord.vessel = localStorage.getItem('lms_vessel') || savedRecord.vessel || 'SESP Demo Vessel';
+          savedRecord.tags = localStorage.getItem('lms_tags') || savedRecord.tags || '';
+          localStorage.setItem('lms_saved_list_record', JSON.stringify(savedRecord));
+        } catch (err) {
+          console.error('Failed to sync savedRecord', err);
+        }
+      }
+
+      if (tbody) {
+        tbody.innerHTML = '';
+        if (items.length === 0) {
+          const tr = document.createElement('tr');
+          tr.innerHTML = `<td colspan="7" style="text-align: center; color: #64748b; padding: 25px 0;">No records found. Click 'Browse Item' to add items.</td>`;
+          tbody.appendChild(tr);
+        } else {
+          items.forEach((item, idx) => {
+            const tr = document.createElement('tr');
+            tr.innerHTML = `
+              <td>${idx + 1}</td>
+              <td style="color: #64748b;">${item.component || ''}</td>
+              <td style="color: #1e293b;">${item.partNo || ''}</td>
+              <td><a href="javascript:void(0)" class="p3-table-link">${item.name || ''}</a></td>
+              <td style="color: #1e293b;">${item.brand || ''}</td>
+              <td style="color: #1e293b;">${item.model || ''}</td>
+              <td style="color: #1e293b;">${item.uom || ''}</td>
+            `;
+            tbody.appendChild(tr);
+          });
+        }
+      }
+      updateHeaderButtonStates();
+    }
+    renderAddedItems();
+
+    // Left nav submenu options: clickable, leads to specific region, active/hover #ffffff (Image 2)
+    const sidebarSubItems = document.querySelectorAll('.sidebar-sub-item');
+
+    sidebarSubItems.forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        sidebarSubItems.forEach(item => item.classList.remove('active'));
+        link.classList.add('active');
+
+        const targetId = link.getAttribute('href').substring(1);
+
+        // Auto-switch view if clicking sub-item belonging to the other view
+        if (targetId === 'card-items-table' || targetId === 'card-services-table' || targetId === 'card-machinery-table') {
+          if (viewItems && viewItems.style.display === 'none') {
+            switchView('items');
+            link.classList.add('active');
+          }
+        } else if (targetId === 'card-general-info' || targetId === 'card-checklist' || targetId === 'card-attachments') {
+          if (viewListDetails && viewListDetails.style.display === 'none') {
+            switchView('list-details');
+            link.classList.add('active');
+          }
+        }
+
+        const targetEl = document.getElementById(targetId);
+        if (subdivision && targetEl) {
+          const subRect = subdivision.getBoundingClientRect();
+          const elRect = targetEl.getBoundingClientRect();
+          const targetScrollTop = elRect.top - subRect.top + subdivision.scrollTop;
+          subdivision.scrollTo({
+            top: Math.max(0, targetScrollTop - 6),
+            behavior: 'smooth'
+          });
+        } else if (targetEl) {
+          targetEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+
+    // ScrollSpy to update active sidebar link on scroll in either view
+    if (subdivision) {
+      const listDetailsLinks = [
+        { id: 'card-general-info', link: document.querySelector('#sidebar-sub-list-details a[href="#card-general-info"]') },
+        { id: 'card-checklist', link: document.querySelector('#sidebar-sub-list-details a[href="#card-checklist"]') },
+        { id: 'card-attachments', link: document.querySelector('#sidebar-sub-list-details a[href="#card-attachments"]') }
+      ];
+
+      const itemsLinks = [
+        { id: 'card-items-table', link: document.querySelector('#sidebar-sub-items a[href="#card-items-table"]') },
+        { id: 'card-services-table', link: document.querySelector('#sidebar-sub-items a[href="#card-services-table"]') },
+        { id: 'card-machinery-table', link: document.querySelector('#sidebar-sub-items a[href="#card-machinery-table"]') }
+      ];
+
+      subdivision.addEventListener('scroll', () => {
+        const subRect = subdivision.getBoundingClientRect();
+        const isItemsView = viewItems && viewItems.style.display !== 'none';
+        const activeGroup = isItemsView ? itemsLinks : listDetailsLinks;
+
+        let activeCard = null;
+        activeGroup.forEach(section => {
+          const el = document.getElementById(section.id);
+          if (el) {
+            const elRect = el.getBoundingClientRect();
+            if (elRect.top - subRect.top <= 120) {
+              activeCard = section;
+            }
+          }
+        });
+
+        if (activeCard && activeCard.link) {
+          sidebarSubItems.forEach(item => item.classList.remove('active'));
+          activeCard.link.classList.add('active');
+        }
+      });
+    }
+
+    // 3. Tags click interaction: Reveal General Remarks 2500-char editor & open Tags dropdown
+    const tagsBox = document.getElementById('tags-select-box');
+    const tagsMenu = document.getElementById('tags-dropdown-menu');
+    const tagsText = document.getElementById('tags-selected-text');
+    const tagsClearBtn = document.getElementById('tags-clear-btn');
+    const tagsSearchInput = document.getElementById('tags-search-input');
+    const remarksPlaceholder = document.getElementById('remarks-placeholder-initial');
+    const remarksEditor = document.getElementById('remarks-editor-box');
+    const remarksTextarea = document.getElementById('remarks-textarea');
+    const charCounter = document.getElementById('remarks-char-counter');
+
+    if (tagsBox) {
+      tagsBox.addEventListener('click', (e) => {
+        e.stopPropagation();
+
+        // Reveal the General Remarks textbox with 2500 char limits (Image 1)
+        if (remarksPlaceholder && remarksEditor) {
+          remarksPlaceholder.style.display = 'none';
+          remarksEditor.style.display = 'block';
+        }
+
+        // Toggle the Tags dropdown menu (Image 2)
+        const isOpen = tagsMenu.classList.contains('open');
+        if (isOpen) {
+          tagsMenu.classList.remove('open');
+          tagsBox.classList.remove('open');
+        } else {
+          tagsMenu.classList.add('open');
+          tagsBox.classList.add('open');
+          if (tagsSearchInput) {
+            tagsSearchInput.value = '';
+            setTimeout(() => tagsSearchInput.focus(), 50);
+          }
+        }
+      });
+    }
+
+    // Search filter inside Tags dropdown
+    if (tagsSearchInput) {
+      tagsSearchInput.addEventListener('input', (e) => {
+        const query = e.target.value.toLowerCase().trim();
+        document.querySelectorAll('.tags-option-item').forEach(item => {
+          const text = item.getAttribute('data-tag').toLowerCase();
+          item.style.display = text.includes(query) ? 'flex' : 'none';
+        });
+      });
+
+      tagsSearchInput.addEventListener('click', (e) => {
+        e.stopPropagation();
+      });
+    }
+
+    // Tags selection (Image 2 - selecting MARPOL)
+    const checkmarkSvg = `<svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#0284c7" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>`;
+
+    document.querySelectorAll('.tags-option-item').forEach(item => {
+      item.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const tagVal = item.getAttribute('data-tag');
+        const isSelected = item.classList.contains('selected');
+        const checkbox = item.querySelector('.tag-checkbox-box');
+
+        if (isSelected) {
+          item.classList.remove('selected');
+          checkbox.innerHTML = '';
+          tagsText.textContent = 'Select';
+          tagsBox.classList.remove('has-tag');
+          if (tagsClearBtn) tagsClearBtn.style.display = 'none';
+          localStorage.removeItem('lms_tags');
+          setDetailsDirty(true);
+        } else {
+          document.querySelectorAll('.tags-option-item').forEach(other => {
+            other.classList.remove('selected');
+            other.querySelector('.tag-checkbox-box').innerHTML = '';
+          });
+          item.classList.add('selected');
+          checkbox.innerHTML = checkmarkSvg;
+          tagsText.textContent = tagVal;
+          tagsBox.classList.add('has-tag');
+          if (tagsClearBtn) tagsClearBtn.style.display = 'inline';
+          localStorage.setItem('lms_tags', tagVal);
+          setDetailsDirty(true);
+        }
+      });
+    });
+
+    // Clear tag selection button
+    if (tagsClearBtn) {
+      tagsClearBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        document.querySelectorAll('.tags-option-item').forEach(item => {
+          item.classList.remove('selected');
+          item.querySelector('.tag-checkbox-box').innerHTML = '';
+        });
+        tagsText.textContent = 'Select';
+        tagsBox.classList.remove('has-tag');
+        tagsClearBtn.style.display = 'none';
+        localStorage.removeItem('lms_tags');
+        setDetailsDirty(true);
+      });
+    }
+
+    // Restore saved tag if present in localStorage
+    const savedTag = localStorage.getItem('lms_tags');
+    if (savedTag) {
+      document.querySelectorAll('.tags-option-item').forEach(item => {
+        if (item.getAttribute('data-tag') === savedTag) {
+          item.classList.add('selected');
+          const cb = item.querySelector('.tag-checkbox-box');
+          if (cb) cb.innerHTML = checkmarkSvg;
+          if (tagsText) tagsText.textContent = savedTag;
+          if (tagsBox) tagsBox.classList.add('has-tag');
+          if (tagsClearBtn) tagsClearBtn.style.display = 'inline';
+        }
+      });
+    }
+
+    // Dismiss dropdown on outside click
+    document.addEventListener('click', (e) => {
+      if (!e.target.closest('.p3-tags-container')) {
+        if (tagsMenu) tagsMenu.classList.remove('open');
+        if (tagsBox) tagsBox.classList.remove('open');
+      }
+    });
+
+    // Remarks textarea character limit counter (0 / 2500)
+    if (remarksTextarea && charCounter) {
+      const savedRemarks = localStorage.getItem('lms_remarks');
+      if (savedRemarks) {
+        remarksTextarea.value = savedRemarks;
+        charCounter.textContent = `${savedRemarks.length} / 2500`;
+      }
+
+      remarksTextarea.addEventListener('input', () => {
+        const len = remarksTextarea.value.length;
+        charCounter.textContent = `${len} / 2500`;
+        localStorage.setItem('lms_remarks', remarksTextarea.value);
+        setDetailsDirty(true);
+      });
+    }
+
+    // 4. Checklist Interactive Manager (Images 1-4)
+    const btnChecklistEdit = document.getElementById('btn-checklist-edit');
+    const btnChecklistDiscard = document.getElementById('btn-checklist-discard');
+    const btnChecklistSave = document.getElementById('btn-checklist-save');
+    const btnAddChecklistItem = document.getElementById('btn-add-checklist-item');
+    const checklistViewActions = document.getElementById('checklist-view-actions');
+    const checklistEditActions = document.getElementById('checklist-edit-actions');
+    const checklistViewContainer = document.getElementById('checklist-view-container');
+    const checklistViewList = document.getElementById('checklist-view-list');
+    const checklistEditBody = document.getElementById('checklist-edit-body');
+    const checklistInputsContainer = document.getElementById('checklist-inputs-container');
+
+    const CHECKLIST_STORAGE_KEY = 'lms_checklist_items';
+
+    function getStoredChecklist() {
+      try {
+        const data = localStorage.getItem(CHECKLIST_STORAGE_KEY);
+        return data ? JSON.parse(data) : [];
+      } catch (err) {
+        return [];
+      }
+    }
+
+    function setStoredChecklist(items) {
+      localStorage.setItem(CHECKLIST_STORAGE_KEY, JSON.stringify(items));
+    }
+
+    const removeIconSvg = `
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="18" y1="6" x2="6" y2="18"></line>
+        <line x1="6" y1="6" x2="18" y2="18"></line>
+      </svg>
+    `;
+
+    function escapeHtml(str) {
+      if (!str) return '';
+      return String(str)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#039;');
+    }
+
+    function renderViewMode() {
+      const items = getStoredChecklist();
+      if (checklistViewList) checklistViewList.innerHTML = '';
+
+      if (items && items.length > 0) {
+        items.forEach((item, idx) => {
+          const text = typeof item === 'object' ? item.text : item;
+          const completed = typeof item === 'object' ? !!item.completed : false;
+
+          const li = document.createElement('li');
+          li.className = `checklist-view-item ${completed ? 'completed' : ''}`;
+          li.innerHTML = `
+            <input type="checkbox" class="checklist-view-checkbox" id="chk-item-${idx}" ${completed ? 'checked' : ''}>
+            <span>${escapeHtml(text)}</span>
+          `;
+
+          const checkbox = li.querySelector('.checklist-view-checkbox');
+          checkbox.addEventListener('change', () => {
+            const current = getStoredChecklist();
+            if (current[idx]) {
+              if (typeof current[idx] === 'object') {
+                current[idx].completed = checkbox.checked;
+              } else {
+                current[idx] = { text: current[idx], completed: checkbox.checked };
+              }
+              setStoredChecklist(current);
+              li.classList.toggle('completed', checkbox.checked);
+              setDetailsDirty(true);
+            }
+          });
+
+          if (checklistViewList) checklistViewList.appendChild(li);
+        });
+        if (checklistViewContainer) checklistViewContainer.style.display = 'block';
+      } else {
+        if (checklistViewContainer) checklistViewContainer.style.display = 'none';
+      }
+
+      if (checklistViewActions) checklistViewActions.style.display = 'block';
+      if (checklistEditActions) checklistEditActions.style.display = 'none';
+      if (checklistEditBody) checklistEditBody.style.display = 'none';
+    }
+
+    function createChecklistInputRow(initialValue = '') {
+      const row = document.createElement('div');
+      row.className = 'checklist-input-row';
+
+      const input = document.createElement('input');
+      input.type = 'text';
+      input.className = 'checklist-text-input';
+      input.value = initialValue;
+
+      input.addEventListener('input', () => {
+        setDetailsDirty(true);
+      });
+
+      const removeBtn = document.createElement('button');
+      removeBtn.type = 'button';
+      removeBtn.className = 'checklist-item-remove-btn';
+      removeBtn.title = 'Remove item';
+      removeBtn.innerHTML = removeIconSvg;
+
+      removeBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        row.remove();
+        setDetailsDirty(true);
+      });
+
+      input.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') {
+          e.preventDefault();
+          const nextRow = createChecklistInputRow('');
+          checklistInputsContainer.appendChild(nextRow);
+          const nextInput = nextRow.querySelector('.checklist-text-input');
+          if (nextInput) nextInput.focus();
+        }
+      });
+
+      row.appendChild(input);
+      row.appendChild(removeBtn);
+      return row;
+    }
+
+    function enterEditMode() {
+      if (checklistViewActions) checklistViewActions.style.display = 'none';
+      if (checklistEditActions) checklistEditActions.style.display = 'flex';
+      if (checklistViewContainer) checklistViewContainer.style.display = 'none';
+      if (checklistEditBody) checklistEditBody.style.display = 'block';
+
+      if (checklistInputsContainer) {
+        checklistInputsContainer.innerHTML = '';
+        const items = getStoredChecklist();
+        if (items && items.length > 0) {
+          items.forEach(item => {
+            const text = typeof item === 'object' ? item.text : item;
+            const row = createChecklistInputRow(text);
+            checklistInputsContainer.appendChild(row);
+          });
+        }
+      }
+    }
+
+    if (btnChecklistEdit) {
+      btnChecklistEdit.addEventListener('click', () => {
+        enterEditMode();
+      });
+    }
+
+    if (btnAddChecklistItem) {
+      btnAddChecklistItem.addEventListener('click', () => {
+        const newRow = createChecklistInputRow('');
+        if (checklistInputsContainer) {
+          checklistInputsContainer.appendChild(newRow);
+          const input = newRow.querySelector('.checklist-text-input');
+          if (input) {
+            input.focus();
+          }
+        }
+        setDetailsDirty(true);
+      });
+    }
+
+    if (btnChecklistDiscard) {
+      btnChecklistDiscard.addEventListener('click', () => {
+        // As requested: Once the user clicks on "Discard Changes", the checklist returns to empty state
+        setStoredChecklist([]);
+        if (checklistInputsContainer) {
+          checklistInputsContainer.innerHTML = '';
+        }
+        renderViewMode();
+        setDetailsDirty(true);
+      });
+    }
+
+    if (btnChecklistSave) {
+      btnChecklistSave.addEventListener('click', () => {
+        if (checklistInputsContainer) {
+          const currentInputs = checklistInputsContainer.querySelectorAll('.checklist-text-input');
+          const updatedItems = [];
+          const oldItems = getStoredChecklist();
+
+          currentInputs.forEach((inp, idx) => {
+            const val = inp.value.trim();
+            if (val) {
+              const prevCompleted = (oldItems[idx] && typeof oldItems[idx] === 'object') ? oldItems[idx].completed : false;
+              updatedItems.push({ text: val, completed: prevCompleted });
+            }
+          });
+
+          setStoredChecklist(updatedItems);
+        }
+        renderViewMode();
+        setDetailsDirty(true);
+      });
+    }
+
+    // Initialize View Mode on Load
+    renderViewMode();
+
+    // 5. Attachments Card & Upload Modal Manager (Images 1 & 2)
+    const btnAttachFile = document.getElementById('btn-attach-file');
+    const uploadModalBackdrop = document.getElementById('upload-modal-backdrop');
+    const btnModalClose = document.getElementById('btn-modal-close');
+    const btnModalCancel = document.getElementById('btn-modal-cancel');
+    const btnModalBrowse = document.getElementById('btn-modal-browse');
+    const uploadDropZone = document.getElementById('upload-drop-zone');
+    const uploadDropLeft = document.getElementById('upload-drop-left');
+    const uploadDropText = document.getElementById('upload-drop-text');
+    const attachmentFileInput = document.getElementById('attachment-file-input');
+    const uploadRemarksTextarea = document.getElementById('upload-remarks-textarea');
+    const uploadRemarksCounter = document.getElementById('upload-remarks-counter');
+    const btnModalUpload = document.getElementById('btn-modal-upload');
+    const attachmentsTbody = document.getElementById('attachments-tbody');
+    const attachmentsNoRecords = document.getElementById('attachments-no-records');
+
+    const ATTACHMENTS_STORAGE_KEY = 'lms_attachments_list';
+    let currentSelectedFile = null;
+
+    function getStoredAttachments() {
+      try {
+        const data = localStorage.getItem(ATTACHMENTS_STORAGE_KEY);
+        return data ? JSON.parse(data) : [];
+      } catch (e) {
+        return [];
+      }
+    }
+
+    function setStoredAttachments(list) {
+      localStorage.setItem(ATTACHMENTS_STORAGE_KEY, JSON.stringify(list));
+    }
+
+    function renderAttachments() {
+      const list = getStoredAttachments();
+      if (!attachmentsTbody || !attachmentsNoRecords) return;
+
+      attachmentsTbody.innerHTML = '';
+
+      if (list && list.length > 0) {
+        attachmentsNoRecords.style.display = 'none';
+        list.forEach(item => {
+          const tr = document.createElement('tr');
+          tr.innerHTML = `
+            <td class="col-name">${escapeHtml(item.name)}</td>
+            <td class="col-size">${escapeHtml(item.size)}</td>
+            <td class="col-date">${escapeHtml(item.date)}</td>
+            <td class="col-comments">${escapeHtml(item.comments || '')}</td>
+          `;
+          attachmentsTbody.appendChild(tr);
+        });
+      } else {
+        attachmentsNoRecords.style.display = 'block';
+      }
+    }
+
+    function openUploadModal() {
+      currentSelectedFile = null;
+      if (attachmentFileInput) attachmentFileInput.value = '';
+      if (uploadRemarksTextarea) uploadRemarksTextarea.value = '';
+      if (uploadRemarksCounter) uploadRemarksCounter.textContent = '0/5000 Characters';
+
+      if (uploadDropText) {
+        uploadDropText.textContent = 'Drop file here or click to upload';
+        uploadDropText.classList.remove('file-selected');
+      }
+
+      if (btnModalUpload) {
+        btnModalUpload.disabled = true;
+        btnModalUpload.classList.remove('active');
+      }
+
+      if (uploadModalBackdrop) {
+        uploadModalBackdrop.style.display = 'flex';
+      }
+    }
+
+    function closeUploadModal() {
+      if (uploadModalBackdrop) {
+        uploadModalBackdrop.style.display = 'none';
+      }
+    }
+
+    function handleFileSelection(file) {
+      if (!file) return;
+      currentSelectedFile = file;
+
+      const sizeKb = (file.size / 1024).toFixed(1);
+      if (uploadDropText) {
+        uploadDropText.textContent = `${file.name} (${sizeKb} KB)`;
+        uploadDropText.classList.add('file-selected');
+      }
+
+      // Highlight Upload button once the user selects a file from computer (Image 2)
+      if (btnModalUpload) {
+        btnModalUpload.disabled = false;
+        btnModalUpload.classList.add('active');
+      }
+    }
+
+    if (btnAttachFile) {
+      btnAttachFile.addEventListener('click', openUploadModal);
+    }
+
+    if (btnModalClose) {
+      btnModalClose.addEventListener('click', closeUploadModal);
+    }
+
+    if (btnModalCancel) {
+      btnModalCancel.addEventListener('click', closeUploadModal);
+    }
+
+    if (uploadModalBackdrop) {
+      uploadModalBackdrop.addEventListener('click', (e) => {
+        if (e.target === uploadModalBackdrop) {
+          closeUploadModal();
+        }
+      });
+    }
+
+    if (btnModalBrowse) {
+      btnModalBrowse.addEventListener('click', (e) => {
+        e.stopPropagation();
+        if (attachmentFileInput) attachmentFileInput.click();
+      });
+    }
+
+    if (uploadDropLeft) {
+      uploadDropLeft.addEventListener('click', () => {
+        if (attachmentFileInput) attachmentFileInput.click();
+      });
+    }
+
+    if (attachmentFileInput) {
+      attachmentFileInput.addEventListener('change', (e) => {
+        if (e.target.files && e.target.files[0]) {
+          handleFileSelection(e.target.files[0]);
+        }
+      });
+    }
+
+    if (uploadDropZone) {
+      uploadDropZone.addEventListener('dragover', (e) => {
+        e.preventDefault();
+        uploadDropZone.classList.add('dragover');
+      });
+
+      uploadDropZone.addEventListener('dragleave', () => {
+        uploadDropZone.classList.remove('dragover');
+      });
+
+      uploadDropZone.addEventListener('drop', (e) => {
+        e.preventDefault();
+        uploadDropZone.classList.remove('dragover');
+        if (e.dataTransfer.files && e.dataTransfer.files[0]) {
+          handleFileSelection(e.dataTransfer.files[0]);
+        }
+      });
+    }
+
+    if (uploadRemarksTextarea && uploadRemarksCounter) {
+      uploadRemarksTextarea.addEventListener('input', () => {
+        const len = uploadRemarksTextarea.value.length;
+        uploadRemarksCounter.textContent = `${len}/5000 Characters`;
+      });
+    }
+
+    if (btnModalUpload) {
+      btnModalUpload.addEventListener('click', () => {
+        if (!currentSelectedFile) return;
+
+        const sizeKb = (currentSelectedFile.size / 1024).toFixed(1);
+        const remarksText = uploadRemarksTextarea ? uploadRemarksTextarea.value.trim() : '';
+
+        const newAttachment = {
+          id: Date.now(),
+          name: currentSelectedFile.name,
+          size: sizeKb,
+          date: '02-10-2026',
+          comments: remarksText
+        };
+
+        const existing = getStoredAttachments();
+        existing.push(newAttachment);
+        setStoredAttachments(existing);
+
+        renderAttachments();
+        closeUploadModal();
+        setDetailsDirty(true);
+      });
+    }
+
+    renderAttachments();
+
+    // 6. Save List Button (Active throughout list filling) & Success Notification (Image 1)
+    const saveNotification = document.getElementById('save-list-notification');
+    const btnSaveToastClose = document.getElementById('btn-save-toast-close');
+    let saveNotificationTimer = null;
+
+    if (btnSaveList) {
+      btnSaveList.addEventListener('click', () => {
+        if (btnSaveList.disabled) return;
+
+        // Persist remarks if entered
+        if (remarksTextarea) {
+          localStorage.setItem('lms_remarks', remarksTextarea.value);
+        }
+
+        const listName = localStorage.getItem('lms_list_name') || 'Test List';
+        const vessel = localStorage.getItem('lms_vessel') || 'SESP Demo Vessel';
+        const urgency = localStorage.getItem('lms_urgency') || 'D-Regular Spares/Stores';
+        const dept = localStorage.getItem('lms_department') || 'Engine';
+        const tags = localStorage.getItem('lms_tags') || '';
+        const remarks = remarksTextarea ? remarksTextarea.value : (localStorage.getItem('lms_remarks') || '');
+        const items = JSON.parse(localStorage.getItem('lms_items_list') || '[]');
+        const status = localStorage.getItem('lms_list_status') || 'Active';
+        const createDate = localStorage.getItem('lms_create_date') || '02-10-2026';
+
+        const record = {
+          id: 'LIST-SPDM-60028/26',
+          name: listName,
+          vessel: vessel,
+          urgency: urgency,
+          department: dept,
+          status: status,
+          itemsCount: items.length,
+          tags: tags,
+          remarks: remarks,
+          segments: items.length > 0 ? 'Chemicals' : '',
+          createDate: createDate
+        };
+        localStorage.setItem('lms_saved_list_record', JSON.stringify(record));
+        localStorage.setItem('lms_list_saved', 'true');
+
+        // Show successful notification (Image 1)
+        if (saveNotification) {
+          const toastText = saveNotification.querySelector('.save-toast-content span');
+          if (toastText) toastText.textContent = 'ItemList saved successfully.';
+          saveNotification.style.display = 'flex';
+
+          if (saveNotificationTimer) clearTimeout(saveNotificationTimer);
+          saveNotificationTimer = setTimeout(() => {
+            saveNotification.style.display = 'none';
+          }, 5000);
+        }
+
+        // Once saved, button reverts to disabled state unless further changes are made
+        setDetailsDirty(false);
+      });
+    }
+
+    if (btnSaveToastClose && saveNotification) {
+      btnSaveToastClose.addEventListener('click', () => {
+        saveNotification.style.display = 'none';
+        if (saveNotificationTimer) clearTimeout(saveNotificationTimer);
+      });
+    }
+
+    // =========================================================================
+    // 7. CREATE REQUISITION & PORTS SEARCH MODALS (Images 1-5)
+    // =========================================================================
+    const reqModalBackdrop = document.getElementById('req-modal-backdrop');
+    const btnReqClose = document.getElementById('btn-req-close');
+    const btnReqCancel = document.getElementById('btn-req-cancel');
+    const btnReqSave = document.getElementById('btn-req-save');
+    const reqInputVessel = document.getElementById('req-input-vessel');
+    const reqSubjectTextarea = document.getElementById('req-subject-textarea');
+
+    // Purchase Type Elements
+    const reqTriggerPurchaseType = document.getElementById('req-trigger-purchase-type');
+    const reqDropdownPurchaseType = document.getElementById('req-dropdown-purchase-type');
+    const reqValPurchaseType = document.getElementById('req-val-purchase-type');
+    const btnClearPurchaseType = document.getElementById('btn-clear-purchase-type');
+    const inputSearchPurchaseType = document.getElementById('input-search-purchase-type');
+    const listOptionsPurchaseType = document.querySelectorAll('#list-options-purchase-type .req-dropdown-option');
+
+    // Urgency Elements
+    const reqTriggerUrgency = document.getElementById('req-trigger-urgency');
+    const reqValUrgency = document.getElementById('req-val-urgency');
+    const btnClearUrgency = document.getElementById('btn-clear-urgency');
+
+    // Port Call Elements
+    const reqTriggerPortCall = document.getElementById('req-trigger-port-call');
+    const reqDropdownPortCall = document.getElementById('req-dropdown-port-call');
+    const reqValPortCall = document.getElementById('req-val-port-call');
+    const btnClearPortCall = document.getElementById('btn-clear-port-call');
+    const listOptionsPortCall = document.querySelectorAll('#list-options-port-call .req-dropdown-option');
+
+    // Delivery Port Elements
+    const reqWrapDeliveryPort = document.getElementById('req-wrap-delivery-port');
+    const reqValDeliveryPort = document.getElementById('req-val-delivery-port');
+    const btnClearDeliveryPort = document.getElementById('btn-clear-delivery-port');
+
+    // Delivery Date & Calendar Elements
+    const reqWrapDeliveryDate = document.getElementById('req-wrap-delivery-date');
+    const reqInputDeliveryDate = document.getElementById('req-input-delivery-date');
+    const reqCalendarPopover = document.getElementById('req-calendar-popover');
+    const reqCalGrid = document.getElementById('req-cal-grid');
+    const reqCalMonthYear = document.getElementById('req-cal-month-year');
+    const btnCalPrev = document.getElementById('btn-cal-prev');
+    const btnCalNext = document.getElementById('btn-cal-next');
+
+    // Ports Modal Elements
+    const portsModalBackdrop = document.getElementById('ports-modal-backdrop');
+    const btnPortsClose = document.getElementById('btn-ports-close');
+    const btnPortsCancel = document.getElementById('btn-ports-cancel');
+    const btnPortsConfirm = document.getElementById('btn-ports-confirm');
+    const inputPortsSearch = document.getElementById('input-ports-search');
+    const btnPortsSearchClear = document.getElementById('btn-ports-search-clear');
+    const portsTableTbody = document.getElementById('ports-table-tbody');
+    const portsPgNumbers = document.getElementById('ports-pg-numbers');
+    const portsPgMeta = document.getElementById('ports-pg-meta');
+
+    // Confirmation & Created Requisition Popups Elements (Images 1 & 2)
+    const reqConfirmBackdrop = document.getElementById('req-confirm-backdrop');
+    const btnConfirmReqCancel = document.getElementById('btn-confirm-req-cancel');
+    const btnConfirmReqOk = document.getElementById('btn-confirm-req-ok');
+
+    const reqCreatedBackdrop = document.getElementById('req-created-backdrop');
+    const btnCreatedReqClose = document.getElementById('btn-created-req-close');
+    const btnCreatedReqCloseBtn = document.getElementById('btn-created-req-close-btn');
+    const btnCreatedReqOpen = document.getElementById('btn-created-req-open');
+
+    let selectedPortItem = null;
+
+    // Dataset of ports matching Images 3 & 4
+    const defaultPorts = [
+      { name: 'Aalborg', country: 'Denmark' },
+      { name: 'Aalesund', country: 'Norway' },
+      { name: 'Aarhus', country: 'Denmark' },
+      { name: 'Aberdeen (UK)', country: 'United Kingdom of Great Britain and Northern Ireland' },
+      { name: 'Abu Al BuKhoosh', country: 'United Arab Emirates' },
+      { name: 'Abu Dhabi', country: 'United Arab Emirates' },
+      { name: 'Abu Qir', country: 'Egypt' },
+      { name: 'Abu Zenima', country: 'Egypt' }
+    ];
+
+    const singaporePorts = [
+      { name: 'Bukit Merah Estate', country: 'Singapore' },
+      { name: 'Changi', country: 'Singapore' },
+      { name: 'Jesenice', country: 'Singapore' },
+      { name: 'Jurong', country: 'Singapore' },
+      { name: 'Jurong', country: 'Singapore' },
+      { name: 'Keppel Terminal', country: 'Singapore' },
+      { name: 'Pasir Panjang', country: 'Singapore' },
+      { name: 'Pasir Panjang Wharves', country: 'Singapore' },
+      { name: 'Pulau Bukom', country: 'Singapore' },
+      { name: 'Pulau Sebarok', country: 'Singapore' },
+      { name: 'Sembawang', country: 'Singapore' },
+      { name: 'Tanjong Pagar', country: 'Singapore' },
+      { name: 'Tuas', country: 'Singapore' },
+      { name: 'Marina South', country: 'Singapore' },
+      { name: 'Loyang', country: 'Singapore' },
+      { name: 'Benoi Sector', country: 'Singapore' },
+      { name: 'Pandan', country: 'Singapore' },
+      { name: 'Penjuru', country: 'Singapore' },
+      { name: 'Tanjong Kling', country: 'Singapore' },
+      { name: 'Woodlands', country: 'Singapore' }
+    ];
+
+    function updateReqSaveState() {
+      const hasPurchaseType = reqValPurchaseType && reqValPurchaseType.textContent.trim() !== 'Select' && reqValPurchaseType.textContent.trim() !== '';
+      const hasDeliveryPort = reqValDeliveryPort && reqValDeliveryPort.textContent.trim() !== '';
+      const hasDeliveryDate = reqInputDeliveryDate && reqInputDeliveryDate.value.trim() !== '';
+      const hasSubject = reqSubjectTextarea && reqSubjectTextarea.value.trim() !== '';
+
+      if (btnReqSave) {
+        if (hasPurchaseType && hasDeliveryPort && hasDeliveryDate && hasSubject) {
+          btnReqSave.classList.add('active');
+        } else {
+          btnReqSave.classList.remove('active');
+        }
+      }
+    }
+
+    // 1. Open / Close Create Requisition Modal
+    function resetReqModal() {
+      const activeListName = localStorage.getItem('lms_list_name') || window.lmsListName || 'Test 1';
+      if (reqValPurchaseType) {
+        reqValPurchaseType.textContent = 'Select';
+        reqValPurchaseType.classList.add('placeholder');
+      }
+      if (btnClearPurchaseType) btnClearPurchaseType.style.display = 'none';
+      if (reqValPortCall) {
+        reqValPortCall.textContent = '';
+        reqValPortCall.classList.add('placeholder');
+      }
+      if (btnClearPortCall) btnClearPortCall.style.display = 'none';
+      if (reqValDeliveryPort) {
+        reqValDeliveryPort.textContent = '';
+        reqValDeliveryPort.classList.add('placeholder');
+      }
+      if (btnClearDeliveryPort) btnClearDeliveryPort.style.display = 'none';
+      if (reqInputDeliveryDate) reqInputDeliveryDate.value = '';
+      if (reqSubjectTextarea) reqSubjectTextarea.value = activeListName;
+      if (reqConfirmBackdrop) reqConfirmBackdrop.style.display = 'none';
+      if (reqCreatedBackdrop) reqCreatedBackdrop.style.display = 'none';
+      selectedPortItem = null;
+      updateReqSaveState();
+    }
+
+    function openCreateReqModal() {
+      if (btnCreateReq && (btnCreateReq.disabled || btnCreateReq.classList.contains('disabled'))) {
+        return;
+      }
+
+      const activeListName = localStorage.getItem('lms_list_name') || window.lmsListName || 'Test 1';
+      const activeVesselName = localStorage.getItem('lms_vessel') || 'SESP Demo Vessel';
+      const activeUrgencyName = localStorage.getItem('lms_urgency') || 'D-Regular Spares/Stores';
+
+      if (reqInputVessel) reqInputVessel.value = activeVesselName;
+      if (reqValUrgency) reqValUrgency.textContent = activeUrgencyName;
+      if (reqSubjectTextarea) reqSubjectTextarea.value = activeListName;
+
+      // Close sub-dropdowns and sub-popups
+      if (reqDropdownPurchaseType) reqDropdownPurchaseType.style.display = 'none';
+      if (reqDropdownPortCall) reqDropdownPortCall.style.display = 'none';
+      if (reqCalendarPopover) reqCalendarPopover.style.display = 'none';
+      if (reqConfirmBackdrop) reqConfirmBackdrop.style.display = 'none';
+      if (reqCreatedBackdrop) reqCreatedBackdrop.style.display = 'none';
+
+      updateReqSaveState();
+
+      if (reqModalBackdrop) {
+        reqModalBackdrop.style.display = 'flex';
+      }
+    }
+
+    function closeCreateReqModal() {
+      if (reqModalBackdrop) {
+        reqModalBackdrop.style.display = 'none';
+      }
+      if (reqDropdownPurchaseType) reqDropdownPurchaseType.style.display = 'none';
+      if (reqDropdownPortCall) reqDropdownPortCall.style.display = 'none';
+      if (reqCalendarPopover) reqCalendarPopover.style.display = 'none';
+      if (reqConfirmBackdrop) reqConfirmBackdrop.style.display = 'none';
+      if (reqCreatedBackdrop) reqCreatedBackdrop.style.display = 'none';
+    }
+
+    if (btnCreateReq) {
+      btnCreateReq.addEventListener('click', openCreateReqModal);
+    }
+
+    if (btnReqClose) {
+      btnReqClose.addEventListener('click', () => {
+        closeCreateReqModal();
+        resetReqModal();
+      });
+    }
+
+    if (btnReqCancel) {
+      btnReqCancel.addEventListener('click', () => {
+        closeCreateReqModal();
+        resetReqModal();
+      });
+    }
+
+    if (reqModalBackdrop) {
+      reqModalBackdrop.addEventListener('click', (e) => {
+        if (e.target === reqModalBackdrop) {
+          closeCreateReqModal();
+          resetReqModal();
+        }
+      });
+    }
+
+    resetReqModal();
+
+    // 2. Purchase Type Dropdown Interactions (Image 2)
+    if (reqTriggerPurchaseType) {
+      reqTriggerPurchaseType.addEventListener('click', (e) => {
+        e.stopPropagation();
+        if (reqDropdownPortCall) reqDropdownPortCall.style.display = 'none';
+        if (reqCalendarPopover) reqCalendarPopover.style.display = 'none';
+
+        const isOpen = reqDropdownPurchaseType.style.display === 'block';
+        reqDropdownPurchaseType.style.display = isOpen ? 'none' : 'block';
+        if (!isOpen && inputSearchPurchaseType) {
+          inputSearchPurchaseType.value = '';
+          listOptionsPurchaseType.forEach(opt => opt.style.display = 'block');
+          setTimeout(() => inputSearchPurchaseType.focus(), 50);
+        }
+      });
+    }
+
+    if (inputSearchPurchaseType) {
+      inputSearchPurchaseType.addEventListener('click', (e) => e.stopPropagation());
+      inputSearchPurchaseType.addEventListener('input', (e) => {
+        const query = e.target.value.toLowerCase().trim();
+        listOptionsPurchaseType.forEach(opt => {
+          const val = opt.getAttribute('data-value').toLowerCase();
+          opt.style.display = val.includes(query) ? 'block' : 'none';
+        });
+      });
+    }
+
+    listOptionsPurchaseType.forEach(opt => {
+      opt.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const chosen = opt.getAttribute('data-value');
+        if (reqValPurchaseType) {
+          reqValPurchaseType.textContent = chosen;
+          reqValPurchaseType.classList.remove('placeholder');
+        }
+        if (btnClearPurchaseType) {
+          btnClearPurchaseType.style.display = 'inline-block';
+        }
+        reqDropdownPurchaseType.style.display = 'none';
+        updateReqSaveState();
+      });
+    });
+
+    if (btnClearPurchaseType) {
+      btnClearPurchaseType.addEventListener('click', (e) => {
+        e.stopPropagation();
+        if (reqValPurchaseType) {
+          reqValPurchaseType.textContent = 'Select';
+          reqValPurchaseType.classList.add('placeholder');
+        }
+        btnClearPurchaseType.style.display = 'none';
+        updateReqSaveState();
+      });
+    }
+
+    // Urgency Clear Button
+    if (btnClearUrgency) {
+      btnClearUrgency.addEventListener('click', (e) => {
+        e.stopPropagation();
+        if (reqValUrgency) reqValUrgency.textContent = '';
+        btnClearUrgency.style.display = 'none';
+      });
+    }
+
+    // 3. Port Call Dropdown Interactions
+    if (reqTriggerPortCall) {
+      reqTriggerPortCall.addEventListener('click', (e) => {
+        e.stopPropagation();
+        if (reqDropdownPurchaseType) reqDropdownPurchaseType.style.display = 'none';
+        if (reqCalendarPopover) reqCalendarPopover.style.display = 'none';
+
+        const isOpen = reqDropdownPortCall.style.display === 'block';
+        reqDropdownPortCall.style.display = isOpen ? 'none' : 'block';
+      });
+    }
+
+    listOptionsPortCall.forEach(opt => {
+      opt.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const chosen = opt.getAttribute('data-value');
+        if (reqValPortCall) {
+          reqValPortCall.textContent = chosen;
+          reqValPortCall.classList.remove('placeholder');
+        }
+        if (btnClearPortCall) {
+          btnClearPortCall.style.display = 'inline-block';
+        }
+        reqDropdownPortCall.style.display = 'none';
+      });
+    });
+
+    if (btnClearPortCall) {
+      btnClearPortCall.addEventListener('click', (e) => {
+        e.stopPropagation();
+        if (reqValPortCall) {
+          reqValPortCall.textContent = '';
+          reqValPortCall.classList.add('placeholder');
+        }
+        btnClearPortCall.style.display = 'none';
+      });
+    }
+
+    // 4. Ports Search Modal (Images 3 & 4)
+    function renderPortsList(ports, isSearchResult = false) {
+      if (!portsTableTbody) return;
+      portsTableTbody.innerHTML = '';
+      selectedPortItem = null;
+      if (btnPortsConfirm) {
+        btnPortsConfirm.classList.remove('active');
+      }
+
+      ports.forEach(port => {
+        const tr = document.createElement('tr');
+        tr.className = 'ports-table-row';
+        tr.innerHTML = `
+          <td>${port.name}</td>
+          <td class="ports-country-col">${port.country}</td>
+        `;
+
+        tr.addEventListener('click', () => {
+          document.querySelectorAll('.ports-table-row').forEach(r => r.classList.remove('selected'));
+          tr.classList.add('selected');
+          selectedPortItem = port;
+          if (btnPortsConfirm) {
+            btnPortsConfirm.classList.add('active');
+          }
+        });
+
+        portsTableTbody.appendChild(tr);
+      });
+
+      if (isSearchResult) {
+        if (portsPgMeta) portsPgMeta.textContent = 'Total Pages: 1 Items: 20';
+        if (portsPgNumbers) portsPgNumbers.innerHTML = '<span class="ports-pg-btn active">1</span>';
+      } else {
+        if (portsPgMeta) portsPgMeta.textContent = 'Total Pages: 587 Items: 14664';
+        if (portsPgNumbers) {
+          portsPgNumbers.innerHTML = `
+            <span class="ports-pg-btn active">1</span>
+            <span class="ports-pg-btn">2</span>
+            <span class="ports-pg-btn">3</span>
+            <span class="ports-pg-btn">4</span>
+            <span class="ports-pg-btn">5</span>
+          `;
+        }
+      }
+    }
+
+    function openPortsModal() {
+      if (inputPortsSearch) inputPortsSearch.value = '';
+      if (btnPortsSearchClear) btnPortsSearchClear.style.display = 'none';
+      renderPortsList(defaultPorts, false);
+      if (portsModalBackdrop) {
+        portsModalBackdrop.style.display = 'flex';
+      }
+    }
+
+    function closePortsModal() {
+      if (portsModalBackdrop) {
+        portsModalBackdrop.style.display = 'none';
+      }
+    }
+
+    if (reqWrapDeliveryPort) {
+      reqWrapDeliveryPort.addEventListener('click', openPortsModal);
+    }
+
+    if (btnPortsClose) btnPortsClose.addEventListener('click', closePortsModal);
+    if (btnPortsCancel) btnPortsCancel.addEventListener('click', closePortsModal);
+    if (portsModalBackdrop) {
+      portsModalBackdrop.addEventListener('click', (e) => {
+        if (e.target === portsModalBackdrop) closePortsModal();
+      });
+    }
+
+    if (inputPortsSearch) {
+      inputPortsSearch.addEventListener('input', (e) => {
+        const query = e.target.value.trim().toLowerCase();
+        if (query) {
+          if (btnPortsSearchClear) btnPortsSearchClear.style.display = 'inline-block';
+        } else {
+          if (btnPortsSearchClear) btnPortsSearchClear.style.display = 'none';
+        }
+
+        if (query.includes('singapore')) {
+          renderPortsList(singaporePorts, true);
+        } else if (!query) {
+          renderPortsList(defaultPorts, false);
+        } else {
+          const filtered = [...singaporePorts, ...defaultPorts].filter(p =>
+            p.name.toLowerCase().includes(query) || p.country.toLowerCase().includes(query)
+          );
+          renderPortsList(filtered.length ? filtered : singaporePorts, true);
+        }
+      });
+    }
+
+    if (btnPortsSearchClear) {
+      btnPortsSearchClear.addEventListener('click', () => {
+        if (inputPortsSearch) inputPortsSearch.value = '';
+        btnPortsSearchClear.style.display = 'none';
+        renderPortsList(defaultPorts, false);
+      });
+    }
+
+    if (btnPortsConfirm) {
+      btnPortsConfirm.addEventListener('click', () => {
+        if (!selectedPortItem) return;
+        if (reqValDeliveryPort) {
+          reqValDeliveryPort.textContent = `${selectedPortItem.name} | ${selectedPortItem.country}`;
+          reqValDeliveryPort.classList.remove('placeholder');
+        }
+        if (btnClearDeliveryPort) {
+          btnClearDeliveryPort.style.display = 'inline-block';
+        }
+        closePortsModal();
+        updateReqSaveState();
+      });
+    }
+
+    if (btnClearDeliveryPort) {
+      btnClearDeliveryPort.addEventListener('click', (e) => {
+        e.stopPropagation();
+        if (reqValDeliveryPort) {
+          reqValDeliveryPort.textContent = '';
+          reqValDeliveryPort.classList.add('placeholder');
+        }
+        btnClearDeliveryPort.style.display = 'none';
+        updateReqSaveState();
+      });
+    }
+
+    // 5. Calendar Popover (Image 5)
+    function renderCalendarGrid(selectedDay = 2) {
+      if (!reqCalGrid) return;
+      reqCalGrid.innerHTML = '';
+
+      // Days of September (previous month muted)
+      [27, 28, 29, 30].forEach(d => {
+        const span = document.createElement('span');
+        span.className = 'req-cal-day muted';
+        span.textContent = d;
+        reqCalGrid.appendChild(span);
+      });
+
+      // Days of October 1 to 31
+      for (let day = 1; day <= 31; day++) {
+        const span = document.createElement('span');
+        span.className = `req-cal-day ${day === selectedDay ? 'selected' : ''}`;
+        span.textContent = day;
+
+        span.addEventListener('click', (e) => {
+          e.stopPropagation();
+          const dayStr = day < 10 ? `0${day}` : `${day}`;
+          if (reqInputDeliveryDate) {
+            reqInputDeliveryDate.value = `${dayStr}-10-2026`;
+          }
+          if (reqCalendarPopover) {
+            reqCalendarPopover.style.display = 'none';
+          }
+          updateReqSaveState();
+        });
+
+        reqCalGrid.appendChild(span);
+      }
+    }
+
+    renderCalendarGrid(2);
+
+    if (reqWrapDeliveryDate || reqInputDeliveryDate) {
+      const toggleCal = (e) => {
+        e.stopPropagation();
+        if (reqDropdownPurchaseType) reqDropdownPurchaseType.style.display = 'none';
+        if (reqDropdownPortCall) reqDropdownPortCall.style.display = 'none';
+
+        const isOpen = reqCalendarPopover.style.display === 'block';
+        reqCalendarPopover.style.display = isOpen ? 'none' : 'block';
+      };
+
+      if (reqWrapDeliveryDate) reqWrapDeliveryDate.addEventListener('click', toggleCal);
+      if (reqInputDeliveryDate) reqInputDeliveryDate.addEventListener('click', toggleCal);
+    }
+
+    // 6. Subject Textarea Input Handler
+    if (reqSubjectTextarea) {
+      reqSubjectTextarea.addEventListener('input', () => {
+        updateReqSaveState();
+      });
+    }
+
+    // 7. Save Requisition Button Action -> Opens Confirmation Popup (Image 1)
+    if (btnReqSave) {
+      btnReqSave.addEventListener('click', () => {
+        if (!btnReqSave.classList.contains('active')) return;
+        if (reqConfirmBackdrop) {
+          reqConfirmBackdrop.style.display = 'flex';
+        }
+      });
+    }
+
+    // Cancel on Confirmation Dialog
+    if (btnConfirmReqCancel) {
+      btnConfirmReqCancel.addEventListener('click', () => {
+        if (reqConfirmBackdrop) {
+          reqConfirmBackdrop.style.display = 'none';
+        }
+      });
+    }
+
+    if (reqConfirmBackdrop) {
+      reqConfirmBackdrop.addEventListener('click', (e) => {
+        if (e.target === reqConfirmBackdrop) {
+          reqConfirmBackdrop.style.display = 'none';
+        }
+      });
+    }
+
+    // Confirm on Confirmation Dialog -> Confirmation vanishes & New Requisition appears (Image 2)
+    if (btnConfirmReqOk) {
+      btnConfirmReqOk.addEventListener('click', () => {
+        if (reqConfirmBackdrop) {
+          reqConfirmBackdrop.style.display = 'none';
+        }
+        if (reqCreatedBackdrop) {
+          reqCreatedBackdrop.style.display = 'flex';
+        }
+
+        // Update list status to Completed (as per standard JiBe SOP)
+        const statusBadge = document.querySelector('.p3-status-purple');
+        if (statusBadge) {
+          statusBadge.textContent = 'Completed';
+          statusBadge.style.backgroundColor = '#e0f2fe';
+          statusBadge.style.color = '#0284c7';
+        }
+
+        localStorage.setItem('lms_list_status', 'Completed');
+        try {
+          const savedRec = JSON.parse(localStorage.getItem('lms_saved_list_record') || '{}');
+          savedRec.status = 'Completed';
+          localStorage.setItem('lms_saved_list_record', JSON.stringify(savedRec));
+        } catch (e) {}
+
+        // Both buttons lock permanently disabled upon requisition completion
+        updateHeaderButtonStates();
+
+        // Add discussion entry to Feed & Discussions
+        const feedContainer = document.querySelector('.p3-feed-container');
+        if (feedContainer) {
+          const newFeedCard = document.createElement('div');
+          newFeedCard.className = 'p3-feed-entry-card';
+          newFeedCard.style.marginTop = '10px';
+          const activeUserName = localStorage.getItem('jibe_username') || 'Ivan Xavier';
+          const activeUserInitials = localStorage.getItem('jibe_user_initials') || getInitials(activeUserName);
+
+          newFeedCard.innerHTML = `
+            <div class="p3-avatar-circle jibe-display-initials">${escapeHtml(activeUserInitials)}</div>
+            <div class="p3-feed-entry-body">
+              <div class="p3-feed-user-row">
+                <span class="p3-feed-username jibe-display-username">${escapeHtml(activeUserName)}</span>
+                <span class="p3-feed-date">02-10-2026</span>
+              </div>
+              <div class="p3-feed-marked-text">Requisition Generated</div>
+              <div class="p3-feed-bubble">
+                Requisition SPDM-60037/26 has been created successfully
+              </div>
+            </div>
+          `;
+          feedContainer.appendChild(newFeedCard);
+        }
+      });
+    }
+
+    // Workflow Rule: Discard in-progress draft list data when navigating directly back to page 1
+    const draftKeys = [
+      'lms_draft_active',
+      'lms_list_name',
+      'lms_vessel',
+      'lms_urgency',
+      'lms_department',
+      'lms_create_date',
+      'lms_tags',
+      'lms_remarks',
+      'lms_checklist_items',
+      'lms_attachments_list',
+      'lms_items_list',
+      'lms_selected_segment',
+      'lms_list_status',
+      'lms_saved_list_record'
+    ];
+    document.querySelectorAll('a[href="page1.html"], .brand-jibe').forEach(link => {
+      link.addEventListener('click', () => {
+        draftKeys.forEach(k => localStorage.removeItem(k));
+      });
+    });
+
+    // Handlers for New Requisition dialog (Image 2)
+    function handleFinishRequisition(msg = 'Requisition SPDM-60037/26 has been created successfully') {
+      if (reqCreatedBackdrop) reqCreatedBackdrop.style.display = 'none';
+      closeCreateReqModal();
+      if (saveNotification) {
+        saveNotification.querySelector('.save-toast-content span').textContent = msg;
+        saveNotification.style.display = 'flex';
+        setTimeout(() => {
+          saveNotification.style.display = 'none';
+        }, 4500);
+      }
+    }
+
+    if (btnCreatedReqClose) {
+      btnCreatedReqClose.addEventListener('click', () => handleFinishRequisition('Requisition SPDM-60037/26 has been created successfully'));
+    }
+
+    if (btnCreatedReqCloseBtn) {
+      btnCreatedReqCloseBtn.addEventListener('click', () => handleFinishRequisition('Requisition SPDM-60037/26 has been created successfully'));
+    }
+
+    if (btnCreatedReqOpen) {
+      btnCreatedReqOpen.addEventListener('click', () => handleFinishRequisition('Opening Requisition SPDM-60037/26...'));
+    }
+
+    if (reqCreatedBackdrop) {
+      reqCreatedBackdrop.addEventListener('click', (e) => {
+        if (e.target === reqCreatedBackdrop) {
+          handleFinishRequisition('Requisition SPDM-60037/26 has been created successfully');
+        }
+      });
+    }
+
+    // Close open dropdowns/popovers on document click outside
+    document.addEventListener('click', (e) => {
+      if (!e.target.closest('#req-field-purchase-type')) {
+        if (reqDropdownPurchaseType) reqDropdownPurchaseType.style.display = 'none';
+      }
+      if (!e.target.closest('#req-field-port-call')) {
+        if (reqDropdownPortCall) reqDropdownPortCall.style.display = 'none';
+      }
+      if (!e.target.closest('#req-field-delivery-date')) {
+        if (reqCalendarPopover) reqCalendarPopover.style.display = 'none';
+      }
+    });
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,96 @@
+================================================================================
+                    QUICK GUIDE: HOW TO CREATE A PROCUREMENT ORDER IN JIBE
+================================================================================
+
+This quick-reference guide outlines the standard steps to create, process, and 
+submit a procurement requisition / order in the JiBe Marine ERP platform.
+
+--------------------------------------------------------------------------------
+STEP 0: USER ONBOARDING & IDENTITY INITIALIZATION
+--------------------------------------------------------------------------------
+1. When visiting the simulator, enter your name in the "What should we call you?"
+   prompt dialog and click "Proceed".
+2. The custom username and computed initials automatically populate across all
+   screens, table "Created By" audit columns, and discussion feed cards (replacing
+   "Ivan Xavier" and "IX").
+3. User identity persists across sessions and pages independently of draft discards.
+
+--------------------------------------------------------------------------------
+STEP 1: INITIATE A DRAFT LIST IN LMS
+--------------------------------------------------------------------------------
+1. Navigate to: Top Menu > Procurement > Lists (LMS).
+2. Click the "+ Create New" button in the upper-right corner.
+3. Fill in the mandatory list header fields:
+   - Vessel: Select your vessel (e.g., SESP Demo Vessel).
+   - List Name: Enter a clear description (e.g., Chemicals - Deck & Engine).
+   - Urgency: Set priority (e.g., D: Regular Spares/Stores, Emergency, Critical).
+   - Vessel Department: Select the owning department (e.g., Engine, Deck).
+4. Click "Create". 
+   -> System generates a draft reference: LIST SPDM-60028/26 (Status: Active).
+   -> Note: Navigating directly back to the landing page automatically discards
+      in-progress draft data.
+
+--------------------------------------------------------------------------------
+STEP 2: ADD METADATA & TECHNICAL CHECKLISTS (BUTTON STATE LIFECYCLE)
+--------------------------------------------------------------------------------
+1. Initial Button States:
+   - "Save List" button is DISABLED by default upon arrival.
+   - "Create Requisition" button is DISABLED until items are added.
+2. General Information:
+   - Assign regulatory tags (e.g., MARPOL).
+   - Enter internal operational remarks in the Remarks field (up to 2500 chars).
+   -> "Save List" button becomes ENABLED as soon as edits are made.
+3. Checklist Section:
+   - Click "Edit", add checklist items, and save.
+4. Attachments Section:
+   - Click "Attach File", browse local file, enter remarks, and upload.
+5. Click "Save List":
+   - List commits to storage with green success toast.
+   - "Save List" button REVERTS TO DISABLED state unless further edits are made.
+
+--------------------------------------------------------------------------------
+STEP 3: ADD LINE ITEMS FROM CATALOGUES & SEGMENT POLICY
+--------------------------------------------------------------------------------
+1. Open the left menu "Items" tab and click "Browse Item".
+2. Select segment "Chemicals".
+3. Browse catalogue categories and select items:
+   - A&T Upgrades > EnviroLogic HF HP 32
+   - Chemicals > Test UAT
+   - Demo Catalogue > DCSI003
+4. Click "Add to list" for each item (Quantity: 1).
+5. Click "Back to List" in upper-left corner.
+   -> Items reflect in list; "Create Requisition" button becomes ENABLED.
+6. Segment Restriction Policy:
+   - Incompatible segments cannot mix. Attempting to add Services items when
+     Chemicals exist triggers the Segment Policy Error popup banner.
+
+--------------------------------------------------------------------------------
+STEP 4: CONSTRUCT & CONFIRM THE REQUISITION
+--------------------------------------------------------------------------------
+1. From the top-right corner, click "Create Requisition".
+2. Complete the requisition parameters:
+   - Purchase Type: High Value Stores
+   - Delivery Port: Pasir Panjang | Singapore (via searchable modal)
+   - Delivery Date: 02-10-2026 (via October 2026 calendar popover)
+   - Subject: "Chemicals for deck and eng"
+3. Click "Save":
+   - Confirmation dialog pops up: "Are you sure you want to create a requisition?"
+4. Click "Confirm":
+   - System generates Requisition SPDM-60037/26 with cyan confirmation dialog.
+   - Status transitions to "Completed" on Page 3 and Page 2.
+   - Discussion feed logs the creation under the active user's name and initials.
+   - BOTH "Create Requisition" and "Save List" buttons permanently LOCK DISABLED.
+
+================================================================================
+                              SUMMARY STATUS FLOW
+================================================================================
+[Onboarding Prompt]   --> Enter Username -> Personalizes all screens & audit logs
+       |
+[Draft List in LMS]   --> Configure Metadata -> Save List -> Add Items from Catalogue
+       |
+[Active Items List]   --> Click "Create Requisition" -> Fill Port, Date & Subject
+       |
+[Confirmation Popup]  --> Click "Confirm"
+       |
+[Requisition Created] --> Cyan Dialog -> Both Buttons Permanently Locked Disabled
+================================================================================
